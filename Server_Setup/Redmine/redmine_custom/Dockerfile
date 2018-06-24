@@ -1,0 +1,2 @@
+FROM redmine
+MAINTAINER redmine_custom
