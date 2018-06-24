@@ -1259,7 +1259,7 @@ CREATE TABLE `settings` (
   `updated_on` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_settings_on_name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1268,6 +1268,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+INSERT INTO `settings` VALUES (1,'ui_theme','redmine-theme-flat','2018-06-24 17:10:07'),(2,'default_language','ja','2018-06-24 17:10:07'),(3,'force_default_language_for_anonymous','0','2018-06-24 17:10:07'),(4,'force_default_language_for_loggedin','0','2018-06-24 17:10:07'),(5,'start_of_week','','2018-06-24 17:10:07'),(6,'date_format','','2018-06-24 17:10:07'),(7,'time_format','','2018-06-24 17:10:07'),(8,'timespan_format','decimal','2018-06-24 17:10:07'),(9,'user_format','firstname_lastname','2018-06-24 17:10:07'),(10,'gravatar_enabled','0','2018-06-24 17:10:07'),(11,'gravatar_default','','2018-06-24 17:10:07'),(12,'thumbnails_enabled','0','2018-06-24 17:10:07'),(13,'thumbnails_size','100','2018-06-24 17:10:07'),(14,'new_item_menu_tab','2','2018-06-24 17:10:07'),(15,'enabled_scm','---\n- Subversion\n- Darcs\n- Mercurial\n- Cvs\n- Bazaar\n- Git\n','2018-06-24 17:11:28'),(16,'autofetch_changesets','1','2018-06-24 17:11:28'),(17,'sys_api_enabled','0','2018-06-24 17:11:28'),(18,'repository_log_display_limit','100','2018-06-24 17:11:28'),(19,'commit_logs_formatting','1','2018-06-24 17:11:28'),(20,'commit_ref_keywords','refs,references,IssueID','2018-06-24 17:11:28'),(21,'commit_cross_project_ref','0','2018-06-24 17:11:28'),(22,'commit_logtime_enabled','0','2018-06-24 17:11:28'),(23,'commit_update_keywords','--- []\n','2018-06-24 17:11:28');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1327,7 +1328,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `tokens_value` (`value`),
   KEY `index_tokens_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1336,7 +1337,7 @@ CREATE TABLE `tokens` (
 
 LOCK TABLES `tokens` WRITE;
 /*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` VALUES (2,1,'session','2c4837a5d0a0a5b1fd623a3c0bc81507bb9036bb','2018-06-24 16:06:55','2018-06-24 16:08:22'),(3,1,'feeds','850d6214f505a4638f969b810e7b10b29e366546','2018-06-24 16:07:16','2018-06-24 16:07:16');
+INSERT INTO `tokens` VALUES (2,1,'session','2c4837a5d0a0a5b1fd623a3c0bc81507bb9036bb','2018-06-24 16:06:55','2018-06-24 16:08:22'),(3,1,'feeds','850d6214f505a4638f969b810e7b10b29e366546','2018-06-24 16:07:16','2018-06-24 16:07:16'),(4,1,'session','4ceffc98304b9300f92a30734d89ad0ed8dd022f','2018-06-24 17:09:32','2018-06-24 17:11:28');
 /*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1436,7 +1437,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','b21d5819fb42b023a036153fdad3f41fb0341242','Redmine','Admin',1,1,'2018-06-24 16:06:44','ja',NULL,'2018-06-24 16:05:21','2018-06-24 16:07:13','User',NULL,'none','94306defd898bab5e8f2876cec4b25a4',0,'2018-06-24 16:06:55'),(2,'','','','Anonymous users',0,1,NULL,'',NULL,'2018-06-24 16:05:25','2018-06-24 16:05:25','GroupAnonymous',NULL,'',NULL,0,NULL),(3,'','','','Non member users',0,1,NULL,'',NULL,'2018-06-24 16:05:25','2018-06-24 16:05:25','GroupNonMember',NULL,'',NULL,0,NULL),(4,'','','','Anonymous',0,0,NULL,'',NULL,'2018-06-24 16:06:33','2018-06-24 16:06:33','AnonymousUser',NULL,'only_my_events',NULL,0,NULL);
+INSERT INTO `users` VALUES (1,'admin','b21d5819fb42b023a036153fdad3f41fb0341242','Redmine','Admin',1,1,'2018-06-24 17:09:32','ja',NULL,'2018-06-24 16:05:21','2018-06-24 16:07:13','User',NULL,'none','94306defd898bab5e8f2876cec4b25a4',0,'2018-06-24 16:06:55'),(2,'','','','Anonymous users',0,1,NULL,'',NULL,'2018-06-24 16:05:25','2018-06-24 16:05:25','GroupAnonymous',NULL,'',NULL,0,NULL),(3,'','','','Non member users',0,1,NULL,'',NULL,'2018-06-24 16:05:25','2018-06-24 16:05:25','GroupNonMember',NULL,'',NULL,0,NULL),(4,'','','','Anonymous',0,0,NULL,'',NULL,'2018-06-24 16:06:33','2018-06-24 16:06:33','AnonymousUser',NULL,'only_my_events',NULL,0,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1695,4 +1696,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-25  1:09:07
+-- Dump completed on 2018-06-25  2:11:31

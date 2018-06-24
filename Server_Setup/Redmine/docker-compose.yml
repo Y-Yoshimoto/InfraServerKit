@@ -2,7 +2,8 @@ version: '2'
 
 services:
     redmine:
-        image: redmine
+        image: redmine_custom
+        build: redmine_custom
         restart: always
         ports:
             - 80:3000
