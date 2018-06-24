@@ -1,5 +1,5 @@
 FROM centos
-MAINTAINER APIServer_nginx
+MAINTAINER nginx_proxy
 
 # nginxのインストール
 RUN yum install -y epel-release
