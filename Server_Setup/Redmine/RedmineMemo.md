@@ -5,4 +5,4 @@
 右上のログインを選択し、"admin:admin"でログインする。
 
 ## ダンプファイルの取得
-mysqldump -u root -p -h 127.0.0.1 -d redmine > redmine_startup.sql
+mysqldump -u root -p -h 127.0.0.1 redmine --hex-blob > redmine_startup.sql

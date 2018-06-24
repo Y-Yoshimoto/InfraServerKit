@@ -45,6 +45,15 @@ CREATE TABLE `attachments` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `attachments`
+--
+
+LOCK TABLES `attachments` WRITE;
+/*!40000 ALTER TABLE `attachments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `attachments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `auth_sources`
 --
 
@@ -74,6 +83,15 @@ CREATE TABLE `auth_sources` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `auth_sources`
+--
+
+LOCK TABLES `auth_sources` WRITE;
+/*!40000 ALTER TABLE `auth_sources` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_sources` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `boards`
 --
 
@@ -97,6 +115,15 @@ CREATE TABLE `boards` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `boards`
+--
+
+LOCK TABLES `boards` WRITE;
+/*!40000 ALTER TABLE `boards` DISABLE KEYS */;
+/*!40000 ALTER TABLE `boards` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `changes`
 --
 
@@ -118,6 +145,15 @@ CREATE TABLE `changes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `changes`
+--
+
+LOCK TABLES `changes` WRITE;
+/*!40000 ALTER TABLE `changes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `changes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `changeset_parents`
 --
 
@@ -131,6 +167,15 @@ CREATE TABLE `changeset_parents` (
   KEY `changeset_parents_parent_ids` (`parent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `changeset_parents`
+--
+
+LOCK TABLES `changeset_parents` WRITE;
+/*!40000 ALTER TABLE `changeset_parents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `changeset_parents` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `changesets`
@@ -159,6 +204,15 @@ CREATE TABLE `changesets` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `changesets`
+--
+
+LOCK TABLES `changesets` WRITE;
+/*!40000 ALTER TABLE `changesets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `changesets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `changesets_issues`
 --
 
@@ -172,6 +226,15 @@ CREATE TABLE `changesets_issues` (
   KEY `index_changesets_issues_on_issue_id` (`issue_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `changesets_issues`
+--
+
+LOCK TABLES `changesets_issues` WRITE;
+/*!40000 ALTER TABLE `changesets_issues` DISABLE KEYS */;
+/*!40000 ALTER TABLE `changesets_issues` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `comments`
@@ -195,6 +258,15 @@ CREATE TABLE `comments` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `custom_field_enumerations`
 --
 
@@ -210,6 +282,15 @@ CREATE TABLE `custom_field_enumerations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `custom_field_enumerations`
+--
+
+LOCK TABLES `custom_field_enumerations` WRITE;
+/*!40000 ALTER TABLE `custom_field_enumerations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `custom_field_enumerations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `custom_fields`
@@ -244,6 +325,15 @@ CREATE TABLE `custom_fields` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `custom_fields`
+--
+
+LOCK TABLES `custom_fields` WRITE;
+/*!40000 ALTER TABLE `custom_fields` DISABLE KEYS */;
+/*!40000 ALTER TABLE `custom_fields` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `custom_fields_projects`
 --
 
@@ -256,6 +346,15 @@ CREATE TABLE `custom_fields_projects` (
   UNIQUE KEY `index_custom_fields_projects_on_custom_field_id_and_project_id` (`custom_field_id`,`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `custom_fields_projects`
+--
+
+LOCK TABLES `custom_fields_projects` WRITE;
+/*!40000 ALTER TABLE `custom_fields_projects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `custom_fields_projects` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `custom_fields_roles`
@@ -272,6 +371,15 @@ CREATE TABLE `custom_fields_roles` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `custom_fields_roles`
+--
+
+LOCK TABLES `custom_fields_roles` WRITE;
+/*!40000 ALTER TABLE `custom_fields_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `custom_fields_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `custom_fields_trackers`
 --
 
@@ -284,6 +392,15 @@ CREATE TABLE `custom_fields_trackers` (
   UNIQUE KEY `index_custom_fields_trackers_on_custom_field_id_and_tracker_id` (`custom_field_id`,`tracker_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `custom_fields_trackers`
+--
+
+LOCK TABLES `custom_fields_trackers` WRITE;
+/*!40000 ALTER TABLE `custom_fields_trackers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `custom_fields_trackers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `custom_values`
@@ -303,6 +420,15 @@ CREATE TABLE `custom_values` (
   KEY `index_custom_values_on_custom_field_id` (`custom_field_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `custom_values`
+--
+
+LOCK TABLES `custom_values` WRITE;
+/*!40000 ALTER TABLE `custom_values` DISABLE KEYS */;
+/*!40000 ALTER TABLE `custom_values` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `documents`
@@ -326,6 +452,15 @@ CREATE TABLE `documents` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `documents`
+--
+
+LOCK TABLES `documents` WRITE;
+/*!40000 ALTER TABLE `documents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `email_addresses`
 --
 
@@ -346,6 +481,16 @@ CREATE TABLE `email_addresses` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `email_addresses`
+--
+
+LOCK TABLES `email_addresses` WRITE;
+/*!40000 ALTER TABLE `email_addresses` DISABLE KEYS */;
+INSERT INTO `email_addresses` VALUES (1,1,'admin@example.net',1,1,'2018-06-24 16:05:25','2018-06-24 16:05:25');
+/*!40000 ALTER TABLE `email_addresses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `enabled_modules`
 --
 
@@ -360,6 +505,16 @@ CREATE TABLE `enabled_modules` (
   KEY `enabled_modules_project_id` (`project_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enabled_modules`
+--
+
+LOCK TABLES `enabled_modules` WRITE;
+/*!40000 ALTER TABLE `enabled_modules` DISABLE KEYS */;
+INSERT INTO `enabled_modules` VALUES (1,1,'issue_tracking'),(2,1,'time_tracking'),(3,1,'news'),(4,1,'documents'),(5,1,'files'),(6,1,'wiki'),(7,1,'repository'),(8,1,'boards'),(9,1,'calendar'),(10,1,'gantt');
+/*!40000 ALTER TABLE `enabled_modules` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `enumerations`
@@ -385,6 +540,16 @@ CREATE TABLE `enumerations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `enumerations`
+--
+
+LOCK TABLES `enumerations` WRITE;
+/*!40000 ALTER TABLE `enumerations` DISABLE KEYS */;
+INSERT INTO `enumerations` VALUES (1,'低め',1,0,'IssuePriority',1,NULL,NULL,'lowest'),(2,'通常',2,1,'IssuePriority',1,NULL,NULL,'default'),(3,'高め',3,0,'IssuePriority',1,NULL,NULL,'high3'),(4,'急いで',4,0,'IssuePriority',1,NULL,NULL,'high2'),(5,'今すぐ',5,0,'IssuePriority',1,NULL,NULL,'highest'),(6,'ユーザー文書',1,0,'DocumentCategory',1,NULL,NULL,NULL),(7,'技術文書',2,0,'DocumentCategory',1,NULL,NULL,NULL),(8,'設計作業',1,0,'TimeEntryActivity',1,NULL,NULL,NULL),(9,'開発作業',2,0,'TimeEntryActivity',1,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `enumerations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `groups_users`
 --
 
@@ -397,6 +562,15 @@ CREATE TABLE `groups_users` (
   UNIQUE KEY `groups_users_ids` (`group_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `groups_users`
+--
+
+LOCK TABLES `groups_users` WRITE;
+/*!40000 ALTER TABLE `groups_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `groups_users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `import_items`
@@ -414,6 +588,15 @@ CREATE TABLE `import_items` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `import_items`
+--
+
+LOCK TABLES `import_items` WRITE;
+/*!40000 ALTER TABLE `import_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `import_items` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `imports`
@@ -437,6 +620,15 @@ CREATE TABLE `imports` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `imports`
+--
+
+LOCK TABLES `imports` WRITE;
+/*!40000 ALTER TABLE `imports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imports` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `issue_categories`
 --
 
@@ -453,6 +645,15 @@ CREATE TABLE `issue_categories` (
   KEY `index_issue_categories_on_assigned_to_id` (`assigned_to_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issue_categories`
+--
+
+LOCK TABLES `issue_categories` WRITE;
+/*!40000 ALTER TABLE `issue_categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issue_categories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `issue_relations`
@@ -475,6 +676,15 @@ CREATE TABLE `issue_relations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `issue_relations`
+--
+
+LOCK TABLES `issue_relations` WRITE;
+/*!40000 ALTER TABLE `issue_relations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issue_relations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `issue_statuses`
 --
 
@@ -492,6 +702,16 @@ CREATE TABLE `issue_statuses` (
   KEY `index_issue_statuses_on_is_closed` (`is_closed`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issue_statuses`
+--
+
+LOCK TABLES `issue_statuses` WRITE;
+/*!40000 ALTER TABLE `issue_statuses` DISABLE KEYS */;
+INSERT INTO `issue_statuses` VALUES (1,'新規',0,1,NULL),(2,'進行中',0,2,NULL),(3,'解決',0,3,NULL),(4,'フィードバック',0,4,NULL),(5,'終了',1,5,NULL),(6,'却下',1,6,NULL);
+/*!40000 ALTER TABLE `issue_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `issues`
@@ -537,8 +757,18 @@ CREATE TABLE `issues` (
   KEY `index_issues_on_created_on` (`created_on`),
   KEY `index_issues_on_root_id_and_lft_and_rgt` (`root_id`,`lft`,`rgt`),
   KEY `index_issues_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issues`
+--
+
+LOCK TABLES `issues` WRITE;
+/*!40000 ALTER TABLE `issues` DISABLE KEYS */;
+INSERT INTO `issues` VALUES (1,1,1,'テストチケット','',NULL,NULL,1,NULL,2,NULL,1,0,'2018-06-24 16:08:17','2018-06-24 16:08:17','2018-06-25',0,NULL,NULL,1,1,2,0,NULL);
+/*!40000 ALTER TABLE `issues` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `journal_details`
@@ -558,6 +788,15 @@ CREATE TABLE `journal_details` (
   KEY `journal_details_journal_id` (`journal_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `journal_details`
+--
+
+LOCK TABLES `journal_details` WRITE;
+/*!40000 ALTER TABLE `journal_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `journal_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `journals`
@@ -583,6 +822,15 @@ CREATE TABLE `journals` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `journals`
+--
+
+LOCK TABLES `journals` WRITE;
+/*!40000 ALTER TABLE `journals` DISABLE KEYS */;
+/*!40000 ALTER TABLE `journals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `member_roles`
 --
 
@@ -600,6 +848,15 @@ CREATE TABLE `member_roles` (
   KEY `index_member_roles_on_inherited_from` (`inherited_from`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `member_roles`
+--
+
+LOCK TABLES `member_roles` WRITE;
+/*!40000 ALTER TABLE `member_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `member_roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `members`
@@ -620,6 +877,15 @@ CREATE TABLE `members` (
   KEY `index_members_on_project_id` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `members`
+--
+
+LOCK TABLES `members` WRITE;
+/*!40000 ALTER TABLE `members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `members` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `messages`
@@ -651,6 +917,15 @@ CREATE TABLE `messages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `news`
 --
 
@@ -674,6 +949,15 @@ CREATE TABLE `news` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `news`
+--
+
+LOCK TABLES `news` WRITE;
+/*!40000 ALTER TABLE `news` DISABLE KEYS */;
+/*!40000 ALTER TABLE `news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `open_id_authentication_associations`
 --
 
@@ -693,6 +977,15 @@ CREATE TABLE `open_id_authentication_associations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `open_id_authentication_associations`
+--
+
+LOCK TABLES `open_id_authentication_associations` WRITE;
+/*!40000 ALTER TABLE `open_id_authentication_associations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `open_id_authentication_associations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `open_id_authentication_nonces`
 --
 
@@ -707,6 +1000,15 @@ CREATE TABLE `open_id_authentication_nonces` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `open_id_authentication_nonces`
+--
+
+LOCK TABLES `open_id_authentication_nonces` WRITE;
+/*!40000 ALTER TABLE `open_id_authentication_nonces` DISABLE KEYS */;
+/*!40000 ALTER TABLE `open_id_authentication_nonces` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `projects`
@@ -738,6 +1040,16 @@ CREATE TABLE `projects` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `projects`
+--
+
+LOCK TABLES `projects` WRITE;
+/*!40000 ALTER TABLE `projects` DISABLE KEYS */;
+INSERT INTO `projects` VALUES (1,'サンプルプロジェクト','','',0,NULL,'2018-06-24 16:08:04','2018-06-24 16:08:04','sample_project',1,1,2,0,NULL,NULL);
+/*!40000 ALTER TABLE `projects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `projects_trackers`
 --
 
@@ -751,6 +1063,16 @@ CREATE TABLE `projects_trackers` (
   KEY `projects_trackers_project_id` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projects_trackers`
+--
+
+LOCK TABLES `projects_trackers` WRITE;
+/*!40000 ALTER TABLE `projects_trackers` DISABLE KEYS */;
+INSERT INTO `projects_trackers` VALUES (1,1),(1,2),(1,3);
+/*!40000 ALTER TABLE `projects_trackers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `queries`
@@ -778,6 +1100,15 @@ CREATE TABLE `queries` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `queries`
+--
+
+LOCK TABLES `queries` WRITE;
+/*!40000 ALTER TABLE `queries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `queries` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `queries_roles`
 --
 
@@ -790,6 +1121,15 @@ CREATE TABLE `queries_roles` (
   UNIQUE KEY `queries_roles_ids` (`query_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `queries_roles`
+--
+
+LOCK TABLES `queries_roles` WRITE;
+/*!40000 ALTER TABLE `queries_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `queries_roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `repositories`
@@ -818,6 +1158,15 @@ CREATE TABLE `repositories` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `repositories`
+--
+
+LOCK TABLES `repositories` WRITE;
+/*!40000 ALTER TABLE `repositories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `repositories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -841,6 +1190,16 @@ CREATE TABLE `roles` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Non member',0,1,1,'---\n- :view_issues\n- :add_issues\n- :add_issue_notes\n- :save_queries\n- :view_gantt\n- :view_calendar\n- :view_time_entries\n- :view_news\n- :comment_news\n- :view_documents\n- :view_wiki_pages\n- :view_wiki_edits\n- :view_messages\n- :add_messages\n- :view_files\n- :browse_repository\n- :view_changesets\n','default','all','all',1,NULL),(2,'Anonymous',0,1,2,'---\n- :view_issues\n- :view_gantt\n- :view_calendar\n- :view_time_entries\n- :view_news\n- :view_documents\n- :view_wiki_pages\n- :view_wiki_edits\n- :view_messages\n- :view_files\n- :browse_repository\n- :view_changesets\n','default','all','all',1,NULL),(3,'管理者',1,1,0,'---\n- :add_project\n- :edit_project\n- :close_project\n- :select_project_modules\n- :manage_members\n- :manage_versions\n- :add_subprojects\n- :manage_public_queries\n- :save_queries\n- :view_issues\n- :add_issues\n- :edit_issues\n- :copy_issues\n- :manage_issue_relations\n- :manage_subtasks\n- :set_issues_private\n- :set_own_issues_private\n- :add_issue_notes\n- :edit_issue_notes\n- :edit_own_issue_notes\n- :view_private_notes\n- :set_notes_private\n- :delete_issues\n- :view_issue_watchers\n- :add_issue_watchers\n- :delete_issue_watchers\n- :import_issues\n- :manage_categories\n- :view_time_entries\n- :log_time\n- :edit_time_entries\n- :edit_own_time_entries\n- :manage_project_activities\n- :view_news\n- :manage_news\n- :comment_news\n- :view_documents\n- :add_documents\n- :edit_documents\n- :delete_documents\n- :view_files\n- :manage_files\n- :view_wiki_pages\n- :view_wiki_edits\n- :export_wiki_pages\n- :edit_wiki_pages\n- :rename_wiki_pages\n- :delete_wiki_pages\n- :delete_wiki_pages_attachments\n- :protect_wiki_pages\n- :manage_wiki\n- :view_changesets\n- :browse_repository\n- :commit_access\n- :manage_related_issues\n- :manage_repository\n- :view_messages\n- :add_messages\n- :edit_messages\n- :edit_own_messages\n- :delete_messages\n- :delete_own_messages\n- :manage_boards\n- :view_calendar\n- :view_gantt\n','all','all','all',1,NULL),(4,'開発者',2,1,0,'---\n- :manage_versions\n- :manage_categories\n- :view_issues\n- :add_issues\n- :edit_issues\n- :view_private_notes\n- :set_notes_private\n- :manage_issue_relations\n- :manage_subtasks\n- :add_issue_notes\n- :save_queries\n- :view_gantt\n- :view_calendar\n- :log_time\n- :view_time_entries\n- :view_news\n- :comment_news\n- :view_documents\n- :view_wiki_pages\n- :view_wiki_edits\n- :edit_wiki_pages\n- :delete_wiki_pages\n- :view_messages\n- :add_messages\n- :edit_own_messages\n- :view_files\n- :manage_files\n- :browse_repository\n- :view_changesets\n- :commit_access\n- :manage_related_issues\n','default','all','all',1,NULL),(5,'報告者',3,1,0,'---\n- :view_issues\n- :add_issues\n- :add_issue_notes\n- :save_queries\n- :view_gantt\n- :view_calendar\n- :log_time\n- :view_time_entries\n- :view_news\n- :comment_news\n- :view_documents\n- :view_wiki_pages\n- :view_wiki_edits\n- :view_messages\n- :add_messages\n- :edit_own_messages\n- :view_files\n- :browse_repository\n- :view_changesets\n','default','all','all',1,NULL);
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles_managed_roles`
 --
 
@@ -855,6 +1214,15 @@ CREATE TABLE `roles_managed_roles` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `roles_managed_roles`
+--
+
+LOCK TABLES `roles_managed_roles` WRITE;
+/*!40000 ALTER TABLE `roles_managed_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `roles_managed_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `schema_migrations`
 --
 
@@ -866,6 +1234,16 @@ CREATE TABLE `schema_migrations` (
   UNIQUE KEY `unique_schema_migrations` (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schema_migrations`
+--
+
+LOCK TABLES `schema_migrations` WRITE;
+/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
+INSERT INTO `schema_migrations` VALUES ('1'),('10'),('100'),('101'),('102'),('103'),('104'),('105'),('106'),('107'),('108'),('11'),('12'),('13'),('14'),('15'),('16'),('17'),('18'),('19'),('2'),('20'),('20090214190337'),('20090312172426'),('20090312194159'),('20090318181151'),('20090323224724'),('20090401221305'),('20090401231134'),('20090403001910'),('20090406161854'),('20090425161243'),('20090503121501'),('20090503121505'),('20090503121510'),('20090614091200'),('20090704172350'),('20090704172355'),('20090704172358'),('20091010093521'),('20091017212227'),('20091017212457'),('20091017212644'),('20091017212938'),('20091017213027'),('20091017213113'),('20091017213151'),('20091017213228'),('20091017213257'),('20091017213332'),('20091017213444'),('20091017213536'),('20091017213642'),('20091017213716'),('20091017213757'),('20091017213835'),('20091017213910'),('20091017214015'),('20091017214107'),('20091017214136'),('20091017214236'),('20091017214308'),('20091017214336'),('20091017214406'),('20091017214440'),('20091017214519'),('20091017214611'),('20091017214644'),('20091017214720'),('20091017214750'),('20091025163651'),('20091108092559'),('20091114105931'),('20091123212029'),('20091205124427'),('20091220183509'),('20091220183727'),('20091220184736'),('20091225164732'),('20091227112908'),('20100129193402'),('20100129193813'),('20100221100219'),('20100313132032'),('20100313171051'),('20100705164950'),('20100819172912'),('20101104182107'),('20101107130441'),('20101114115114'),('20101114115359'),('20110220160626'),('20110223180944'),('20110223180953'),('20110224000000'),('20110226120112'),('20110226120132'),('20110227125750'),('20110228000000'),('20110228000100'),('20110401192910'),('20110408103312'),('20110412065600'),('20110511000000'),('20110902000000'),('20111201201315'),('20120115143024'),('20120115143100'),('20120115143126'),('20120127174243'),('20120205111326'),('20120223110929'),('20120301153455'),('20120422150750'),('20120705074331'),('20120707064544'),('20120714122000'),('20120714122100'),('20120714122200'),('20120731164049'),('20120930112914'),('20121026002032'),('20121026003537'),('20121209123234'),('20121209123358'),('20121213084931'),('20130110122628'),('20130201184705'),('20130202090625'),('20130207175206'),('20130207181455'),('20130215073721'),('20130215111127'),('20130215111141'),('20130217094251'),('20130602092539'),('20130710182539'),('20130713104233'),('20130713111657'),('20130729070143'),('20130911193200'),('20131004113137'),('20131005100610'),('20131124175346'),('20131210180802'),('20131214094309'),('20131215104612'),('20131218183023'),('20140228130325'),('20140903143914'),('20140920094058'),('20141029181752'),('20141029181824'),('20141109112308'),('20141122124142'),('20150113194759'),('20150113211532'),('20150113213922'),('20150113213955'),('20150208105930'),('20150510083747'),('20150525103953'),('20150526183158'),('20150528084820'),('20150528092912'),('20150528093249'),('20150725112753'),('20150730122707'),('20150730122735'),('20150921204850'),('20150921210243'),('20151020182334'),('20151020182731'),('20151021184614'),('20151021185456'),('20151021190616'),('20151024082034'),('20151025072118'),('20151031095005'),('20160404080304'),('20160416072926'),('20160529063352'),('20161001122012'),('20161002133421'),('20161010081301'),('20161010081528'),('20161010081600'),('20161126094932'),('20161220091118'),('20170207050700'),('20170302015225'),('20170309214320'),('20170320051650'),('20170418090031'),('20170419144536'),('21'),('22'),('23'),('24'),('25'),('26'),('27'),('28'),('29'),('3'),('30'),('31'),('32'),('33'),('34'),('35'),('36'),('37'),('38'),('39'),('4'),('40'),('41'),('42'),('43'),('44'),('45'),('46'),('47'),('48'),('49'),('5'),('50'),('51'),('52'),('53'),('54'),('55'),('56'),('57'),('58'),('59'),('6'),('60'),('61'),('62'),('63'),('64'),('65'),('66'),('67'),('68'),('69'),('7'),('70'),('71'),('72'),('73'),('74'),('75'),('76'),('77'),('78'),('79'),('8'),('80'),('81'),('82'),('83'),('84'),('85'),('86'),('87'),('88'),('89'),('9'),('90'),('91'),('92'),('93'),('94'),('95'),('96'),('97'),('98'),('99');
+/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `settings`
@@ -883,6 +1261,15 @@ CREATE TABLE `settings` (
   KEY `index_settings_on_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settings`
+--
+
+LOCK TABLES `settings` WRITE;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `time_entries`
@@ -915,6 +1302,15 @@ CREATE TABLE `time_entries` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `time_entries`
+--
+
+LOCK TABLES `time_entries` WRITE;
+/*!40000 ALTER TABLE `time_entries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `time_entries` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tokens`
 --
 
@@ -933,6 +1329,16 @@ CREATE TABLE `tokens` (
   KEY `index_tokens_on_user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tokens`
+--
+
+LOCK TABLES `tokens` WRITE;
+/*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
+INSERT INTO `tokens` VALUES (2,1,'session','2c4837a5d0a0a5b1fd623a3c0bc81507bb9036bb','2018-06-24 16:06:55','2018-06-24 16:08:22'),(3,1,'feeds','850d6214f505a4638f969b810e7b10b29e366546','2018-06-24 16:07:16','2018-06-24 16:07:16');
+/*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `trackers`
@@ -954,6 +1360,16 @@ CREATE TABLE `trackers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `trackers`
+--
+
+LOCK TABLES `trackers` WRITE;
+/*!40000 ALTER TABLE `trackers` DISABLE KEYS */;
+INSERT INTO `trackers` VALUES (1,'バグ',1,1,0,0,1),(2,'機能',1,2,1,0,1),(3,'サポート',0,3,0,0,1);
+/*!40000 ALTER TABLE `trackers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_preferences`
 --
 
@@ -970,6 +1386,16 @@ CREATE TABLE `user_preferences` (
   KEY `index_user_preferences_on_user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_preferences`
+--
+
+LOCK TABLES `user_preferences` WRITE;
+/*!40000 ALTER TABLE `user_preferences` DISABLE KEYS */;
+INSERT INTO `user_preferences` VALUES (1,1,'---\n:no_self_notified: \'1\'\n:my_page_layout:\n  left:\n  - issuesassignedtome\n  right:\n  - issuesreportedbyme\n:my_page_settings: {}\n:comments_sorting: asc\n:warn_on_leaving_unsaved: \'1\'\n:textarea_font: \'\'\n',1,'Tokyo');
+/*!40000 ALTER TABLE `user_preferences` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -1005,6 +1431,16 @@ CREATE TABLE `users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','b21d5819fb42b023a036153fdad3f41fb0341242','Redmine','Admin',1,1,'2018-06-24 16:06:44','ja',NULL,'2018-06-24 16:05:21','2018-06-24 16:07:13','User',NULL,'none','94306defd898bab5e8f2876cec4b25a4',0,'2018-06-24 16:06:55'),(2,'','','','Anonymous users',0,1,NULL,'',NULL,'2018-06-24 16:05:25','2018-06-24 16:05:25','GroupAnonymous',NULL,'',NULL,0,NULL),(3,'','','','Non member users',0,1,NULL,'',NULL,'2018-06-24 16:05:25','2018-06-24 16:05:25','GroupNonMember',NULL,'',NULL,0,NULL),(4,'','','','Anonymous',0,0,NULL,'',NULL,'2018-06-24 16:06:33','2018-06-24 16:06:33','AnonymousUser',NULL,'only_my_events',NULL,0,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `versions`
 --
 
@@ -1029,6 +1465,15 @@ CREATE TABLE `versions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `versions`
+--
+
+LOCK TABLES `versions` WRITE;
+/*!40000 ALTER TABLE `versions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `versions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `watchers`
 --
 
@@ -1046,6 +1491,15 @@ CREATE TABLE `watchers` (
   KEY `index_watchers_on_watchable_id_and_watchable_type` (`watchable_id`,`watchable_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `watchers`
+--
+
+LOCK TABLES `watchers` WRITE;
+/*!40000 ALTER TABLE `watchers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `watchers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `wiki_content_versions`
@@ -1071,6 +1525,15 @@ CREATE TABLE `wiki_content_versions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `wiki_content_versions`
+--
+
+LOCK TABLES `wiki_content_versions` WRITE;
+/*!40000 ALTER TABLE `wiki_content_versions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_content_versions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `wiki_contents`
 --
 
@@ -1090,6 +1553,15 @@ CREATE TABLE `wiki_contents` (
   KEY `index_wiki_contents_on_author_id` (`author_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_contents`
+--
+
+LOCK TABLES `wiki_contents` WRITE;
+/*!40000 ALTER TABLE `wiki_contents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_contents` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `wiki_pages`
@@ -1113,6 +1585,15 @@ CREATE TABLE `wiki_pages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `wiki_pages`
+--
+
+LOCK TABLES `wiki_pages` WRITE;
+/*!40000 ALTER TABLE `wiki_pages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_pages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `wiki_redirects`
 --
 
@@ -1133,6 +1614,15 @@ CREATE TABLE `wiki_redirects` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `wiki_redirects`
+--
+
+LOCK TABLES `wiki_redirects` WRITE;
+/*!40000 ALTER TABLE `wiki_redirects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_redirects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `wikis`
 --
 
@@ -1148,6 +1638,16 @@ CREATE TABLE `wikis` (
   KEY `wikis_project_id` (`project_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wikis`
+--
+
+LOCK TABLES `wikis` WRITE;
+/*!40000 ALTER TABLE `wikis` DISABLE KEYS */;
+INSERT INTO `wikis` VALUES (1,1,'Wiki',1);
+/*!40000 ALTER TABLE `wikis` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `workflows`
@@ -1175,6 +1675,16 @@ CREATE TABLE `workflows` (
   KEY `index_workflows_on_tracker_id` (`tracker_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflows`
+--
+
+LOCK TABLES `workflows` WRITE;
+/*!40000 ALTER TABLE `workflows` DISABLE KEYS */;
+INSERT INTO `workflows` VALUES (1,1,1,2,3,0,0,'WorkflowTransition',NULL,NULL),(2,1,1,3,3,0,0,'WorkflowTransition',NULL,NULL),(3,1,1,4,3,0,0,'WorkflowTransition',NULL,NULL),(4,1,1,5,3,0,0,'WorkflowTransition',NULL,NULL),(5,1,1,6,3,0,0,'WorkflowTransition',NULL,NULL),(6,1,2,1,3,0,0,'WorkflowTransition',NULL,NULL),(7,1,2,3,3,0,0,'WorkflowTransition',NULL,NULL),(8,1,2,4,3,0,0,'WorkflowTransition',NULL,NULL),(9,1,2,5,3,0,0,'WorkflowTransition',NULL,NULL),(10,1,2,6,3,0,0,'WorkflowTransition',NULL,NULL),(11,1,3,1,3,0,0,'WorkflowTransition',NULL,NULL),(12,1,3,2,3,0,0,'WorkflowTransition',NULL,NULL),(13,1,3,4,3,0,0,'WorkflowTransition',NULL,NULL),(14,1,3,5,3,0,0,'WorkflowTransition',NULL,NULL),(15,1,3,6,3,0,0,'WorkflowTransition',NULL,NULL),(16,1,4,1,3,0,0,'WorkflowTransition',NULL,NULL),(17,1,4,2,3,0,0,'WorkflowTransition',NULL,NULL),(18,1,4,3,3,0,0,'WorkflowTransition',NULL,NULL),(19,1,4,5,3,0,0,'WorkflowTransition',NULL,NULL),(20,1,4,6,3,0,0,'WorkflowTransition',NULL,NULL),(21,1,5,1,3,0,0,'WorkflowTransition',NULL,NULL),(22,1,5,2,3,0,0,'WorkflowTransition',NULL,NULL),(23,1,5,3,3,0,0,'WorkflowTransition',NULL,NULL),(24,1,5,4,3,0,0,'WorkflowTransition',NULL,NULL),(25,1,5,6,3,0,0,'WorkflowTransition',NULL,NULL),(26,1,6,1,3,0,0,'WorkflowTransition',NULL,NULL),(27,1,6,2,3,0,0,'WorkflowTransition',NULL,NULL),(28,1,6,3,3,0,0,'WorkflowTransition',NULL,NULL),(29,1,6,4,3,0,0,'WorkflowTransition',NULL,NULL),(30,1,6,5,3,0,0,'WorkflowTransition',NULL,NULL),(31,2,1,2,3,0,0,'WorkflowTransition',NULL,NULL),(32,2,1,3,3,0,0,'WorkflowTransition',NULL,NULL),(33,2,1,4,3,0,0,'WorkflowTransition',NULL,NULL),(34,2,1,5,3,0,0,'WorkflowTransition',NULL,NULL),(35,2,1,6,3,0,0,'WorkflowTransition',NULL,NULL),(36,2,2,1,3,0,0,'WorkflowTransition',NULL,NULL),(37,2,2,3,3,0,0,'WorkflowTransition',NULL,NULL),(38,2,2,4,3,0,0,'WorkflowTransition',NULL,NULL),(39,2,2,5,3,0,0,'WorkflowTransition',NULL,NULL),(40,2,2,6,3,0,0,'WorkflowTransition',NULL,NULL),(41,2,3,1,3,0,0,'WorkflowTransition',NULL,NULL),(42,2,3,2,3,0,0,'WorkflowTransition',NULL,NULL),(43,2,3,4,3,0,0,'WorkflowTransition',NULL,NULL),(44,2,3,5,3,0,0,'WorkflowTransition',NULL,NULL),(45,2,3,6,3,0,0,'WorkflowTransition',NULL,NULL),(46,2,4,1,3,0,0,'WorkflowTransition',NULL,NULL),(47,2,4,2,3,0,0,'WorkflowTransition',NULL,NULL),(48,2,4,3,3,0,0,'WorkflowTransition',NULL,NULL),(49,2,4,5,3,0,0,'WorkflowTransition',NULL,NULL),(50,2,4,6,3,0,0,'WorkflowTransition',NULL,NULL),(51,2,5,1,3,0,0,'WorkflowTransition',NULL,NULL),(52,2,5,2,3,0,0,'WorkflowTransition',NULL,NULL),(53,2,5,3,3,0,0,'WorkflowTransition',NULL,NULL),(54,2,5,4,3,0,0,'WorkflowTransition',NULL,NULL),(55,2,5,6,3,0,0,'WorkflowTransition',NULL,NULL),(56,2,6,1,3,0,0,'WorkflowTransition',NULL,NULL),(57,2,6,2,3,0,0,'WorkflowTransition',NULL,NULL),(58,2,6,3,3,0,0,'WorkflowTransition',NULL,NULL),(59,2,6,4,3,0,0,'WorkflowTransition',NULL,NULL),(60,2,6,5,3,0,0,'WorkflowTransition',NULL,NULL),(61,3,1,2,3,0,0,'WorkflowTransition',NULL,NULL),(62,3,1,3,3,0,0,'WorkflowTransition',NULL,NULL),(63,3,1,4,3,0,0,'WorkflowTransition',NULL,NULL),(64,3,1,5,3,0,0,'WorkflowTransition',NULL,NULL),(65,3,1,6,3,0,0,'WorkflowTransition',NULL,NULL),(66,3,2,1,3,0,0,'WorkflowTransition',NULL,NULL),(67,3,2,3,3,0,0,'WorkflowTransition',NULL,NULL),(68,3,2,4,3,0,0,'WorkflowTransition',NULL,NULL),(69,3,2,5,3,0,0,'WorkflowTransition',NULL,NULL),(70,3,2,6,3,0,0,'WorkflowTransition',NULL,NULL),(71,3,3,1,3,0,0,'WorkflowTransition',NULL,NULL),(72,3,3,2,3,0,0,'WorkflowTransition',NULL,NULL),(73,3,3,4,3,0,0,'WorkflowTransition',NULL,NULL),(74,3,3,5,3,0,0,'WorkflowTransition',NULL,NULL),(75,3,3,6,3,0,0,'WorkflowTransition',NULL,NULL),(76,3,4,1,3,0,0,'WorkflowTransition',NULL,NULL),(77,3,4,2,3,0,0,'WorkflowTransition',NULL,NULL),(78,3,4,3,3,0,0,'WorkflowTransition',NULL,NULL),(79,3,4,5,3,0,0,'WorkflowTransition',NULL,NULL),(80,3,4,6,3,0,0,'WorkflowTransition',NULL,NULL),(81,3,5,1,3,0,0,'WorkflowTransition',NULL,NULL),(82,3,5,2,3,0,0,'WorkflowTransition',NULL,NULL),(83,3,5,3,3,0,0,'WorkflowTransition',NULL,NULL),(84,3,5,4,3,0,0,'WorkflowTransition',NULL,NULL),(85,3,5,6,3,0,0,'WorkflowTransition',NULL,NULL),(86,3,6,1,3,0,0,'WorkflowTransition',NULL,NULL),(87,3,6,2,3,0,0,'WorkflowTransition',NULL,NULL),(88,3,6,3,3,0,0,'WorkflowTransition',NULL,NULL),(89,3,6,4,3,0,0,'WorkflowTransition',NULL,NULL),(90,3,6,5,3,0,0,'WorkflowTransition',NULL,NULL),(91,1,1,2,4,0,0,'WorkflowTransition',NULL,NULL),(92,1,1,3,4,0,0,'WorkflowTransition',NULL,NULL),(93,1,1,4,4,0,0,'WorkflowTransition',NULL,NULL),(94,1,1,5,4,0,0,'WorkflowTransition',NULL,NULL),(95,1,2,3,4,0,0,'WorkflowTransition',NULL,NULL),(96,1,2,4,4,0,0,'WorkflowTransition',NULL,NULL),(97,1,2,5,4,0,0,'WorkflowTransition',NULL,NULL),(98,1,3,2,4,0,0,'WorkflowTransition',NULL,NULL),(99,1,3,4,4,0,0,'WorkflowTransition',NULL,NULL),(100,1,3,5,4,0,0,'WorkflowTransition',NULL,NULL),(101,1,4,2,4,0,0,'WorkflowTransition',NULL,NULL),(102,1,4,3,4,0,0,'WorkflowTransition',NULL,NULL),(103,1,4,5,4,0,0,'WorkflowTransition',NULL,NULL),(104,2,1,2,4,0,0,'WorkflowTransition',NULL,NULL),(105,2,1,3,4,0,0,'WorkflowTransition',NULL,NULL),(106,2,1,4,4,0,0,'WorkflowTransition',NULL,NULL),(107,2,1,5,4,0,0,'WorkflowTransition',NULL,NULL),(108,2,2,3,4,0,0,'WorkflowTransition',NULL,NULL),(109,2,2,4,4,0,0,'WorkflowTransition',NULL,NULL),(110,2,2,5,4,0,0,'WorkflowTransition',NULL,NULL),(111,2,3,2,4,0,0,'WorkflowTransition',NULL,NULL),(112,2,3,4,4,0,0,'WorkflowTransition',NULL,NULL),(113,2,3,5,4,0,0,'WorkflowTransition',NULL,NULL),(114,2,4,2,4,0,0,'WorkflowTransition',NULL,NULL),(115,2,4,3,4,0,0,'WorkflowTransition',NULL,NULL),(116,2,4,5,4,0,0,'WorkflowTransition',NULL,NULL),(117,3,1,2,4,0,0,'WorkflowTransition',NULL,NULL),(118,3,1,3,4,0,0,'WorkflowTransition',NULL,NULL),(119,3,1,4,4,0,0,'WorkflowTransition',NULL,NULL),(120,3,1,5,4,0,0,'WorkflowTransition',NULL,NULL),(121,3,2,3,4,0,0,'WorkflowTransition',NULL,NULL),(122,3,2,4,4,0,0,'WorkflowTransition',NULL,NULL),(123,3,2,5,4,0,0,'WorkflowTransition',NULL,NULL),(124,3,3,2,4,0,0,'WorkflowTransition',NULL,NULL),(125,3,3,4,4,0,0,'WorkflowTransition',NULL,NULL),(126,3,3,5,4,0,0,'WorkflowTransition',NULL,NULL),(127,3,4,2,4,0,0,'WorkflowTransition',NULL,NULL),(128,3,4,3,4,0,0,'WorkflowTransition',NULL,NULL),(129,3,4,5,4,0,0,'WorkflowTransition',NULL,NULL),(130,1,1,5,5,0,0,'WorkflowTransition',NULL,NULL),(131,1,2,5,5,0,0,'WorkflowTransition',NULL,NULL),(132,1,3,5,5,0,0,'WorkflowTransition',NULL,NULL),(133,1,4,5,5,0,0,'WorkflowTransition',NULL,NULL),(134,1,3,4,5,0,0,'WorkflowTransition',NULL,NULL),(135,2,1,5,5,0,0,'WorkflowTransition',NULL,NULL),(136,2,2,5,5,0,0,'WorkflowTransition',NULL,NULL),(137,2,3,5,5,0,0,'WorkflowTransition',NULL,NULL),(138,2,4,5,5,0,0,'WorkflowTransition',NULL,NULL),(139,2,3,4,5,0,0,'WorkflowTransition',NULL,NULL),(140,3,1,5,5,0,0,'WorkflowTransition',NULL,NULL),(141,3,2,5,5,0,0,'WorkflowTransition',NULL,NULL),(142,3,3,5,5,0,0,'WorkflowTransition',NULL,NULL),(143,3,4,5,5,0,0,'WorkflowTransition',NULL,NULL),(144,3,3,4,5,0,0,'WorkflowTransition',NULL,NULL);
+/*!40000 ALTER TABLE `workflows` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1185,4 +1695,4 @@ CREATE TABLE `workflows` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-25  0:53:12
+-- Dump completed on 2018-06-25  1:09:07
