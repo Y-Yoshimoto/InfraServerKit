@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    nginx_proxy:
+        image: nginx_proxy
+        build: nginx_custom
+        restart: always
+        ports:
+            - 80:80
