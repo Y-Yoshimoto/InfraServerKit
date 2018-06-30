@@ -1,2 +1,40 @@
 version: '2'
 services:
+    zabbix-ap:
+        image: zabbix/zabbix-server-mysql:alpine-3.4-latest
+        ports:
+            - 10051:10051
+        restart: always
+        depends_on:
+            - zabbix-mariadb
+        environment:
+                DB_SERVER_HOST: zabbix-mariadb
+                MYSQL_USER: zabbix
+                MYSQL_PASSWORD: zabbix
+
+    zabbix-web:
+        image: zabbix/zabbix-web-nginx-mysql:alpine-3.4-latest
+        restart: always
+        ports:
+            - 80:80
+        depends_on:
+            - zabbix-mariadb
+            - zabbix-ap
+        environment:
+            DB_SERVER_HOST: zabbix-mariadb
+            MYSQL_USER: zabbix
+            MYSQL_PASSWORD: zabbix
+            ZBX_SERVER_HOST: zabbix-ap
+            PHP_TZ: Asia/Tokyo
+
+    zabbix-mariadb:
+        image: mariadb_zabbix
+        build: mariadb_custom
+        ports:
+            - 3306:3306
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: zabbix
+            MYSQL_DATABASE: zabbix
+            MYSQL_USER: zabbix
+            MYSQL_PASSWORD: zabbix
