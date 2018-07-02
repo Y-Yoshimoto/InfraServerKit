@@ -6,4 +6,14 @@ services:
         build: nginx_custom
         restart: always
         ports:
-            - 80:80
+            - "80:80"
+            - "443:443"
+        networks:
+            - default
+            - redmine_default
+            - zabbix_default
+networks:
+    redmine_default:
+        external: true
+    zabbix_default:
+        external: true

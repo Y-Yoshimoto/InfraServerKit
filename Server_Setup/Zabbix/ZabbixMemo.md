@@ -6,4 +6,6 @@
 
 ## ダンプファイルの取得
 以下のコマンでダンプファイルを生成し、次起動時に読み込めるようにしておく
-``mysqldump -u root -p -h 127.0.0.1 zabbix --hex-blob > mariadb_custom/zabbix_startup.sql``
+``docker ps -a | grep mariadb_zabbix``
+上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する
+``mysqldump -u root -p -h 127.0.0.1 -P {port} zabbix --hex-blob > mariadb_custom/zabbix_startup.sql``

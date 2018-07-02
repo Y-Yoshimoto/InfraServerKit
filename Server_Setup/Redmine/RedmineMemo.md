@@ -7,4 +7,6 @@
 
 ## ダンプファイルの取得
 以下のコマンでダンプファイルを生成し、次起動時に読み込めるようにしておく
-``mysqldump -u root -p -h 127.0.0.1 redmine --hex-blob > mariadb_custom/redmine_startup.sql``
+``docker ps -a | grep mariadb_redmine``
+上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する
+``mysqldump -u root -p -h 127.0.0.1 -P {port} redmine --hex-blob > mariadb_custom/redmine_startup.sql``
