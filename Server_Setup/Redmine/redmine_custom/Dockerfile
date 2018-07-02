@@ -1,6 +1,8 @@
 FROM redmine
 MAINTAINER redmine_custom
 
+EXPOSE 3000
+
 # プラグインを導入する
 ## チケットのテンプレートを追加
 # RUN git clone https://github.com/akiko-pusu/redmine_issue_templates /usr/src/redmine/plugins/redmine_issue_templates

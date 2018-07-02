@@ -1,4 +1,9 @@
 # InfraServerKit
 
 ## OS_Setup
-    CentOS用のキッカーファイル
+    - CentOS用のキッカーファイル
+
+## Server_Setup
+    - Nginx
+    - Zabbix
+    - Redmine
