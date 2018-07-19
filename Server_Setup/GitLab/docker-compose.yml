@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+    gitlab:
+        image: gitlab/gitlab-ce:latest
+        restart: always
+        expose:
+            - "80"
+            - "443"
+            - "22"
+        environment:
+            external_url: 'http://127.0.0.1/gitlab'
+            gitlab_rails['time_zone']: 'Asia/Tokyo'
+            gitlab_rails['gitlab_shell_ssh_port']: 22
+            gitlab_rails['relative_url_root']: /gitlab
