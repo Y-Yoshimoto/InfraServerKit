@@ -12,8 +12,10 @@ services:
         depends_on:
             - redmine-db
         environment:
+            TZ: Asia/Tokyo
             REDMINE_DB_MYSQL: redmine-db
             REDMINE_DB_PASSWORD: redmine
+            RAILS_RELATIVE_URL_ROOT: /redmine
 
     redmine-db:
         image: mariadb_redmine

@@ -14,4 +14,4 @@ EXPOSE 3000
 # RUN git clone https://github.com/tsi/redmine-theme-flat.git /usr/src/redmine/public/themes/redmine-theme-flat
 
 # 設定ファイルをコピーする
-COPY configuration.yml /usr/src/redmine/config/configuration.yml
+COPY config.ru /usr/src/redmine/config.ru
