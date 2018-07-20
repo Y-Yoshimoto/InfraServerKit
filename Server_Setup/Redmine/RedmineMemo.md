@@ -10,3 +10,7 @@
 ``docker ps -a | grep mariadb_redmine``
 上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する
 ``mysqldump -u root -p -h 127.0.0.1 -P {port} redmine --hex-blob > mariadb_custom/redmine_startup.sql``
+
+## サブディレクトリについて
+ "/usr/src/redmine/config.ru"ファイルを同梱物のように設定し、"relative_url_root"を利用するように設定を変更する。
+ dokcer-compose.yamlで、環境変数として、"RAILS_RELATIVE_URL_ROOT: /redmine"を設定する。
