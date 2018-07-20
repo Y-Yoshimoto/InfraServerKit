@@ -4,15 +4,18 @@ services:
     gitlab:
         image: gitlab_custom
         build: gitlab_custom
-        restart: always
-        #expose:
-        #    - "80"
-        #    - "443"
-        #    - "22"
-        ports:
-            - "80:80"
+        # restart: always
+        expose:
+            - "80"
+            - "443"
+            - "22"
+        # ports:
+        #    - "80:80"
         environment:
-            external_url: 'http://example.com/gitlab'
-            gitlab_rails['time_zone']: 'Asia/Tokyo'
-            gitlab_rails['gitlab_shell_ssh_port']: 22
-            gitlab_rails['relative_url_root']: /gitlab
+            GITLAB_OMNIBUS_CONFIG : |
+                external_url 'http://127.0.0.1/gitlab/'
+                gitlab_rails['time_zone'] = 'Asia/Tokyo'
+        # volumes:
+        # - ./gitlab/config:/etc/gitlab
+        # - ./gitlab/logs:/var/log/gitlab
+        # - ./gitlab/data:/var/opt/gitlab
