@@ -13,7 +13,6 @@ services:
                 MYSQL_PASSWORD: zabbix
 
     zabbix-web:
-        # image: zabbix/zabbix-web-nginx-mysql:alpine-3.4-latest
         image: zabbix-web
         build: zabbix-web_custom
         restart: always
@@ -41,3 +40,6 @@ services:
             MYSQL_DATABASE: zabbix
             MYSQL_USER: zabbix
             MYSQL_PASSWORD: zabbix
+        # volumes:
+        #     - ./db_data:/var/lib/mysql
+        
