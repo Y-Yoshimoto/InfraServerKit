@@ -1,9 +1,11 @@
-FROM centos
+#ROM centos
+FROM nginx
+
 MAINTAINER nginx_proxy
 
 # nginxのインストール
-RUN yum install -y epel-release
-RUN yum install -y nginx
+#RUN yum install -y epel-release
+#RUN yum install -y nginx
 
 # コンテツファイルの設置
 COPY contents/* /usr/share/nginx/html/
