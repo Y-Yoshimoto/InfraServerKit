@@ -1,0 +1,19 @@
+version: '2'
+services:
+    # APIServer_nginx
+    nginx_uwsgi:
+        build: "nginx_custom"
+        image: "nginx_uwsgi"
+        # restart: "no"
+        ports:
+            - "80"
+        depends_on:
+            - "unitpy_api"
+
+    # APIServer_unitpy_api
+    unitpy_api:
+        build: "unitpy_custom"
+        image: "unitpy_api"
+        restart: "no"
+        ports:
+            - "8300:8300"

@@ -7,3 +7,5 @@
     - Nginx
     - Zabbix
     - Redmine
+    - GitLab
+    - UnitPython

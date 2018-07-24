@@ -1,0 +1,15 @@
+{
+    "listeners": {
+        "*:8300": {
+            "application": "snippet"
+        }
+    },
+    "applications": {
+        "snippet": {
+            "type": "python",
+            "processes": 20,
+            "path": "/www/snippet",
+            "module": "wsgi"
+        }
+    }
+}
