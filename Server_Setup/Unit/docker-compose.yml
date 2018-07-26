@@ -1,9 +1,9 @@
 version: '2'
 services:
     # APIServer_nginx
-    nginx_for_unit:
+    nginx_forunit:
         build: "nginx_custom"
-        image: "nginx_for_unit"
+        image: "nginx_forunit"
         # restart: "no"
         # expose:
         expose:
