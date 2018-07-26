@@ -1,7 +1,7 @@
 version: '2'
 services:
     # APIServer_nginx
-    nginx_uwsgi:
+    nginx_for_unit:
         build: "nginx_custom"
         image: "nginx_for_unit"
         # restart: "no"
@@ -17,4 +17,3 @@ services:
         restart: "no"
         ports:
             - "8300:8300"
-        command: "/www/docker-entrypoint.sh"
