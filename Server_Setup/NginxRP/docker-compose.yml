@@ -12,12 +12,15 @@ services:
             - default
             - redmine_default
             - zabbix_default
+            - unitpython_default
             # - gitlab_default
 networks:
     redmine_default:
         external: true
     zabbix_default:
         external: true
-        
+    unitpython_default:
+        external: true
+
     # gitlab_default:
     #    external: true
