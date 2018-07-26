@@ -8,5 +8,7 @@ COPY start.json /www/
 COPY docker-entrypoint.sh /www/
 
 # 参考 http://unit.nginx.org/
-ENTRYPOINT ["/www/docker-entrypoint.sh"]
-# ENTRYPOINT ["/www/startunit.sh"]
+ENTRYPOINT ["/bin/bash"]
+CMD ["/www/docker-entrypoint.sh"]
+
+# docker run -i -t -p 8300:8300 nginx_uwsgi /www/docker-entrypoint.sh
