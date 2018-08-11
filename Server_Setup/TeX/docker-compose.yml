@@ -1,0 +1,19 @@
+version: '2'
+services:
+
+    #tex:
+    #    build: "tex_custom"
+    #    image: "tex_custom"
+    #    restart: "no"
+    #    expose:
+    #        - "80"
+    #    volumes:
+    #        ./tmpdata:/var/tmp/
+
+    # グラフ描画用_Gnuplot_コンテナ
+    gnuplot:
+        build: "gnuplot_custom"
+        image: "gnuplot_custom"
+        restart: "no"
+        volumes:
+            - ./tmpdata:/var/tmp/
