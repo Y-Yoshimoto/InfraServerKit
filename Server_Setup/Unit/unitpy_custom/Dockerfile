@@ -3,7 +3,7 @@ MAINTAINER unitpy_api
 
 # アプリケーションを配置
 RUN mkdir -p /www/snippet
-COPY wsgi.py /www/snippet/
+COPY contents/*.py /www/snippet/
 COPY start.json /www/
 COPY docker-entrypoint.sh /www/
 
