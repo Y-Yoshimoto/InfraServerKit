@@ -1,5 +1,5 @@
 FROM redmine
-MAINTAINER redmine_custom
+MAINTAINER y.yoshimoto
 
 EXPOSE 3000
 

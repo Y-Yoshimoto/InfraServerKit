@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+*.class
+*.pyc
+._.DS_Store
+.git
+.hg
+.svn
+._*
+Thumbs.db
+.xbb
+*.png
+*.bat
+# For TeX
+*.out
+*.pdf
+*.aux
+*.log
+.omakedb*
+*.omc
+*.fls
+*.toc

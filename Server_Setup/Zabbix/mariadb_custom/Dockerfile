@@ -1,5 +1,5 @@
 FROM mariadb
-MAINTAINER mariadb_redmine
+MAINTAINER y.yoshimoto
 
 # 設定ファイルのコピー
 COPY my.cnf /etc/mysql/my.cnf

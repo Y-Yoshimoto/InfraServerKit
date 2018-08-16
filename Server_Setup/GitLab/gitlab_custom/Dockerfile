@@ -1,5 +1,5 @@
 FROM gitlab/gitlab-ce:9.1.4-ce.0
-MAINTAINER gitlab_custom
+MAINTAINER y.yoshimoto
 
 RUN apt-get update && apt-get -y install patch curl
 RUN curl https://raw.githubusercontent.com/ksoichiro/gitlab-i18n-patch/master/patches/v9.1.4/app_ja.patch -o /tmp/app_ja.patch

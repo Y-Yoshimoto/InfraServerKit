@@ -1,5 +1,5 @@
 FROM nginx/unit:1.3-python2.7
-MAINTAINER unitpy_api
+MAINTAINER y.yoshimoto
 
 # アプリケーションを配置
 RUN mkdir -p /www/snippet

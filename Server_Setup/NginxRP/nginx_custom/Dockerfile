@@ -1,7 +1,5 @@
-#ROM centos
 FROM nginx
-
-MAINTAINER nginx_proxy
+MAINTAINER y.yoshimoto
 
 # nginxのインストール
 #RUN yum install -y epel-release

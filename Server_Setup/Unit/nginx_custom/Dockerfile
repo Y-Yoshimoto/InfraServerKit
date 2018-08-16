@@ -1,5 +1,5 @@
 FROM nginx
-MAINTAINER nginx_uwsgi
+MAINTAINER y.yoshimoto
 
 # nginxのインストール
 # RUN yum install -y epel-release
