@@ -1,0 +1,29 @@
+ % File name: main.tex
+ \documentclass[uplatex,a4paper]{jsarticle}
+ % 設定ファイルの読み込み
+\input Input-File/setting.tex
+
+%表紙内容
+\title{タイトル}
+\department{所属}
+\author{氏名}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+% 目次
+\tableofcontents
+\clearpage
+
+%本文
+\section{第1章}
+ こんにちは、\LaTeX。
+
+%参考文献など
+\begin{thebibliography}{99}
+    \bibitem{harris1} 参考文献
+\end{thebibliography}
+
+\end{document}

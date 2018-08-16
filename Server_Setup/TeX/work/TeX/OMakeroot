@@ -1,0 +1,8 @@
+# Include the standard installed configuration files.
+open build/LaTeX
+
+# The command-line variables are defined *after* the
+DefineCommandVars()
+
+# Include the OMakefile in this directory.
+.SUBDIRS: .

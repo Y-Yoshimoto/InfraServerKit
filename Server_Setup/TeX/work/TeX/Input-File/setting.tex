@@ -1,0 +1,64 @@
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb}    %数式関連のパッケージ
+\usepackage{bm}                 %数式(ベクトル)関連のパッケージ
+\usepackage{ascmac}             %枠囲のためのパッケージ
+\usepackage{txfonts}            %Times,Helvetica用のパッケージ {times}より推奨
+\usepackage{float}              %図の貼り付けの{H}(強制的に、ここ)が指定できる。{here}と同等
+
+%pdf用の目次等のセッティング
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{%
+   bookmarksnumbered=true,%
+   bookmarkstype=toc,%
+   pdftitle={タイトル},%
+   pdfsubject={TeXテンプレート},%
+   pdfauthor={氏名},%
+   pdfkeywords={TeX,PDF,テンプレート}}
+
+%フォントの変更
+\usepackage[uplatex]{otf}
+\renewcommand{\rmdefault}{ptm} %デフォルトのローマンフォントをTimesに変える。
+\renewcommand{\sfdefault}{phv} %デフォルトのサンセリフフォントをHelveticaに変える。
+%見出しのフォントの設定
+\renewcommand{\headfont}{\bfseries\mcfamily\rmfamily}
+
+%新コマンド
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+\def\vector#1{\mbox{\boldmath $#1$}} %ベクトル
+
+\makeatletter
+% 数式番号に章番号を追加
+\@addtoreset{equation}{section}
+\def\theequation{\thesection.\arabic{equation}}
+
+\def\@thesis{ }
+\def\id#1{\def\@id{#1}}
+\def\department#1{\def\@department{#1}}
+
+\makeatother
+
+\makeatletter
+\def\@maketitle{
+\begin{center}
+\vspace{20mm}
+{\LARGE \@thesis \par} %表題
+\vspace{15mm}
+{\Huge \@title \par}% タイトル部分
+\vspace{120mm}
+{\Large \@department \par}	% 所属部分
+\vspace{5mm}
+{\Large \@author\par}% 氏名
+\vspace{10mm}
+{\Large \@date\par}	 % 年月日部分
+\end{center}
+\par\vskip 1.5em
+}
+\makeatother
+
+%\title{タイトル}
+%\department{所属1}
+%\author{氏名}
+%\date{\today}

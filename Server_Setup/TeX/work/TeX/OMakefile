@@ -1,0 +1,17 @@
+#コンパイルの設定
+USEPDFLATEX = true
+PDFLATEX = ptex2pdf
+PDFLATEXFLAGS = -l -u
+
+#ターゲットにするファイル
+TEX_FILES = $(glob *.tex Input-File/*.tex)
+#TEX_FILES = $(glob *.tex)
+TEXDEPS[] = $(TEX_FILES)
+
+#コンパイル
+LaTeXDocument(main, main)
+.DEFAULT: main.pdf
+
+# クリーンアップ
+clean:
+    rm -f *.toc *.log *.pdf *.fls *.omc *.aux *.mtc *.out
