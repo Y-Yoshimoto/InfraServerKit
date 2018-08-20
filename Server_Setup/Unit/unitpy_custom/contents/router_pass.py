@@ -4,5 +4,6 @@ import router_func as rfunc
 
 routes = [
     ('/', rfunc.get),
-    ('/hoge', rfunc.sendjson),
+    ('/sendjson', rfunc.sendjson),
+    ('/checkdata', rfunc.checkdata),
 ]

@@ -1,6 +1,10 @@
 FROM nginx/unit:1.3-python2.7
 MAINTAINER y.yoshimoto
 
+#RUN apt update -y && apt -y upgrade \
+#    && apt install -y python-pip\
+#    && apt clean
+
 # アプリケーションを配置
 RUN mkdir -p /www/snippet
 COPY contents/*.py /www/snippet/
