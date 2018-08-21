@@ -19,3 +19,15 @@ services:
         restart: "no"
         expose:
             - "8300"
+
+    unit_mariadb:
+        build: mariadb_custom
+        image: unit_mariadb
+        ports:
+            - "3306"
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: unit
+            MYSQL_DATABASE: unit
+            MYSQL_USER: unit
+            MYSQL_PASSWORD: unit

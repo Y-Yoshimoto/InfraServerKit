@@ -9,3 +9,10 @@
 
 
 ## サブディレクトリについて
+
+
+## ダンプファイルの取得
+以下のコマンでダンプファイルを生成し、次起動時に読み込めるようにしておく
+``docker ps -a | grep unit_mariadb``
+上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する
+``mysqldump -u root -p -h 127.0.0.1 -P {port} unit --hex-blob > mariadb_custom/unit_startup.sql``
