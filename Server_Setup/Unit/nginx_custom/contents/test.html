@@ -4,14 +4,23 @@
         <meta charset="utf-8">
         <title>テストページ</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="./test.js"></script>
+        <script src="./SendNumer.js"></script>
+        <script src="./InquiryPostcode.js"></script>
+
     </head>
     <body>
         <h2>テストページ</h2>
+        <h3>1. 数字送信</h3>
         <form method="post">
             <p>数字<input type="number" id="number" name="number" size="10"></p>
             <input type="button" id="button1" value="送信">
         </form>
-        <div id="message"></div>
+        <div id="message1"></div>
+        <h3>2. 郵便番号問い合わせ</h3>
+        <form method="post">
+            <p>郵便番号<input type="number" id="postcode" name="number" size="10"></p>
+            <input type="button" id="button2" value="送信">
+        </form>
+        <div id="message2"></div>
     </body>
 </html>

@@ -9,3 +9,14 @@
 ``docker ps -a | grep mariadb_zabbix``
 上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する
 ``mysqldump -u root -p -h 127.0.0.1 -P {port} zabbix --hex-blob > mariadb_custom/zabbix_startup.sql``
+
+## Agentの設定
+yum install -y http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
+yum install -y zabbix-agent
+####
+Server=10.0.0.30
+ServerActive=10.0.0.30
+Hostname=node01.srv.world
+####
+systemctl start zabbix-agent
+systemctl enable zabbix-agent

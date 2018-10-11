@@ -1,4 +1,4 @@
-//CGI呼び出し　ログイン
+//入力した数字の送受信
 $(function(){
     $('#button1').click(function() {
         //多重送信防止
@@ -16,21 +16,21 @@ $(function(){
             data:JSON.stringify(sed_data),      //送信JSONデータ
             contentType: 'application/json',//リクエストタイプ
             dataType: "json",               //受信データ
-            // API動作完了
+            // API送受信完了
             success: function(rcv_data){
                 console.log(rcv_data);
                 if ( rcv_data.result == 0) {
-                    $("#message").text("10以上です")
+                    $("#message1").text("10以上です")
                 }
                 else if ( rcv_data.result == 1) {
-                $("#message").text("10以下です")
+                $("#message1").text("10以下です")
             }
-                else $("#message").text("サポートへご連絡ください。")
+                else $("#message1").text("サポートへご連絡ください。")
             return;
             },
             error: function(rcv_data){
                 console.log(rcv_data);
-                $("#message").text("サポートへご連絡ください。")
+                $("#message1").text("サポートへご連絡ください。")
                 return;
             },
             complete: function(){
