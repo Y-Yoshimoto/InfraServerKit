@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
-import PostcodeDAO.py as DAO
+# mport PostcodeDAO.py as DAO
 
 
 def InquiryPostcode(environ, start_response):
@@ -19,12 +19,12 @@ def InquiryPostcode(environ, start_response):
     return sendData
 
 
-def inquiryDB(postcode):
-        dao = DAO.PostcodeDAO()
-        dao.connectDB
-        adress = dao.selectPostcode(postcode)
-        dao.closeDB()
-        return adress
+# def inquiryDB(postcode):
+#        dao = DAO.PostcodeDAO()
+#        dao.connectDB
+#        adress = dao.selectPostcode(postcode)
+#        dao.closeDB()
+#        return adress
 
 
 def DateAdress(result, postcode, adress):
