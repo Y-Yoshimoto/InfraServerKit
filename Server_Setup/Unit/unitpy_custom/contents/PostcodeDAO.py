@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding:utf-8
-import sys
-sys.path.append('/usr/local/lib/python2.7/site-packages')
+# import sys
+# sys.path.append('/usr/local/lib/python2.7/dist-packages')
 import MySQLdb
 
 
@@ -35,23 +35,8 @@ class PostcodeDAO:
         result = self.cursor.fetchall()
         # print result
         if len(result) < 1:
-            userAdress = (0, "存在しません", "", "")
+            userAdress = (0, "存在しません", "", "", 1)
             return userAdress
-
-        '''for row in result:
-            print row[0]
-            print row[1].encode("utf-8")
-            print row[2].encode("utf-8")
-            print row[3]
-            id = row[0]
-            prefectural = row[1].encode("utf-8")
-            municipality = row[2].encode("utf-8")
-            town = row[3].encode("utf-8")
-            userAdress = (id, prefectural, municipality, town)'''
-        # print result[0]                  # id
-        # print result[1].encode("utf-8")  # prefectural
-        # print result[2].encode("utf-8")  # municipality
-        # print result[3]                  # town
-        userAdress = (result[0][0], result[0][1].encode("utf-8"), result[0][2].encode("utf-8"), result[0][3].encode("utf-8"))
+        userAdress = (result[0][0], result[0][1].encode("utf-8"), result[0][2].encode("utf-8"), result[0][3].encode("utf-8"), 0)
 
         return userAdress
