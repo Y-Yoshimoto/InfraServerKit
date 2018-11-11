@@ -10,13 +10,13 @@ services:
             - "443:443"
         networks:
             - default
-            #- redmine_default
+            - redmine_default
             #- zabbix_default
             - unit_default
             # - gitlab_default
 networks:
-    #redmine_default:
-    #    external: true
+    redmine_default:
+        external: true
     #zabbix_default:
     #    external: true
     unit_default:
