@@ -11,4 +11,4 @@ chmod 755 /home/test/GFS_vol
 mount -t glusterfs localhost:/vol_replica /home/test/GFS_vol
 
 cp -p /etc/fstab /etc/fstab.bk1
-echo "localhost:/vol_replica /home/test/GFS_vol            glusterfs    defaults,_netdev        0 0" >> /etc/fstab
+echo "localhost:/vol_replica /home/test/GFS_vol            glusterfs    noauto,x-systemd.automount,x-systemd.device-timeout=30,_netdev        0 0" >> /etc/fstab

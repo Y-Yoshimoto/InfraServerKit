@@ -1,5 +1,5 @@
 #!/bin/bash
-kubectl apply -f test-nginx-manifest.yaml
+kubectl apply -f registory-manifest.yaml
 kubectl get deployments
 kubectl get services
 sleep 5

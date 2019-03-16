@@ -1,0 +1,7 @@
+cp -p /etc/sysconfig/docker /etc/sysconfig/dockerBK
+
+vi /etc/sysconfig/docker
+4行目を変更
+OPTIONS='--selinux-enabled --log-driver=journald --signature-verification=false'
+ローカルレジストリを追記
+OPTIONS='--insecure-registry kube1:30500 --selinux-enabled --log-driver=journald --signature-verification=false'

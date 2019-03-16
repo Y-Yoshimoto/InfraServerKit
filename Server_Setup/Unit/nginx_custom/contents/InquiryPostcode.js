@@ -20,7 +20,8 @@ $(function(){
             success: function(rcv_data){
                 console.log(rcv_data);
                 if ( rcv_data.result == 0) {
-                    $("#message2").text("アクセス成功です。")
+                    adress = rcv_data.prefectural + rcv_data.municipality + rcv_data.town
+                    $("#message2").text(adress)
                 }
                 else $("#message2").text("サポートへご連絡ください。")
             return;

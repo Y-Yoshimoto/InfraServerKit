@@ -1,7 +1,8 @@
 version: '2'
 services:
     zabbix-ap:
-        image: zabbix/zabbix-server-mysql:alpine-3.4-latest
+        image: zabbix-ap
+        build: zabbix-ap_custom
         ports:
             - "10051:10051"
         restart: always
@@ -11,12 +12,14 @@ services:
                 DB_SERVER_HOST: zabbix-mariadb
                 MYSQL_USER: zabbix
                 MYSQL_PASSWORD: zabbix
+                PHP_TZ: Asia/Tokyo
+
 
     zabbix-web:
         image: zabbix-web
         build: zabbix-web_custom
         restart: always
-        expose:
+        ports:
             - "80"
             - "443"
         depends_on:
@@ -30,7 +33,7 @@ services:
             PHP_TZ: Asia/Tokyo
 
     zabbix-mariadb:
-        image: mariadb_zabbix
+        image: zabbix-mariadb
         build: mariadb_custom
         ports:
             - "3306"
@@ -40,6 +43,6 @@ services:
             MYSQL_DATABASE: zabbix
             MYSQL_USER: zabbix
             MYSQL_PASSWORD: zabbix
-            
+
         # volumes:
         #     - ./db_data:/var/lib/mysql

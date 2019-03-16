@@ -1,3 +1,2 @@
 #!/bin/bash
-kubectl delete deployment test-nginx
-kubectl delete service test-nginx
+kubectl delete -f test-nginx-manifest.yaml

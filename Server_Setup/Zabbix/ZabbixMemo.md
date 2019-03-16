@@ -14,9 +14,11 @@
 yum install -y http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
 yum install -y zabbix-agent
 ####
+cp -p /etc/zabbix/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf.bk
+vi /etc/zabbix/zabbix_agentd.conf
 Server=10.0.0.30
 ServerActive=10.0.0.30
-Hostname=node01.srv.world
+Hostname=node01
 ####
 systemctl start zabbix-agent
 systemctl enable zabbix-agent
