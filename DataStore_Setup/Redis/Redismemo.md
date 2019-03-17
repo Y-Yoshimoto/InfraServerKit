@@ -1,5 +1,8 @@
 # Redis
 
+## 設定ファイル
+    "redisOverwrite.conf"に追加の設定を記載する
+
 ## Mac用クライアントのインストール
 Homebrewをインストールし、以下のコマンドでインストールする。
     ``brew install redis``

@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: mariadb
+  name: mariadb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: mariadb
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: startup
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        image: mariadb
+        name: mariadb
+        ports:
+        - containerPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: mariadb
+  name: mariadb
+spec:
+  type: NodePort
+  ports:
+  - name: "mariadb-access"
+    port: 3306
+    targetPort: 3306
+    protocol: TCP
+    nodePort: 30036
+  selector:
+    io.kompose.service: mariadb

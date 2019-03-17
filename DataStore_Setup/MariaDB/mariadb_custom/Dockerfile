@@ -8,4 +8,4 @@ COPY my.cnf /etc/mysql/my.cnf
 EXPOSE 3306
 
 # 初期構築データのコピー
-COPY redmine_startup.sql /docker-entrypoint-initdb.d/redmine_startup.sql
+# COPY startup.sql /docker-entrypoint-initdb.d/startup.sql

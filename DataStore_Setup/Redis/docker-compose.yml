@@ -2,8 +2,8 @@ version: '2'
 
 services:
     Redis:
-        image: redis
-        # build: redis_custom
+        image: redis_custom
+        build: redis_custom
         restart: always
         ports:
             - "6379:6379"
