@@ -10,6 +10,3 @@ docker rmi mariadb
 docker push kube1:30500/datastore/mariadb
 # レポジトリ表示
 curl kube1:30500/v2/_catalog
-
-# docker pull kube1:30500/zabbix-k8s/zabbix-web
-# docker pull kube1:30500/zabbix-k8s/zabbix-mariadb

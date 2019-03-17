@@ -6,6 +6,13 @@
 ## Mac用クライアントのインストール
 Homebrewをインストールし、以下のコマンドでインストールする。
     ``brew install redis``
+### 起動停止
+ - 起動
+    brew services start redis
+ - 停止
+    brew services stop redis
+ - 状態確認
+    brew services list
 
 ## 接続
 ``redis-cli``コマンドで接続ローカルホストのサーバに接続する。ホスト名及びポート番号を指定する場合は、``redis-cli -h localhost -p 6379``とオプションを追加する。

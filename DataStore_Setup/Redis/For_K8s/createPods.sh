@@ -1,6 +1,6 @@
 #!/bin/bash
-kubectl apply -f mariadb-service.yaml
-kubectl get pods -o wide --namespace=default
-kubectl get deployments --namespace=default
-kubectl get services --namespace=default
-kubectl describe services --namespace=default
+kubectl apply -f redis-service.yaml
+kubectl get pods -o wide -l datastore=redis
+kubectl get deployments -l datastore=redis
+kubectl get services -l datastore=redis
+kubectl describe services -l datastore=redis

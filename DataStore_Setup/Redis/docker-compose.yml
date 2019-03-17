@@ -2,7 +2,7 @@ version: '2'
 
 services:
     Redis:
-        image: redis_custom
+        image: redis
         build: redis_custom
         restart: always
         ports:

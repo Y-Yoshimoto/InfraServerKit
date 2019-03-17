@@ -1,6 +1,6 @@
 #!/bin/bash
 kubectl apply -f mariadb-service.yaml
-kubectl get pods -o wide --namespace=default
-kubectl get deployments --namespace=default
-kubectl get services --namespace=default
-kubectl describe services --namespace=default
+kubectl get pods -o wide -l datastore=mariadb
+kubectl get deployments -l datastore=mariadb
+kubectl get services -l datastore=mariadb
+kubectl describe services -l datastore=mariadb
