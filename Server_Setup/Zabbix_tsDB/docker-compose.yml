@@ -1,0 +1,48 @@
+version: '3.5'
+services:
+    zabbix-ap:
+        image: zabbix-ap
+        build: zabbix-ap_custom
+        ports:
+            - "10051:10051"
+        restart: always
+        depends_on:
+            - zabbix-timescaledb
+        environment:
+                DB_SERVER_HOST: zabbix-timescaledb
+                POSTGRES_USER: zabbix
+                POSTGRES_PASSWORD: zabbix
+                PHP_TZ: Asia/Tokyo
+
+
+    zabbix-web:
+        image: zabbix-web
+        build: zabbix-web_custom
+        restart: always
+        ports:
+            - "80"
+            - "443"
+        depends_on:
+            - zabbix-timescaledb
+            - zabbix-ap
+        environment:
+            DB_SERVER_HOST: zabbix-timescaledb
+            POSTGRES_USER: zabbix
+            POSTGRES_PASSWORD: zabbix
+            ZBX_SERVER_HOST: zabbix-ap
+            PHP_TZ: Asia/Tokyo
+
+    zabbix-timescaledb:
+        image: zabbix-timescaledb
+        build: timescaledb_custom
+        ports:
+            - "5432"
+        restart: always
+        environment:
+            POSTGRES_DATABASE: zabbix
+            POSTGRES_USER: zabbix
+            POSTGRES_PASSWORD: zabbix
+            POSTGRES_DB: zabbix
+
+        # volumes:
+        #     - - ./db_data:/var/lib/postgresql/data

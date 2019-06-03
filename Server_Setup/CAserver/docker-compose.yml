@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+    caserver:
+        image: alpine
+        build: libressl
+        # restart: always

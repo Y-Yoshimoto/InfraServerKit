@@ -1,0 +1,89 @@
+# Namespace作成
+kind: Namespace
+apiVersion: v1
+metadata:
+    name: zabbix-k8s
+    labels:
+        name: zabbix-k8s
+---
+# Deployment作成
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: zabbix-k8s
+  name: zabbix-k8s-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      namespace: zabbix-k8s
+      labels:
+        app: zabbix-k8s
+    spec:
+      containers:
+          - name: zabbix-ap
+            image: localhost:30500/zabbix-k8s/zabbix-ap
+            ports:
+                - containerPort: 10051
+            env:
+                - name: DB_SERVER_HOST
+                  value: 127.0.0.1
+                - name: MYSQL_USER
+                  value: zabbix
+                - name: MYSQL_PASSWORD
+                  value: zabbix
+
+          - name: zabbix-web
+            image: localhost:30500/zabbix-k8s/zabbix-web
+            ports:
+                - containerPort: 80
+                - containerPort: 443
+            env:
+                - name: DB_SERVER_HOST
+                  value: 127.0.0.1
+                - name: ZBX_SERVER_HOST
+                  value: 127.0.0.1
+                - name: MYSQL_PASSWORD
+                  value: zabbix
+                - name: MYSQL_USER
+                  value: zabbix
+                - name: PHP_TZ
+                  value: Asia/Tokyo
+
+          - name: zabbix-mariadb
+            image: localhost:30500/zabbix-k8s/zabbix-mariadb
+            ports:
+                 - containerPort: 3306
+            env:
+                 - name: MYSQL_DATABASE
+                   value: zabbix
+                 - name: MYSQL_PASSWORD
+                   value: zabbix
+                 - name: MYSQL_ROOT_PASSWORD
+                   value: zabbix
+                 - name: MYSQL_USER
+                   value: zabbix
+---
+# Service作成
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: zabbix-k8s
+  name: zabbix-k8s-service
+  labels:
+      app: zabbix-k8s
+spec:
+  type: NodePort
+  ports:
+    - name: zabbix-web
+      port: 80
+      targetPort: 80
+      protocol: TCP
+      nodePort: 30280
+    - name: zabbix-to-agent
+      port: 10051
+      targetPort: 10051
+      protocol: TCP
+      nodePort: 30251
+  selector:
+    app: zabbix-k8s
