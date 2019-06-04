@@ -13,6 +13,11 @@ services:
                 POSTGRES_USER: zabbix
                 POSTGRES_PASSWORD: zabbix
                 PHP_TZ: Asia/Tokyo
+        # logging:
+        #    driver: "json-file" # defaults if not specified
+        #    options:
+        #        max-size: "10m"
+        #        max-file: "3"
 
 
     zabbix-web:
@@ -31,6 +36,12 @@ services:
             POSTGRES_PASSWORD: zabbix
             ZBX_SERVER_HOST: zabbix-ap
             PHP_TZ: Asia/Tokyo
+        #logging:
+        #    driver: "json-file" # defaults if not specified
+        #    options:
+        #        max-size: "10m"
+        #        max-file: "3"
+
 
     zabbix-timescaledb:
         image: zabbix-timescaledb
@@ -43,6 +54,13 @@ services:
             POSTGRES_USER: zabbix
             POSTGRES_PASSWORD: zabbix
             POSTGRES_DB: zabbix
+        #logging:
+        #    driver: "json-file" # defaults if not specified
+        #    options:
+        #        max-size: "10m"
+        #        max-file: "3"
+
 
         # volumes:
         #     - - ./db_data:/var/lib/postgresql/data
+        # Log設定を追加

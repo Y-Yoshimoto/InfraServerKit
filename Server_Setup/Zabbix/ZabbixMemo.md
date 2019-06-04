@@ -7,11 +7,11 @@
 ## ダンプファイルの取得
 以下のコマンでダンプファイルを生成し、次起動時に読み込めるようにしておく
 ``docker ps -a | grep mariadb_zabbix``
-上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する
+上記コマンドでポート番号を特定し、以下のコマンドでダンプファイルを取得する(パスワード: zabbix)
 ``mysqldump -u root -p -h 127.0.0.1 -P {port} zabbix --hex-blob > mariadb_custom/zabbix_startup.sql``
 
 ## Agentの設定
-yum install -y http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-1.el7.centos.noarch.rpm
+yum install -y http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-agent-4.0.8-1.el7.x86_64.rpm
 yum install -y zabbix-agent
 ####
 cp -p /etc/zabbix/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf.bk

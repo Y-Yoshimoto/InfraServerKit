@@ -20,8 +20,8 @@ services:
         build: zabbix-web_custom
         restart: always
         ports:
-            - "80"
-            - "443"
+            - "80:80"
+            - "443:443"
         depends_on:
             - zabbix-mariadb
             - zabbix-ap
@@ -43,6 +43,5 @@ services:
             MYSQL_DATABASE: zabbix
             MYSQL_USER: zabbix
             MYSQL_PASSWORD: zabbix
-
-        # volumes:
-        #     - ./db_data:/var/lib/mysql
+        volumes:
+             - ./db_data:/var/lib/mysql

@@ -1,4 +1,4 @@
-FROM zabbix/zabbix-web-nginx-mysql:alpine-3.4-latest
+FROM zabbix/zabbix-web-nginx-mysql:alpine-4.0-latest
 MAINTAINER y.yoshimoto
 
 # apk curlのインストール
