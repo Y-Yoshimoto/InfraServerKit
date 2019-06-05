@@ -43,5 +43,5 @@ services:
             MYSQL_DATABASE: zabbix
             MYSQL_USER: zabbix
             MYSQL_PASSWORD: zabbix
-        volumes:
-             - ./db_data:/var/lib/mysql
+        # volumes:
+        #     - ./db_data:/var/lib/mysql

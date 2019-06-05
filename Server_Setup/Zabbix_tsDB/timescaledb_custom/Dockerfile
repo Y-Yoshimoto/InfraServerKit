@@ -7,3 +7,4 @@ MAINTAINER y.yoshimoto
 
 # 初期構築データのコピー
 COPY zabbix_startup.sql /docker-entrypoint-initdb.d/zabbix_startup.sql
+COPY enable_timescaledb.sql /docker-entrypoint-initdb.d/enable_timescaledb.sql
