@@ -9,6 +9,7 @@ services:
         depends_on:
             - zabbix-timescaledb
         environment:
+                TZ: Asia/Tokyo
                 DB_SERVER_HOST: zabbix-timescaledb
                 POSTGRES_USER: zabbix
                 POSTGRES_PASSWORD: zabbix
@@ -31,6 +32,7 @@ services:
             - zabbix-timescaledb
             - zabbix-ap
         environment:
+            TZ: Asia/Tokyo
             DB_SERVER_HOST: zabbix-timescaledb
             POSTGRES_USER: zabbix
             POSTGRES_PASSWORD: zabbix
@@ -50,6 +52,7 @@ services:
             - "5432"
         restart: always
         environment:
+            TZ: Asia/Tokyo
             POSTGRES_DATABASE: zabbix
             POSTGRES_USER: zabbix
             POSTGRES_PASSWORD: zabbix

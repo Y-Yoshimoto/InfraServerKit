@@ -8,20 +8,18 @@ Copy-Item "zabbix_agents" "C:\Program Files\" -Recurse -Force
 
 ## Edit conf file.
 $hostName = hostname
+$ZabbixServerIP = "192.168.1.115"
+$ZabbixServerSegment = "192.168.1.0/24"
+
 $config= Get-Content .\zabbix_agents\conf\zabbix_agentd.win.conf -Encoding UTF8
 # $config= $config.Replace("LogFile=c:\\zabbix_agentd.log","LogFile=C:\Program Files\zabbix_agents\log\zabbix_agentd.log")
 $config= $config.Replace("# LogType=file","LogType=system")
-$config= $config.Replace("Server=127.0.0.1","Server=192.168.1.0/24")
+$config= $config.Replace("Server=127.0.0.1","Server=$ZabbixServerSegment")
 ######### ServerActive=xxx.xxx.xxx.xxx ######### Set Your ZabbixServer "/32"
-$config= $config.Replace("ServerActive=127.0.0.1","ServerActive=192.168.1.116")
+$config= $config.Replace("ServerActive=127.0.0.1","ServerActive=$ZabbixServerIP")
 $config= $config.Replace("Hostname=Windows host","Hostname=$hostName")
-$config= $config.Replace("Server=127.0.0.1","Server=192.168.1.0/24")
 # $config | Out-file .\zabbix_agents\conf\zabbix_agentd.conf -Encoding UTF8
 [IO.File]::WriteAllLines("C:\Program Files\zabbix_agents\conf\zabbix_agentd.conf", $config)
-
-## Clenup
-# Copy-Item "zabbix_agents" "C:\Program Files\" -Recurse -Force
-# rm .\zabbix_agents\ -Force
 
 ##Fiewall
 Start-Process powershell -Verb runas
@@ -54,3 +52,4 @@ Start-Service -Name "Zabbix Agent"
 # Unistall
 ## Stop-Service -Name "Zabbix Agent"
 ## cmd sc delete "Zabbix Agent"
+## rm C:\Program Files\zabbix_agents -Force

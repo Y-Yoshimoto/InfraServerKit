@@ -4,6 +4,7 @@ MAINTAINER y.yoshimoto
 # apk curlのインストール
 RUN apk update
 RUN apk add curl
+RUN apk add tzdata
 
 # 日本語用 IPAexフォントの設定
 RUN curl -O  https://oscdl.ipa.go.jp/IPAexfont/ipaexg00301.zip
