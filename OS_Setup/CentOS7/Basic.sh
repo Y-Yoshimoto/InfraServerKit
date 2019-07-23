@@ -14,7 +14,7 @@ yum update -y
 # Setup_Standard
 systemctl disable firewalld
 systemctl stop firewalld
-cp -p /etc/selinux/config /etc/selinux/config.org
+cp -bp /etc/selinux/config /etc/selinux/config.org
 sed -i -e "s/enforcing/disabled/" /etc/selinux/config
 
 source /etc/profile
@@ -22,9 +22,9 @@ source /etc/profile
 # Setup_tool
 ## vim
 yum install vim -y
-cp -p /etc/vimrc /etc/vimrc.org
-echo -e "set number\ncolorscheme desert\set ts=4" >>/etc/vimrc
-cp -p /etc/profile /etc/profile.org
+cp -bp /etc/vimrc /etc/vimrc.org
+echo -e "set number\ncolorscheme desert\nset ts=4" >>/etc/vimrc
+cp -bp /etc/profile /etc/profile.org
 echo -e "alias vi='vim'" >>/etc/profile
 ## Choose your favorite colorscheme.
 
