@@ -13,8 +13,8 @@ services:
                 MYSQL_USER: zabbix
                 MYSQL_PASSWORD: zabbix
                 PHP_TZ: Asia/Tokyo
-        logging:
-                driver: "journald"
+        #logging:
+        #        driver: "journald"
 
 
     zabbix-web:
@@ -33,8 +33,8 @@ services:
             MYSQL_PASSWORD: zabbix
             ZBX_SERVER_HOST: zabbix-ap
             PHP_TZ: Asia/Tokyo
-        logging:
-                driver: "journald"
+        #logging:
+        #        driver: "journald"
 
     zabbix-mariadb:
         image: zabbix-mariadb
@@ -47,8 +47,8 @@ services:
             MYSQL_DATABASE: zabbix
             MYSQL_USER: zabbix
             MYSQL_PASSWORD: zabbix
-        logging:
-                driver: "journald"
+        #logging:
+        #        driver: "journald"
 
         # volumes:
         #     - ./db_data:/var/lib/mysql

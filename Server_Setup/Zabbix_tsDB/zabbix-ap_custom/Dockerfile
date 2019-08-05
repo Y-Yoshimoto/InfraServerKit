@@ -4,3 +4,4 @@ RUN apk update
 RUN apk add tzdata
 
 EXPOSE 10051
+COPY localtime /etc/localtime
