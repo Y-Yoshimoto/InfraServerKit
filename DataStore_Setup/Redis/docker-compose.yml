@@ -9,6 +9,10 @@ services:
             - "6379:6379"
         networks:
             - default
+        # command: redis-server --appendonly yes
+        #volumes:
+        #    - /radis_data:/data
+
     redisCommander:
         image: tenstartups/redis-commander
         command: --redis-host Redis
