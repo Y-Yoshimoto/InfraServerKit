@@ -8,4 +8,4 @@ COPY my.cnf /etc/mysql/my.cnf
 EXPOSE 3306
 
 # 初期構築データのコピー
-#COPY zabbix_startup.sql /docker-entrypoint-initdb.d/zabbix_startup.sql
+COPY zabbix_startup.sql /docker-entrypoint-initdb.d/zabbix_startup.sql

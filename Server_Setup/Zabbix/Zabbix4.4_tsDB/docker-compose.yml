@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3'
 services:
     zabbix-ap:
         image: zabbix-appg
@@ -14,20 +14,19 @@ services:
                 POSTGRES_USER: zabbix
                 POSTGRES_PASSWORD: zabbix
                 PHP_TZ: Asia/Tokyo
-        # logging:
-        #    driver: "json-file" # defaults if not specified
-        #    options:
-        #        max-size: "10m"
-        #        max-file: "3"
-
+        #logging:
+        #        driver: "journald"
+        volumes:
+            - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
+            - ./snmp_data/mibs:/var/lib/zabbix/mibs
 
     zabbix-web:
-        image: zabbix-web_pg
+        image: zabbix-webpg
         build: zabbix-webpg_custom
         restart: always
         ports:
-            - "80"
-            - "443"
+            - "80:80"
+            - "443:443"
         depends_on:
             - zabbix-timescaledb
             - zabbix-ap
@@ -39,11 +38,7 @@ services:
             ZBX_SERVER_HOST: zabbix-ap
             PHP_TZ: Asia/Tokyo
         #logging:
-        #    driver: "json-file" # defaults if not specified
-        #    options:
-        #        max-size: "10m"
-        #        max-file: "3"
-
+        #        driver: "journald"
 
     zabbix-timescaledb:
         image: zabbix-timescaledb
@@ -58,12 +53,31 @@ services:
             POSTGRES_PASSWORD: zabbix
             POSTGRES_DB: zabbix
         #logging:
-        #    driver: "json-file" # defaults if not specified
-        #    options:
-        #        max-size: "10m"
-        #        max-file: "3"
-
-
+        #        driver: "journald"
         # volumes:
-        #     - - ./db_data:/var/lib/postgresql/data
-        # Log設定を追加
+        #     - ./db_data:/var/lib/postgresql/data
+
+    zabbix-snmptraps:
+        image: zabbix-snmptraps
+        build: zabbix-snmptraps_custom
+        ports:
+            - "162:162"
+            - "162:162/udp"
+        restart: always
+        #logging:
+        #        driver: "jounald"
+        volumes:
+            - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
+            - ./snmp_data/mibs:/var/lib/zabbix/mibs
+
+    zabbix-agent:
+        image: zabbix-agent
+        build: zabbix-agent_custom
+        ports:
+            - "10050"
+        restart: always
+        environment:
+            - ZBX_HOSTNAME=ZabbixServer
+            - ZBX_SERVER_HOST=zabbix44_tsdb_zabbix-ap_1
+        #logging:
+        #        driver: "jounald"

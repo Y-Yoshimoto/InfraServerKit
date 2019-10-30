@@ -77,6 +77,5 @@ services:
         environment:
             - ZBX_HOSTNAME=ZabbixServer
             - ZBX_SERVER_HOST=zabbix44_zabbix-ap_1
-            #- ZBX_SERVER_HOST=172.22.0.5
         #logging:
         #        driver: "jounald"
