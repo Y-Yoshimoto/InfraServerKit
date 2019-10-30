@@ -15,7 +15,9 @@ services:
                 PHP_TZ: Asia/Tokyo
         #logging:
         #        driver: "journald"
-
+        volumes:
+            - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
+            - ./snmp_data/mibs:/var/lib/zabbix/mibs
 
     zabbix-web:
         image: zabbix-web
@@ -62,6 +64,19 @@ services:
         restart: always
         #logging:
         #        driver: "jounald"
-        #volumes:
-        #    - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
-        #    - ./snmp_data/mibs:/var/lib/zabbix/mi
+        volumes:
+            - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
+            - ./snmp_data/mibs:/var/lib/zabbix/mibs
+
+    zabbix-agent:
+        image: zabbix-agent
+        build: zabbix-agent_custom
+        ports:
+            - "10050"
+        restart: always
+        environment:
+            - ZBX_HOSTNAME=ZabbixServer
+            - ZBX_SERVER_HOST=zabbix44_zabbix-ap_1
+            #- ZBX_SERVER_HOST=172.22.0.5
+        #logging:
+        #        driver: "jounald"
