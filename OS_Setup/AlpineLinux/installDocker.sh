@@ -9,7 +9,8 @@ echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositor
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
 # apkからインストール
-apk add git docker docker-compose
+apk add curl git vim
+apk add docker docker-compose
 
 # Dockerサービス起動, 有効化
 rc-update add docker boot
