@@ -1,0 +1,11 @@
+{
+    "proxies":
+    {
+      "default":
+      {
+        "httpProxy": "http://PROXY",
+        "httpsProxy": "http://PROXY",
+        "noProxy": "*.example.com"
+      }
+    }
+   }
