@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>トップページ</title>
+    <style>
+        /*各ボックスの設定*/
+        #Zabbix{ background-color: #41962A;}
+        #Redmine{ background-color: #417FEA;}
+        #Gitlab{ background-color: #ED714C;}
+        #Webapp{background-color: #7862AF;}
+    </style>
+</head>
+<!--自動再読み込み-->
+<meta http-equiv="refresh" content="10">
+<!--CSS読み込み-->
+<link rel="stylesheet" type="text/css" href="./boxlayout.css">
+<!--レスポンシブル用-->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<!--<meta name="viewport" content="width=device-width">-->
+<body>
+	<div class="mainber"><mainber>index</mainber></div>
+	<div id="wrapper">
+<div class="boxContainer">
+		<a href="./zabbix/"><div class="box" id="Zabbix">Zabbix</div></a>
+		<a href="./redmine/"><div class="box" id="Redmine">Redmine</div></a>
+        <a href="./gitlab/"><div class="box" id="Gitlab">Gitlab</div></a>
+        <a href="./webapp/"><div class="box" id="Webapp">Webapp</div></a>
+        </div>
+	</div>
+<hr class="bottomber">
+
+</body>
+
+</html>
