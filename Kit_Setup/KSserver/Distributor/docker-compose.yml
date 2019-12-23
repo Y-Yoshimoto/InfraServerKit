@@ -1,7 +1,7 @@
-version: '2'
+version: '3'
 
 services:
-    nginx_proxy:
+    web_container:
         image: web_container
         build: web_container
         restart: always
@@ -10,17 +10,9 @@ services:
             - "443:443"
         networks:
             - default
-            - redmine_default
-            #- zabbix_default
-            - unit_default
-            # - gitlab_default
+
 networks:
     redmine_default:
         external: true
-    #zabbix_default:
-    #    external: true
     unit_default:
         external: true
-
-    # gitlab_default:
-    #    external: true
