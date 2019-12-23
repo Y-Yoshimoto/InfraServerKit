@@ -2,8 +2,8 @@ version: '2'
 
 services:
     nginx_proxy:
-        image: nginx_proxly
-        build: nginx_custom
+        image: web_container
+        build: web_container
         restart: always
         ports:
             - "80:80"
