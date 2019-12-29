@@ -12,11 +12,11 @@ RUN mkdir -p /distributor && chmod 777 /distributor
 EXPOSE 139 445
 
 # ENTRYPOINT [ "/bin/ash" ]
-CMD ["/usr/sbin/smbd", "-i"]
+CMD ["/usr/sbin/smbd", "-D"]
 
 # docker build -t alpine-smb .
 # docker run -d -p 8139:139 -p 8445:445 --name smb-test alpine-smb
-# docker logs smb-test
+# docker logs -f smb-test
 # docker exec -it smb-test /bin/ash
 # docker stop smb-test && docker rm smb-test
 
