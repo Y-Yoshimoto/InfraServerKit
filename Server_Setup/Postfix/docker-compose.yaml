@@ -1,0 +1,12 @@
+version: '3'
+
+services: 
+    postfix_custom:
+        image: postfix_custom
+        build: postfix_custom
+        restart: always
+        ports:
+            - "25:25"
+            - "587:587"
+        environment:
+                TZ: 'Asia/Tokyo'

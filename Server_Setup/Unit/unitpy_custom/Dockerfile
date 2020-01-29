@@ -9,17 +9,8 @@ RUN apt-get -y update\
     && apt-get clean\
     && pip install MySQL-Python
 
-#### Python path
-### /usr/bin/python
-#### MariaDB Client
-## apt-get install -y mariadb-client
 
 # アプリケーションを配置
 RUN mkdir -p /www/snippet
-COPY start.json /www/
-COPY docker-entrypoint.sh /www/
+COPY start.json /docker-entrypoint.d/
 COPY contents/*.py /www/snippet/
-
-# 参考 http://unit.nginx.org/
-ENTRYPOINT ["/bin/bash"]
-CMD ["/www/docker-entrypoint.sh"]
