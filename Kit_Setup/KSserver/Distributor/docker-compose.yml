@@ -12,3 +12,15 @@ services:
             - default
         volumes:
              - ./web_container/contents/:/usr/share/nginx/html/
+    smb_container:
+        image: smb_container
+        build: smb_container
+        restart: always
+        ports:
+            - "139:139"
+            - "445:445"
+            - "445:445/udp"
+        networks:
+            - default
+        volumes:
+             - ./web_container/contents/:/distributor/
