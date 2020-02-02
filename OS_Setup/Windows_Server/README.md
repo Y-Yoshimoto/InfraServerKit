@@ -11,6 +11,7 @@
     1.2インストール(Windows Server 2019)
         Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
         Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+        Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
     2. ファイアウォールのルールを追加する
     New-NetFirewallRule -Protocol TCP -LocalPort 22 -Direction Inbound -Action Allow -DisplayName SSH
     3. サービスを起動する
@@ -25,3 +26,10 @@
     - RDP有効化(ネットワーク認証OFF)
         Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value "0"
         Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name UserAuthentication" -Value "0"
+        New-NetFirewallRule -Protocol TCP -LocalPort 22 -Direction Inbound -Action Allow -DisplayName SSH
+        Get-NetFirewallRule -DisplayName "リモート*デスクトップ*" | Select DisplayName, Enabled
+        Get-NetFirewallRule -DisplayName "Remote Desktop*" | Select DisplayName, Enabled
+
+## 再起動, シャットダウン
+Restart-Computer -Force
+Stop-Computer -Force

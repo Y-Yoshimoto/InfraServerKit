@@ -15,7 +15,7 @@ $VM = @{
    SwitchName = $VMSW
 }
 
-# New-VM @VM
+New-VM @VM
 
 Write-Host "NEW VM $VMName"
 # Get-VM $VMName | select *
@@ -23,14 +23,14 @@ Write-Host "NEW VM $VMName"
 ## CPU設定
 Set-VMProcessor -VMName $VMName -Count 2
 ## メモリ設定
-Set-VMMemory -VMName $VMName -DynamicMemoryEnabled $true -MinimumBytes 256MB -MaximumBytes 2GB -Priority 50 -Buffer 25
+Set-VMMemory -VMName $VMName -DynamicMemoryEnabled $true -MinimumBytes 256MB -MaximumBytes 2GB -Priority 50 -Buffer 20
 ## ネットワーク設定
 Connect-VMNetworkAdapter -VMName VMPS3 -SwitchName $VMSW 
 ## DVD指定
 Add-VMDvdDrive -VMName $VMName -Path $ISOFile
 #Set-VMDvdDrive $VMName -Path $ISOFile
 ## セキュアブート
-Set-VMFirmware -VMName $VMName -EnableSecureBoot Off
+Set-VMFirmware -VMName WinTest-EN -EnableSecureBoot Off -FirstBootDevice (Get-VMDvdDrive -VMName WinTest-EN)
 ## チェックポイント
 Set-VM-VMName  $VMName -CheckpointType Disabled
 
