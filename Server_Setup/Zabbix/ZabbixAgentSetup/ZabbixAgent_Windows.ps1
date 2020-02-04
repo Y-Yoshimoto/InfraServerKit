@@ -1,9 +1,9 @@
 # SetupZabbixAgent
-Invoke-WebRequest -Uri https://www.zabbix.com/downloads/4.2.0/zabbix_agents-4.2.0-win-amd64-openssl.zip -OutFile ./zabbix_agents.zip
+Invoke-WebRequest -Uri https://www.zabbix.com/downloads/4.4.5/zabbix_agents-4.4.5-win-amd64-openssl.zip -OutFile ./zabbix_agents.zip
 Expand-Archive -Path ./zabbix_agents.zip ./zabbix_agents
 
 # Set some Files.
-copy .\zabbix_agents\conf\zabbix_agentd.win.conf .\zabbix_agents\conf\zabbix_agentd.conf.bak
+copy .\zabbix_agents\conf\zabbix_agentd.conf .\zabbix_agents\conf\zabbix_agentd.conf.bak
 Copy-Item "zabbix_agents" "C:\Program Files\" -Recurse -Force
 
 ## Edit conf file.
@@ -11,7 +11,7 @@ $hostName = hostname
 $ZabbixServerIP = "192.168.1.115"
 $ZabbixServerSegment = "192.168.1.0/24"
 
-$config= Get-Content .\zabbix_agents\conf\zabbix_agentd.win.conf -Encoding UTF8
+$config= Get-Content .\zabbix_agents\conf\zabbix_agentd.conf -Encoding UTF8
 # $config= $config.Replace("LogFile=c:\\zabbix_agentd.log","LogFile=C:\Program Files\zabbix_agents\log\zabbix_agentd.log")
 $config= $config.Replace("# LogType=file","LogType=system")
 $config= $config.Replace("Server=127.0.0.1","Server=$ZabbixServerSegment")
@@ -52,4 +52,4 @@ Start-Service -Name "Zabbix Agent"
 # Unistall
 ## Stop-Service -Name "Zabbix Agent"
 ## cmd sc delete "Zabbix Agent"
-## rm C:\Program Files\zabbix_agents -Force
+## rm “C:\Program Files\zabbix_agents” -Force
