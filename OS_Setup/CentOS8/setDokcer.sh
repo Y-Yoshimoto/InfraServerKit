@@ -1,8 +1,14 @@
 #!/bin/bash
 ## curl -OL http://192.168.1.80/setDokcer.sh 
+echo "Start setup Docker."
+echo "Runing setDocker.sh and Automatically reboot." > /etc/motd
 
-# Setup_Docker
-# yum install docker -y
+######################### Crontab #########################
+sed -i -e "s/@reboot/#@reboot/" /etc/crontab
+## Setup Docker
+# echo "@reboot root /root/setMinikube.sh  2>&1 | tee /root/setMinikube.log" >> /etc/crontab
+
+######################### Docker #########################
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 dnf repolist
 dnf install --nobest docker-ce -y
@@ -12,11 +18,10 @@ systemctl enable docker
 systemctl restart docker
 systemctl status docker | grep Active:
 
-groupadd docker
+# groupadd docker
 # gpasswd -a $GeneralUser docker
 curl -L https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-
 
 ############################### Dokcer ProxySetup ###############################
 # mkdir ~/.docker/
@@ -28,4 +33,10 @@ chmod +x /usr/local/bin/docker-compose
 # systemctl daemon-reload
 # systemctl restart docker
 # systemctl status docker | grep Active:
-# echo "END"
+
+######################### Clean #########################
+mv setDokcer.sh /root/used
+dnf clean all
+echo "END"
+echo "" > /etc/motd
+reboot

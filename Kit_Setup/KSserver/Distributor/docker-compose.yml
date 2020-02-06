@@ -22,5 +22,5 @@ services:
             - "445:445/udp"
         networks:
             - default
-        volumes:
-             - ./web_container/contents/:/distributor/
+        # volumes:
+        #      - ./web_container/contents/:/distributor/

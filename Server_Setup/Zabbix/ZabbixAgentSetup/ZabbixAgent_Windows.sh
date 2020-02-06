@@ -32,7 +32,6 @@ if (-not(Get-NetFirewallRule | where Name -eq "Zabbix_agent"))
         -Enabled True `
         -Group "Zabbix" `
         -Action Allow `
-        –Enabled True`
         -RemoteAddress Any`
         -LocalPort 10050`
         -LocalUser Any `

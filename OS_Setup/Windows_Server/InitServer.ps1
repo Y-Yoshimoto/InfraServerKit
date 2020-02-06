@@ -5,8 +5,8 @@
 ## ホスト名設定
 Rename-Computer WinTest-EN
 ## Administratorユーザー名変更
-Rename-LocalUser -Name "Administrator" -NewName "root"
-net user root
+# Rename-LocalUser -Name "Administrator" -NewName "root"
+# net user root
 # WMIC USERACCOUNT WHERE Name="root" SET PasswordExpires=False
 
 
@@ -22,8 +22,8 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\W
 
 ## SSH有効化 ##
 #Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
-Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
-Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+Add-WindowsCapability -Online -Name 'OpenSSH.Server~~~~0.0.1.0'
+Add-WindowsCapability -Online -Name 'OpenSSH.Client~~~~0.0.1.0'
 New-NetFirewallRule -Protocol TCP -LocalPort 22 -Direction Inbound -Action Allow -DisplayName SSH
 Start-Service -Name "sshd"
 Set-Service -Name "sshd" -StartupType Automatic
