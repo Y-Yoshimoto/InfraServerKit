@@ -1,4 +1,5 @@
 # SetupZabbixAgent
+
 Invoke-WebRequest -Uri https://www.zabbix.com/downloads/4.4.5/zabbix_agent-4.4.5-windows-amd64-openssl.zip -OutFile ./zabbix_agents.zip
 Expand-Archive -Path ./zabbix_agents.zip ./zabbix_agents
 
@@ -52,4 +53,4 @@ Start-Service -Name "Zabbix Agent"
 # Unistall
 ## Stop-Service -Name "Zabbix Agent"
 ## cmd sc delete "Zabbix Agent"
-## rm C:\Program Files\zabbix_agents -Force
+## rm “C:\Program Files\zabbix_agents” -Force
