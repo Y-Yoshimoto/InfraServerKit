@@ -1,7 +1,7 @@
 FROM alpine:latest
 LABEL maintainer 'y-yoshimoto'
 
-RUN apk --no-cache add squid
+RUN apk --no-cache add tzdata squid
 COPY squid.conf /etc/squid/squid.conf
 
 ENTRYPOINT ["/usr/sbin/squid", "-f" ,"/etc/squid/squid.conf", "--foreground", "-CY"]
