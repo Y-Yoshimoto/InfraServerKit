@@ -23,12 +23,26 @@ chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 kubectl version
 
+# Install kompose on Linux
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.20.0/kompose-linux-amd64 -o kompose
+chmod +x kompose
+sudo mv ./kompose /usr/local/bin/kompose
+
 # Start Minikube
 minikube start --vm-driver=none
 echo "Minikube Status"
 minikube status
 # minikube stop
 # minikube delete
+
+# Start docker registry
+docker pull registry:latest
+docker run -d -p 5000:5000 --restart always --name registry registry:2
+echo "docker registry: localhost:5000"
+# push registry
+# docker pull alpine
+# docker tag alpine localhost:5000/alpine
+# docker push localhost:5000/alpine
 
 echo "END"
 echo "" > /etc/motd
