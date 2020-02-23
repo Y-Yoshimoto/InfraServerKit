@@ -1,25 +1,25 @@
-version: '3'
+version: "3"
 
-services: 
+services:
     squidForward:
         image: squid_forward
         build: squid_forward
         restart: always
         ports:
             - 3128:3128
-        environment: 
+        environment:
             - TZ=Asia/Tokyo
-        volumes: 
+        volumes:
             - squidlog:/var/log/squid
     logExporter:
         image: log_exporter
         build: log_exporter
-        depends_on: 
+        depends_on:
             - squidForward
         restart: always
-        environment: 
+        environment:
             - TZ=Asia/Tokyo
-        volumes: 
+        volumes:
             - squidlog:/squidlog
-volumes: 
+volumes:
     squidlog:

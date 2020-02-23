@@ -1,0 +1,22 @@
+version: "3"
+services:
+  gitbabucket:
+    image: gitbucket/gitbucket:latest
+    # build: gitbucket
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - bucketReg:/gitbucket
+  gitbabucket:
+    image: registry:latest
+    # build: registry
+    ports:
+      - 5000:5000
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - bucketReg:/var/lib/registry
+volumes:
+  bucketReg:
