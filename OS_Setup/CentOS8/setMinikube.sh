@@ -5,9 +5,9 @@ echo "Runing setMinikube.sh and Automatically reboot." > /etc/motd
 
 ######################### Crontab #########################
 #sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
+sleep 10s
 
 ######################### Minikube #########################
-
 # Minikube download
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube

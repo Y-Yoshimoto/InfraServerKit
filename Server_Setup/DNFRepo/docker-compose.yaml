@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  dnfrepo:
+    image: dnfrepo
+    build: dnfrepo
+    restart: always
+    environment:
+      - TZ=Asia/Tokyo
+    ports:
+      - "80:80"

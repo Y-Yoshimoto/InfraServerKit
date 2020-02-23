@@ -7,10 +7,12 @@ echo "Runing setDocker.sh and Automatically reboot." > /etc/motd
 sed -i -e "s/@reboot/#@reboot/" /etc/crontab
 ## Setup Docker
 # echo "@reboot root /root/setMinikube.sh  2>&1 | tee /root/setMinikube.log" >> /etc/crontab
+sleep 10s
 
 ######################### Docker #########################
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 dnf repolist
+dnf update -y
 dnf install --nobest docker-ce -y
 dnf config-manager --disable docker-ce.repo
 docker --version

@@ -13,10 +13,10 @@ sed -i -e "s/@reboot/#@reboot/" /etc/crontab
 ## Setup Docker
 echo "@reboot root /root/setDokcer.sh 2>&1 | tee /root/setDokcer.log" >> /etc/crontab
 ######################### Network #########################
-
+sleep 10s
 ######################### DNF #########################
 # DNF update 
-wall "dnf update"
+echo "dnf update"
 dnf update -y
 
 ######################### firewalld selinux #########################
