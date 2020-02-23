@@ -4,7 +4,7 @@ echo "Start Setup Minikube"
 echo "Runing setMinikube.sh and Automatically reboot." > /etc/motd
 
 ######################### Crontab #########################
-sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
+#sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
 
 ######################### Minikube #########################
 
