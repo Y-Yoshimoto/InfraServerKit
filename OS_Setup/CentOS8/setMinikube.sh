@@ -29,9 +29,12 @@ chmod +x kompose
 sudo mv ./kompose /usr/local/bin/kompose
 
 # Start Minikube
-minikube start --vm-driver=none
+# minikube start --vm-driver=none 
+# User Extra NodePort Range.
+minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767
+## https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
 echo "Minikube Status"
-minikube status
+minikube status 
 # minikube stop
 # minikube delete
 
