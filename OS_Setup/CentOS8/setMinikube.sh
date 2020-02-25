@@ -2,7 +2,7 @@
 ## curl -OL http://192.168.1.80/setMinikube.sh 
 echo "Start Setup Minikube"
 echo "Runing setMinikube.sh and Automatically reboot." > /etc/motd
-
+hostN=hostname
 ######################### Crontab #########################
 #sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
 sleep 10s
@@ -31,7 +31,10 @@ sudo mv ./kompose /usr/local/bin/kompose
 # Start Minikube
 # minikube start --vm-driver=none 
 # User Extra NodePort Range.
-minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767
+# minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767
+# minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767 --extra-config=proxy.hostname-override=$hostN --extra-config=kubelet.hostname-override=$hostN
+minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767 --extra-config=kubelet.hostname-override=$hostN
+
 ## https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
 echo "Minikube Status"
 minikube status 
