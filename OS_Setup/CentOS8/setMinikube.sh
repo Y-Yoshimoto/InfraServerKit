@@ -3,6 +3,7 @@
 echo "Start Setup Minikube"
 echo "Runing setMinikube.sh and Automatically reboot." > /etc/motd
 hostN=hostname
+source ~/.bashrc 
 ######################### Crontab #########################
 #sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
 sleep 10s

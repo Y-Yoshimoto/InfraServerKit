@@ -2,7 +2,7 @@
 ## curl -OL http://192.168.1.80/setDokcer.sh 
 echo "Start setup Docker."
 echo "Runing setDocker.sh and Automatically reboot." > /etc/motd
-
+source ~/.bashrc 
 ######################### Crontab #########################
 sed -i -e "s/@reboot/#@reboot/" /etc/crontab
 ## Setup Docker

@@ -1,38 +1,38 @@
 # Make new VM
 # https://docs.microsoft.com/ja-jp/powershell/module/hyper-v/new-vm?view=win10-ps
-$VMName = "VMPS1"
+$VMName = "VMtest"
 $VMPath = "D:\Hyper-V\VMdata\"
-$VMSW = "CanisLAN"
-$ISOFile = "D:\Hyper-V\ISO\CentOS-8-x86_64-1905-dvd1.iso"
+$VMSW = "LAN"
+$ISOFile = "D:\Hyper-V\ISO\CentOS-8.1.1911-x86_64-dvd1.iso"
 $VM = @{
    Name = $VMName
-   MemoryStartupBytes = 1GB
+   MemoryStartupBytes = 2GB
    Generation = 2
    NewVHDPath = "$VMName.vhdx"
-   NewVHDSizeBytes = 50GB
+   NewVHDSizeBytes = 70GB
    BootDevice = "VHD"
    Path = $VMPath
    SwitchName = $VMSW
 }
-
 New-VM @VM
 
 Write-Host "NEW VM $VMName"
-# Get-VM $VMName | select *
+Start-Sleep -s 10
+# Get-VM $VMName
 
-## CPU設定
+## CPU
 Set-VMProcessor -VMName $VMName -Count 2
-## メモリ設定
-Set-VMMemory -VMName $VMName -DynamicMemoryEnabled $true -MinimumBytes 256MB -MaximumBytes 2GB -Priority 50 -Buffer 20
-## ネットワーク設定
-Connect-VMNetworkAdapter -VMName $VMName -SwitchName $VMSW 
-## DVD指定
+## Memory
+Set-VMMemory -VMName $VMName -DynamicMemoryEnabled $true -MinimumBytes 256MB -MaximumBytes 6GB -Priority 50 -Buffer 20
+## Network
+Connect-VMNetworkAdapter -VMName $VMName -SwitchName $VMSW
+## DVD
 Add-VMDvdDrive -VMName $VMName -Path $ISOFile
-#Set-VMDvdDrive $VMName -Path $ISOFile
-## セキュアブート
+
+## SecureBoot
 Set-VMFirmware -VMName $VMName -EnableSecureBoot Off -FirstBootDevice (Get-VMDvdDrive -VMName $VMName)
-## チェックポイント
-Set-VM- $VMName -CheckpointType Disabled
+## Checkpoint
+Set-VM -VMName $VMName -CheckpointType Disabled
 
 Write-Host "SET VM"
-# Get-VM $VMName | select *
+Get-VM $VMName

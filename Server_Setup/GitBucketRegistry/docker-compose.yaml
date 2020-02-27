@@ -9,7 +9,7 @@ services:
       - TZ=Asia/Tokyo
     volumes:
       - bucketReg:/gitbucket
-  gitbabucket:
+  registry:
     image: registry:latest
     # build: registry
     ports:
