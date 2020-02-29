@@ -13,6 +13,7 @@ sleep 10s
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 dnf repolist
 dnf update -y
+dnf -y update https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
 dnf install --nobest docker-ce -y
 dnf config-manager --disable docker-ce.repo
 docker --version
