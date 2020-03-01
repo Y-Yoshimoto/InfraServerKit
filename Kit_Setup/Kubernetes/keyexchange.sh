@@ -15,7 +15,7 @@ cat /root/.ssh/id_kube.pub >> /root/.ssh/authorized_keys
 ## Make ssh conif and list
 for node in "${Serverlist[@]}"
 do
-    echo $node >> ./Serverlist.conf
+    echo $node >> /etc/Serverlist.conf
     echo "Host $node" >> /root/.ssh/config
     echo "  HostName $node" >> /root/.ssh/config
     echo "  IdentityFile ~/.ssh/id_kube" >> /root/.ssh/config

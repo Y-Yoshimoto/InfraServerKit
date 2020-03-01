@@ -7,13 +7,13 @@ source ~/.bashrc
 sed -i -e "s/@reboot/#@reboot/" /etc/crontab
 ## Setup Docker
 # echo "@reboot root /root/setMinikube.sh  2>&1 | tee /root/setMinikube.log" >> /etc/crontab
-sleep 10s
+sleep 3s
 
 ######################### Docker #########################
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 dnf repolist
-dnf update -y
-dnf -y update https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
+dnf upgrade -y
+dnf update -y https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
 dnf install --nobest docker-ce -y
 dnf config-manager --disable docker-ce.repo
 docker --version

@@ -13,11 +13,11 @@ sed -i -e "s/@reboot/#@reboot/" /etc/crontab
 ## Setup Docker
 echo "@reboot root /root/setDokcer.sh 2>&1 | tee /root/setDokcer.log" >> /etc/crontab
 ######################### Network #########################
-sleep 10s
+sleep 3s
 ######################### DNF #########################
 # DNF update 
 echo "dnf update"
-dnf update -y
+dnf upgrade -y
 
 ######################### firewalld selinux #########################
 # Stop firewalld
@@ -43,10 +43,7 @@ diff /etc/profile /etc/profile.org > ./setupLogs/vimDiff.log
 diff /etc/vimrc /etc/vimrc.org > ./setupLogs/vimDiff.log
 
 ## git
-dnf install git -y
-
-## git
-dnf install wget -y
+dnf install -y git wget langpacks-ja
 ######################### Basic Demon #########################
 # Setup sshd
 cp -p /etc/ssh/sshd_config /etc/ssh/sshd_config.org

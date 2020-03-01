@@ -6,7 +6,7 @@ hostN=hostname
 source ~/.bashrc 
 ######################### Crontab #########################
 #sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
-sleep 10s
+sleep 3s
 
 ######################### Minikube #########################
 # Minikube download
@@ -23,6 +23,11 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 kubectl version
+
+### kubelet auto-completion
+dnf install -y bash-completion
+echo 'source /usr/share/bash-completion/bash_completion' >> /etc/bashrc
+kubectl completion bash >/etc/bash_completion.d/kubectl
 
 # Install kompose on Linux
 curl -L https://github.com/kubernetes/kompose/releases/download/v1.20.0/kompose-linux-amd64 -o kompose
