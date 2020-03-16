@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
     zabbix-ap:
         image: zabbix-ap
@@ -9,10 +9,10 @@ services:
         depends_on:
             - zabbix-mariadb
         environment:
-                DB_SERVER_HOST: zabbix-mariadb
-                MYSQL_USER: zabbix
-                MYSQL_PASSWORD: zabbix
-                PHP_TZ: Asia/Tokyo
+            DB_SERVER_HOST: zabbix-mariadb
+            MYSQL_USER: zabbix
+            MYSQL_PASSWORD: zabbix
+            PHP_TZ: Asia/Tokyo
         #logging:
         #        driver: "journald"
         volumes:
@@ -51,7 +51,6 @@ services:
             MYSQL_PASSWORD: zabbix
         #logging:
         #        driver: "journald"
-
         # volumes:
         #     - ./db_data:/var/lib/mysql
 
