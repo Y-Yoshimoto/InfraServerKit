@@ -1,5 +1,5 @@
 # Windows Server初期構築
-# Invoke-WebRequest 'http://192.168.137.30/InitServer.ps1' -OutFile ./InitServer.ps1
+# Invoke-WebRequest 'https://raw.githubusercontent.com/Y-Yoshimoto/InfraServerKit/master/OS_Setup/Windows_Server/InitServer.ps1' -OutFile ./InitServer.ps1
 # Set-ExecutionPolicy RemoteSigned
 
 ## ホスト名設定
