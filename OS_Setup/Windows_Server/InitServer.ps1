@@ -57,7 +57,7 @@ New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate","HKLM:\
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name NoAutoUpdate -PropertyType DWord -Value 1 -Force
 
 ## Windows Update
-$updates = Start-WUScan
-Install-WUUpdates -Updates $updates
+# $updates = Start-WUScan
+# Install-WUUpdates -Updates $updates
 
 # Restart-Computer -Force
