@@ -64,3 +64,4 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\
 # Install-WUUpdates -Updates $updates
 
 # Restart-Computer -Force
+Write-Output 'Restart-Computer -Force'
