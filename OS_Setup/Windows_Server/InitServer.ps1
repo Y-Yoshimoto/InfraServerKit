@@ -7,7 +7,7 @@ Rename-Computer WinTest-EN
 sleep 5
 ## AD参加
 # Set-DnsClientServerAddress -InterfaceAlias "イーサネット" -ServerAddress "192.168.1.50","192.168.1.1"
-# Add-Computer -DomainName {DomainName} -Credential Administrator
+# Add-Computer -DomainName {DomainName} -Credential Administrator -Force -Options JoinWithNewName,AccountCreate -restart
 ## Administratorユーザー名変更
 # Rename-LocalUser -Name "Administrator" -NewName "root"
 # net user root
