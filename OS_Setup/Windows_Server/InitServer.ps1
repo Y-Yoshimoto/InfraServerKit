@@ -3,7 +3,7 @@
 # Set-ExecutionPolicy RemoteSigned
 
 ## ホスト名設定
-Rename-Computer WinTest-EN
+Rename-Computer -NewName WinTest-EN -Force
 sleep 5
 ## AD参加
 # Set-DnsClientServerAddress -InterfaceAlias "イーサネット" -ServerAddress "192.168.1.50","192.168.1.1"
