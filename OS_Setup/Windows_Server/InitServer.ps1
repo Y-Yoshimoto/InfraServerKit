@@ -46,12 +46,16 @@ $acl.SetAccessRuleProtection($true,$true)
 $removeRule = $acl.Access | Where-Object { $_.IdentityReference -eq 'NT AUTHORITY\Authenticated Users' }
 $acl.RemoveAccessRule($removeRule)
 $acl | Set-Acl -Path $authKeyPath
+#### ユーザ毎のauthorized_keysに変更 ### 動作確認待ち
+#$(Get-Content "$env:ProgramData\ssh\sshd_config") -replace "Match","#Match" > $env:ProgramData\ssh\sshd_config
+#$(Get-Content "$env:ProgramData\ssh\sshd_config") -replace "AuthorizedKeysFile","#AuthorizedKeysFile" > $env:ProgramData\ssh\sshd_config
 
 ### プロンプト変更  $PROFILE (バージョン確認)
 New-Item $HOME\Documents\WindowsPowerShell -ItemType Directory
 New-Item $HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 Set-Item function:Global:prompt {"PS:[" + $(hostname) +"] "+ (Split-Path (Get-Location) -Leaf) +"/ >"} -force
 Write-Output 'function prompt() {"PS:[" + $(hostname) +"] "+ (Split-Path (Get-Location) -Leaf) +"/ >"}' >> $HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+Set-ItemProperty -Path $HOME\Documents\WindowsPowerShell -Name Attributes -Value Hidden
 
 ## ファイアウォール無効化
 # Get-NetFirewallProfile | Set-NetFirewallProfile -Enabled false
