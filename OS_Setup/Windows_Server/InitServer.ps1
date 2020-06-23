@@ -6,8 +6,9 @@
 Rename-Computer -NewName WinTest-EN -Force
 sleep 5
 ## AD参加
+$DomainName = AD.test
 # Set-DnsClientServerAddress -InterfaceAlias "イーサネット" -ServerAddress "192.168.1.50","192.168.1.1"
-# Add-Computer -DomainName {DomainName} -Credential Administrator -Force -Options JoinWithNewName,AccountCreate -restart
+# Add-Computer -DomainName {DomainName} -Credential Administrator -Force -Options JoinWithNewName,AccountCreate
 ## Administratorユーザー名変更
 # Rename-LocalUser -Name "Administrator" -NewName "root"
 # net user root
@@ -64,5 +65,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\
 # $updates = Start-WUScan
 # Install-WUUpdates -Updates $updates
 
-# Restart-Computer -Force
-Write-Output 'Restart-Computer -Force'
+Write-Output 'Restart-Computer -Force 5s'
+sleep 5
+Restart-Computer -Force
+
