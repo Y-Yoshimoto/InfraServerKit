@@ -48,8 +48,8 @@ $acl.RemoveAccessRule($removeRule)
 $acl | Set-Acl -Path $authKeyPath
 #### ユーザ毎のauthorized_keysに変更 
 Copy-Item $env:ProgramData\ssh\sshd_config $env:ProgramData\ssh\sshd_config.org
-$(Get-Content "$env:ProgramData\ssh\sshd_config") -replace "Match","#Match" |Out-File -Encoding Default  $env:ProgramData\ssh\sshd_config.edit
-$(Get-Content "$env:ProgramData\ssh\sshd_config") -replace "AuthorizedKeysFile","#AuthorizedKeysFile" |Out-File -Encoding Default  $env:ProgramData\ssh\sshd_config.edit
+$(Get-Content "$env:ProgramData\ssh\sshd_config") -replace "Match","#Match" |Out-File -Encoding Default $env:ProgramData\ssh\sshd_config
+$(Get-Content "$env:ProgramData\ssh\sshd_config") -replace "AuthorizedKeysFile","#AuthorizedKeysFile" |Out-File -Encoding Default $env:ProgramData\ssh\sshd_config
 
 ### プロンプト変更  $PROFILE (バージョン確認)
 New-Item $HOME\Documents\WindowsPowerShell -ItemType Directory
