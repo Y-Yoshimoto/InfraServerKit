@@ -1,0 +1,13 @@
+version: "3"
+services:
+  react:
+    image: react_dev
+    build: react_dev
+    container_name: react_dev
+    ports:
+      - "3000:3000"
+    # restart: always
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./react_dev/src:/my-app/src
