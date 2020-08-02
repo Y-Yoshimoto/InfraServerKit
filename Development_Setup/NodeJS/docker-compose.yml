@@ -1,0 +1,9 @@
+version: "2"
+services:
+    nodejs_dev:
+        build: "nodejs_dev"
+        image: "nodejs_dev"
+        container_name: nodejs_dev
+        restart: "no"
+        volumes:
+            - ./nodejs_dev/src:/app/src
