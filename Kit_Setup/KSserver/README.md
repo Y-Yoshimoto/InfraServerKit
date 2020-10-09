@@ -4,7 +4,7 @@
     KSファイル, 構築用スクリプト配布用Webサーバ
     セットアップ素材を"web_container/contents/"配下に設置し、コンテナを起動
     
-    "smb://127.0.0.1:8445/Distributor" に対して接続する
+    --"smb://127.0.0.1:8445/Distributor" に対して接続する--
 
 ### セットアップ資材のコピー
 cp ../../OS_Setup/CentOS8/* ./Distributor/web_container/contents/
@@ -12,7 +12,7 @@ cp ../../OS_Setup/CentOS8/* ./Distributor/web_container/contents/
 ## ISOmaker
     ISOファイルの再生成用
 
-# DHCP利用のKS-Distributor
+# DHCP利用のKS-Distributor 
 キックスタート及び初期設定用の素材配布用コンポーネント
 
 ## セットアップ
@@ -28,7 +28,7 @@ OSインストール時点で仮のIPアドレスを割り当てるため、DHCP
 1. `dnf install -y dnsmasq`でdnsmasqをインストール
 2. `cp ./dnsmasq.conf /etc/dnsmasq.conf`で設定ファイル設置  
 配布するIPアドレスレンジを及びデフォルトゲートウェイ,DNS等は環境に合わせること  
-3. `systemctl enable --now dnsmasq` で起動及び有効か
+3. `systemctl enable --now dnsmasq` で起動及び有効化
 
 
 ## キックインストールファイルについて
@@ -41,7 +41,10 @@ OSインストール時点で仮のIPアドレスを割り当てるため、DHCP
 ### UEFIブートの場合
 **Install CentOS 8 .....** という感じの表示にカーソルを合わせて**tab**キーを入力する。  
 インストールのコマンドが表示されたら、**qyiet**の後に半角スペースを開けて  
-`ks=http://10.1.250.10/ks.cfg`と入力し、**Ctrl + x**でインストールを開始する。  
+`ks=http://192.168.1.80/ks.cfg`と入力し、**Ctrl + x**でインストールを開始する。  
+DHCPを設置しない場合は、`ip=ip::gateway:netmask:hostname:interface:none`の形式でIPアドレスを指定する。
+ サンプル `ip=192.168.1.233::192.168.1.1:255.255.255.0:ksi:eth0:none`
+
   USキーボード配列となっているため、記号の入力に注意すること 
 
 ### BIOSブートの場合

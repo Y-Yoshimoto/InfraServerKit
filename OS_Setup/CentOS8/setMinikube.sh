@@ -34,6 +34,9 @@ curl -L https://github.com/kubernetes/kompose/releases/download/v1.20.0/kompose-
 chmod +x kompose
 sudo mv ./kompose /usr/local/bin/kompose
 
+#Install conntrack
+dnf install -y conntrack
+
 # Start Minikube
 # minikube start --vm-driver=none 
 # User Extra NodePort Range.
