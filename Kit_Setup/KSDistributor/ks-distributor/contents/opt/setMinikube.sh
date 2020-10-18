@@ -1,9 +1,8 @@
 #!/bin/bash
-## curl -OL http://192.168.1.80/setMinikube.sh 
+## curl -OL http://$ksweb/opt/setMinikube.sh 
 echo "Start Setup Minikube"
 echo "Runing setMinikube.sh and Automatically reboot." > /etc/motd
-hostN=$(hostname)
-proxy=$PROXY
+hostN=`hostname`
 source ~/.bashrc 
 ######################### Crontab #########################
 #sed -i -e "s/@reboot/#@reboot/" /etc/Crontab
@@ -41,9 +40,9 @@ dnf install -y conntrack
 # Start Minikube
 # minikube start --vm-driver=none 
 # User Extra NodePort Range.
-minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767
-# minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767 --extra-config=proxy.hostname-override=$proxy --extra-config=kubelet.hostname-override=$hostN
-# minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767 --extra-config=kubelet.hostname-override=$hostN
+ minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767
+# minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767 --extra-config=proxy.hostname-override=$hostN --extra-config=kubelet.hostname-override=$hostN
+#minikube start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767 --extra-config=kubelet.hostname-override=$hostN
 
 ## https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
 echo "Minikube Status"

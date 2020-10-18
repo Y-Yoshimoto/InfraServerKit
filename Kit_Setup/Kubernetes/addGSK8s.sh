@@ -32,6 +32,17 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
 
+# CNI
+export KUBECONFIG=/etc/kubernetes/admin.conf
+curl -L https://docs.projectcalico.org/manifests/calico.yaml | \
+sed  '/            - name: CALICO_DISABLE_FILE_LOGGING/i\            # ADD' | \
+sed  '/            - name: CALICO_DISABLE_FILE_LOGGING/i\            - name: FELIX_IPTABLESBACKEND' | \
+sed  '/            - name: CALICO_DISABLE_FILE_LOGGING/i\              value: Auto'  | \
+sed  '/            - name: CALICO_DISABLE_FILE_LOGGING/i\            # ADD' | \
+sed  '/            - name: CALICO_DISABLE_FILE_LOGGING/i\            - name: CALICO_IPV4POOL_CIDR' | \
+sed  '/            - name: CALICO_DISABLE_FILE_LOGGING/i\              value: \"10.244.0.0\/16\"' | \
+kubectl apply -f -
+
 ### kubelet auto-completion
 dnf install -y bash-completion
 echo 'source /usr/share/bash-completion/bash_completion' >> /etc/bashrc

@@ -3,6 +3,7 @@
 echo '192.168.1.150 kube0' >> /etc/hosts
 echo '192.168.1.151 kube1' >> /etc/hosts
 echo '192.168.1.152 kube2' >> /etc/hosts
+# echo '192.168.1.153 kube3' >> /etc/hosts
 
 ## Serverlist
 Serverlist=("kube0" "kube1" "kube2")

@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+    ks-distributor:
+        image: ks-distributor
+        build: ks-distributor
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        networks:
+            - default
+        volumes:
+            - ./ks-distributor/contents/:/usr/share/nginx/html/

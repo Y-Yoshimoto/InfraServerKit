@@ -2,7 +2,6 @@
  CentOS8向けのKubentesクラスター構築資材
  3台構成（マスター1, ワーカー2)で構築
  - 共有ストレージ: GlusterFS /data:/gfs/KubeVolume
- - 
 
  ### hostname:ip
  + kube0: 192.168.1.150
@@ -24,8 +23,16 @@ logvol /gfs  --fstype="xfs" --size=4096 --grow --name=gfs --vgname=vl_cs8 --labe
 合わせていくつかのファイルを共有する。  
 **スクリプ実行時に各サーバのパスワードを入力すること**
 
+## リポジトリ及びインストール資材の追加
+`addGSK8s.sh`を実行してGlusterFS, kubectl, komposeをダウンロードする。
+
 ## GlusterFSセットアップ
 Glustarfsで共有ディレクトリを作成する。
 各ノードで'addGSK8s.sh'実行後に作業を行うこと  
-`setupGlusterFS.sh`をマスターノードで実行する。  
+`setGlusterFS.sh`をマスターノードで実行する。  
+サーバ台数によって、ボリュームのレプリカ数を調子する。
 fstab動作確認のため再起動を推奨 
+https://docs.gluster.org/en/latest/Administrator%20Guide/arbiter-volumes-and-quorum/
+
+## Kubedamの追加
+https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
