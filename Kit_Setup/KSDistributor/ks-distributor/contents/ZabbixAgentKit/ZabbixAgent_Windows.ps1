@@ -1,6 +1,6 @@
 # SetupZabbixAgent
 
-Invoke-WebRequest -Uri https://www.zabbix.com/downloads/5.0.4/zabbix_agent-5.0.4-windows-amd64-openssl.zip -OutFile ./zabbix_agents.zip
+Invoke-WebRequest -Uri https://www.zabbix.com/downloads/4.4.5/zabbix_agent-4.4.5-windows-amd64-openssl.zip -OutFile ./zabbix_agents.zip
 Expand-Archive -Path ./zabbix_agents.zip ./zabbix_agents
 
 # Set some Files.
