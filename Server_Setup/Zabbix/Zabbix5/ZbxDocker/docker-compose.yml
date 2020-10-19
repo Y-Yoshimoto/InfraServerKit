@@ -1,0 +1,80 @@
+version: "3"
+services:
+    zabbix-ap:
+        image: zabbix-ap
+        build: zabbix-ap_custom
+        ports:
+            - "10051:10051"
+        restart: always
+        depends_on:
+            - zabbix-mariadb
+        environment:
+            DB_SERVER_HOST: zabbix-mariadb
+            MYSQL_USER: zabbix
+            MYSQL_PASSWORD: zabbix
+            PHP_TZ: Asia/Tokyo
+        #logging:
+        #        driver: "journald"
+        volumes:
+            - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
+            - ./snmp_data/mibs:/var/lib/zabbix/mibs
+
+    zabbix-web:
+        image: zabbix-web
+        build: zabbix-web_custom
+        restart: always
+        ports:
+            - "80:8080"
+            - "443:8443"
+        depends_on:
+            - zabbix-mariadb
+            - zabbix-ap
+        environment:
+            DB_SERVER_HOST: zabbix-mariadb
+            MYSQL_USER: zabbix
+            MYSQL_PASSWORD: zabbix
+            ZBX_SERVER_HOST: zabbix-ap
+            PHP_TZ: Asia/Tokyo
+        #logging:
+        #        driver: "journald"
+
+    zabbix-mariadb:
+        image: zabbix-mariadb
+        build: mariadb_custom
+        ports:
+            - "3306"
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: zabbix
+            MYSQL_DATABASE: zabbix
+            MYSQL_USER: zabbix
+            MYSQL_PASSWORD: zabbix
+        #logging:
+        #        driver: "journald"
+        # volumes:
+        #     - ./db_data:/var/lib/mysql
+
+    zabbix-snmptraps:
+        image: zabbix-snmptraps
+        build: zabbix-snmptraps_custom
+        ports:
+            - "162:162"
+            - "162:162/udp"
+        restart: always
+        #logging:
+        #        driver: "journald"
+        volumes:
+            - ./snmp_data/snmptraps:/var/lib/zabbix/snmptraps
+            - ./snmp_data/mibs:/var/lib/zabbix/mibs
+
+    zabbix-agent:
+        image: zabbix-agent
+        build: zabbix-agent_custom
+        ports:
+            - "10050"
+        restart: always
+        environment:
+            - ZBX_HOSTNAME=ZabbixServer
+            - ZBX_SERVER_HOST=zabbix44_zabbix-ap_1
+        #logging:
+        #        driver: "journald"
