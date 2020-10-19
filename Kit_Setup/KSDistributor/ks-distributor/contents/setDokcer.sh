@@ -35,7 +35,9 @@ chmod +x /usr/local/bin/docker-compose
 # sed -i -e "s/PROXY/$proxy/" ~/.docker/config.json
 # mkdir -p /etc/systemd/system/docker.service.d
 # echo '[Service]' > /etc/systemd/system/docker.service.d/http-proxy.conf
-# echo 'Environment="HTTP_PROXY="http://$proxy/"HTTPS_PROXY=http://$proxy/" "NO_PROXY=localhost,127.0.0.1,$ksweb"' >> /etc/systemd/system/docker.service.d/http-proxy.conf
+# echo 'Environment="HTTP_PROXY="http://PROXYs/"HTTPS_PROXY=http://PROXYs/" "NO_PROXY=localhost,127.0.0.1,KSwebs"' >> /etc/systemd/system/docker.service.d/http-proxy.conf
+# sed -i -e "s/PROXYs/$proxy/" /etc/systemd/system/docker.service.d/http-proxy.conf
+# sed -i -e "s/KSwebs/$ksweb/" /etc/systemd/system/docker.service.d/http-proxy.conf
 # systemctl daemon-reload
 # systemctl restart docker
 # systemctl status docker | grep Active:
