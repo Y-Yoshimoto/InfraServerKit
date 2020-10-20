@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+    cassandra:
+        image: cassandra_custom
+        build: cassandra_custom
+        ports:
+            - "9042:9042"
+        restart: always
+        environment:
+            - CASSANDRA_USER=user
+            - CASSANDRA_PASSWORD=pass
+            - MAX_HEAP_SIZE=256M
+            - HEAP_NEWSIZE=128M
+        # volumes:
+        #     - data:/var/lib/cassandra
+#volumes:
+#    data:
