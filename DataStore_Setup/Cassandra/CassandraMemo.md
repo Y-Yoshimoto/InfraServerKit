@@ -5,3 +5,6 @@
  - 7199: JMXの接続用ポート
  - 9042: CQLの接続用ポート
  - 9160: Thrift(RPC)の接続ポート
+
+# Install cql
+ pip install cql
