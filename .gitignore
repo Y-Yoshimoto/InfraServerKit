@@ -24,3 +24,4 @@ enable_timescaledb.sql
 *.sql
 *.log
 *.org
+*.ico
