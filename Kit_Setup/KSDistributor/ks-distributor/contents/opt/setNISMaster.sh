@@ -16,6 +16,17 @@ echo -e "255.0.0.0       127.0.0.0" >> /var/yp/securenets
 echo -e "255.255.255.0       192.168.1.0" >> /var/yp/securenets
 echo -e "255.0.0.0       10.0.0.0" >> /var/yp/securenets
 
+## Set minimum GID Docker and maicrok8s
+#cp -p /var/yp/Makefile /var/yp/Makefile.org
+#dockerGID=`cat /etc/group | grep docker | awk -F ":" '{print $3}' `
+#microk8sGID=`cat /etc/group | grep microk8s | awk -F ":" '{print $3}' `
+#if [ $dockerGID -gt $microk8sGID ] ; then
+#  minimumGID=$microk8sGID
+#else
+#  minimumGID=$dockerGID
+#fi
+#sed -i -e "/MINGID=/c\MINGID=$minimumGID" /var/yp/Makefile
+
 ### /etc/hosts
 #hostN=`hostname`
 

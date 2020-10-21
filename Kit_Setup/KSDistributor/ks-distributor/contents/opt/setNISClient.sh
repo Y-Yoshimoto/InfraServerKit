@@ -34,7 +34,7 @@ df -hT
 dnf -y install autofs
 
 echo -e  "/-    /etc/autohome.mount" >> /etc/auto.master
-echo -e  "/home   -fstype=nfs,rw  $nisMaster.$domain:/home/home" >> /etc/autohome.mount
+echo -e  "/home   -fstype=nfs,rw  $nisMaster.$domain:/home" >> /etc/autohome.mount
 systemctl enable --now autofs
 ls /home
 df -h

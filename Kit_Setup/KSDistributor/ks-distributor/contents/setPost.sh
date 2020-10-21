@@ -1,5 +1,5 @@
 #!/bin/bash
-## curl -OL http://192.168.1.80/post.sh 
+## curl -OL http://192.168.1.80/post.sh
 echo "Start setup Server."
 echo "Runing setPost.sh and Automatically reboot." > /etc/motd
 
@@ -14,7 +14,7 @@ echo "@reboot root /root/setDokcer.sh 2>&1 | tee /root/setDokcer.log" >> /etc/cr
 ######################### Network #########################
 
 ######################### DNF #########################
-# DNF update 
+# DNF update
 sleep 10sroot
 echo "dnf update"
 dnf update -y
@@ -36,9 +36,9 @@ diff /etc/selinux/config /etc/selinux/config.org > ./setupLogs/selinuxDiff.log
 ## vim
 dnf install vim -y
 cp -bp /etc/vimrc /etc/vimrc.org
-echo -e "set number\ncolorscheme desert\nset ts=4" >>/etc/vimrc
+echo -e "set number\ncolorscheme desert\nset ts=4" >> /etc/vimrc
 cp -bp /etc/profile /etc/profile.org
-echo -e "alias vi='vim'" >>/etc/profile
+echo -e "alias vi='vim'" >> /etc/profile
 diff /etc/profile /etc/profile.org > ./setupLogs/vimDiff.log
 diff /etc/vimrc /etc/vimrc.org > ./setupLogs/vimDiff.log
 
@@ -85,7 +85,7 @@ diff /etc/systemd/journald.conf /etc/systemd/journald.conf.org > ./setupLogs/jou
 # sed -i -e "s/log\/spooler/log\/spooler;addpriority/" /etc/rsyslog.conf
 # sed -i -e "s/log\/boot.log/log\/boot.log;addpriority/" /etc/rsyslog.conf
 # diff /etc/rsyslog.conf /etc/rsyslog.conf.org > ./setupLogs/rsyslogDiff.log
-# 
+#
 # ## logrotate
 # cp -p /etc/logrotate.conf /etc/logrotate.conf.org
 # mkdir -p /etc/logrotate.d

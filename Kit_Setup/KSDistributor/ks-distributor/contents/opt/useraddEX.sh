@@ -9,9 +9,10 @@ username=$1
 useradd $username
 # Add dockre Group
 gpasswd -a $username docker
+gpasswd -a $username microk8s
 
 # Ser Password
-echo -n Input Password: 
+echo -n Input Password:
 read password
 echo $password | passwd --stdin $username
 
