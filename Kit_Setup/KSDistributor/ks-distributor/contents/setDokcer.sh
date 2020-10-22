@@ -8,8 +8,8 @@ source /root/ks-env.sh
 
 ######################### Crontab #########################
 sed -i -e "s/@reboot/#@reboot/" /etc/crontab
-## Setup Docker
-#echo "@reboot root /root/setMicroK8s.sh 2>&1 | tee /root/setMicroK8s.log" >> /etc/crontab
+## Setup MicroK8s
+echo "@reboot root /root/setMicroK8s.sh 2>&1 | tee /root/setMicroK8s.log" >> /etc/crontab
 
 ######################### Docker #########################
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo

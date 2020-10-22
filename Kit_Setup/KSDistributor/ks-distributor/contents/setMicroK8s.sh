@@ -6,11 +6,16 @@ echo "Runing setMicroK8s.sh and Automatically reboot." > /etc/motd
 source ~/.bashrc
 source /root/ks-env.sh
 
+######################### Crontab #########################
+sed -i -e "s/@reboot/#@reboot/" /etc/crontab
+
+
 ## Install snapd
 dnf -y install epel-release
 dnf --enablerepo=epel -y install snapd
 ln -s /var/lib/snapd/snap /snap
 echo 'export PATH=$PATH:/var/lib/snapd/snap/bin' > /etc/profile.d/snap.sh
+source /etc/profile.d/snap.sh
 #### ProxySetup
 #mkdir -p /etc/systemd/system/snapd.service.d
 #echo '[Service]' > /etc/systemd/system/snapd.service.d/http-proxy.conf
@@ -18,7 +23,7 @@ echo 'export PATH=$PATH:/var/lib/snapd/snap/bin' > /etc/profile.d/snap.sh
 #echo "Environment=https_proxy=http://$proxy" >> /etc/systemd/system/snapd.service.d/http-proxy.conf
 #echo "Environment=NO_PROXY=localhost,127.0.0.1,$ksweb" >> /etc/systemd/system/snapd.service.d/http-proxy.conf
 systemctl enable --now snapd.service snapd.socket
-sleep 10
+sleep 20
 . ./.bash_profile
 
 ## Install MicroK8s #################################
@@ -29,14 +34,19 @@ microk8s status
 microk8s config
 microk8s kubectl get all
 microk8s kubectl get nodes
-# microk8s start --vm-driver=none --extra-config=apiserver.service-node-port-range=1-32767
+echo -e "alias kubelet='microk8s kubelet'" >> /etc/profile
 
-
+#### ProxySetup
+#echo "HTTPS_PROXY=https://$proxy" >> /var/snap/microk8s/current/args/containerd-env
+#echo "NO_PROXY=10.1.0.0/16,10.152.183.0/24,192.168.1.0/24" >> /var/snap/microk8s/current/args/containerd-env
+## kubelet
 
 ## Edit config k8s
 cp -p /var/snap/microk8s/current/args/kube-apiserver /var/snap/microk8s/current/args/kube-apiserver.org
-echo "--service-node-port-range 2000-32767" >> /var/snap/microk8s/current/args/kube-apiserver
-microk8s reset
+echo "--service-node-port-range 1-32767" >> /var/snap/microk8s/current/args/kube-apiserver
+#microk8s reset
+microk8s stop
+microk8s start
 
 ### Disble microk8s
 # microk8s stop
