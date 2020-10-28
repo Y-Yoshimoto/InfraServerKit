@@ -1,0 +1,10 @@
+version: "3"
+services:
+    openjdk:
+        build: openjdk
+        image: openjdk
+        restart: always
+        environment:
+            TZ: "Asia/Tokyo"
+        volumes:
+            - ./openjdk/code:/code
