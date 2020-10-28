@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: "サンプルAPI"
+  version: 1.0.0
+servers:
+  - url: "http://127.0.0.1:8300/"
+#contact:
+# name: API support
+# email: api@sample.com
+# license:
+# name: MIT License
+# url: http://ja.wikipedia.org/wiki/MIT_License/
+paths:
+  /api:
+    get:
+      summary: "サンプルAPI"
+      description: "サンプルAPI-get"
+      parameters:
+        - name: "id"
+          in: "query" # パラメータの種類{query, header, path, formData, body}
+          description: "id"
+          required: false # 必須or任意
+          schema:
+            type: integer #　型
+            format: int64 # フォーマット
+      responses: # レスポンス
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  #$ref: '#/components/List' # 参照するモデル
+                example: # サンプルデータ
+                  - id: 1
+                    itemName: "testData"
+components:
+  schemas: # スキーマオブジェクトの定義
+    List: # モデル名
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        itemName:
+          type: string

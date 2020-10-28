@@ -1,0 +1,15 @@
+{
+    "applications": {
+        "Sample": {
+            "type": "python",
+            "processes": 1,
+            "path": "/www/Sample",
+            "module": "wsgi"
+        }
+    },
+    "listeners": {
+        "*:8300": {
+            "application": "Sample"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+version: "3"
+services:
+    unitpy:
+        build: unitpy
+        image: unitpy
+        restart: "always"
+        ports:
+            - "8300:8300"
+        environment:
+            TZ: Asia/Tokyo
+            PYTHONUNBUFFERED: "no"
+        #volumes:
+        #    - ./unitpy/contents/:/www/Sample/
