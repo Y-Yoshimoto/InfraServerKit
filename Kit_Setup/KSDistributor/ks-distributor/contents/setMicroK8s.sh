@@ -68,7 +68,7 @@ kubectl version
 ## kubelet auto-completion
 dnf install -y bash-completion
 echo 'source /usr/share/bash-completion/bash_completion' >> /etc/bashrc
-kubectl completion bash >/etc/bash_completion.d/kubectl
+kubectl completion bash > /etc/bash_completion.d/kubectl
 
 ## Install kompose on Linux
 #curl -L https://github.com/kubernetes/kompose/releases/download/v1.21.0/kompose-linux-amd64 -o kompose
