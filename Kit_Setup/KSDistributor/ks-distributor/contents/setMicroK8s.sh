@@ -34,7 +34,7 @@ microk8s status
 microk8s config
 microk8s kubectl get all
 microk8s kubectl get nodes
-echo -e "alias kubelet='microk8s kubelet'" >> /etc/profile
+echo -e "alias kubectl='microk8s kubectl'" >> /etc/profile
 
 #### ProxySetup
 #echo "HTTPS_PROXY=https://$proxy" >> /var/snap/microk8s/current/args/containerd-env
