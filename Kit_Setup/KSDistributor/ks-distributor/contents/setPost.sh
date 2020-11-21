@@ -15,7 +15,7 @@ echo "@reboot root /root/setDokcer.sh 2>&1 | tee /root/setDokcer.log" >> /etc/cr
 
 ######################### DNF #########################
 # DNF update
-sleep 10sroot
+sleep 10s
 echo "dnf update"
 dnf update -y
 
