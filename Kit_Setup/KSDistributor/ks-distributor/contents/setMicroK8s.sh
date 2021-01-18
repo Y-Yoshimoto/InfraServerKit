@@ -34,7 +34,7 @@ microk8s status
 microk8s config
 microk8s kubectl get all
 microk8s kubectl get nodes
-echo -e "alias kubelet='microk8s kubelet'" >> /etc/profile
+echo -e "alias kubectl='microk8s kubectl'" >> /etc/profile
 
 #### ProxySetup
 #echo "HTTPS_PROXY=https://$proxy" >> /var/snap/microk8s/current/args/containerd-env
@@ -68,7 +68,7 @@ kubectl version
 ## kubelet auto-completion
 dnf install -y bash-completion
 echo 'source /usr/share/bash-completion/bash_completion' >> /etc/bashrc
-kubectl completion bash >/etc/bash_completion.d/kubectl
+kubectl completion bash > /etc/bash_completion.d/kubectl
 
 ## Install kompose on Linux
 #curl -L https://github.com/kubernetes/kompose/releases/download/v1.21.0/kompose-linux-amd64 -o kompose

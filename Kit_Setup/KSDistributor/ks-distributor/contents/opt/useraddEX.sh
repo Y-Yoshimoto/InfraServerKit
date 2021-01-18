@@ -10,6 +10,8 @@ useradd $username
 # Add dockre Group
 gpasswd -a $username docker
 gpasswd -a $username microk8s
+cp -r /root/.docker /home/$1/
+cp -r /root/.kube /home/$1/
 
 # Ser Password
 echo -n Input Password:
