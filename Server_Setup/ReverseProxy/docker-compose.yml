@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
     nginx_proxy:
@@ -10,17 +10,7 @@ services:
             - "443:443"
         networks:
             - default
-            - redmine_default
-            #- zabbix_default
-            - unit_default
-            # - gitlab_default
-networks:
-    redmine_default:
-        external: true
-    #zabbix_default:
-    #    external: true
-    unit_default:
-        external: true
-
-    # gitlab_default:
-    #    external: true
+            # - OtherNW_default
+#networks:
+#OtherNW_default:
+#    external: true
