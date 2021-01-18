@@ -1,9 +1,9 @@
 version: "2"
 
 services:
-    nginx_proxy:
-        image: nginx_proxly
-        build: nginx_custom
+    nrproxy:
+        image: nrproxy
+        build: nrproxy
         restart: always
         ports:
             - "80:80"
