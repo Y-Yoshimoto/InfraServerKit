@@ -7,13 +7,15 @@ fi
 ## Adduser
 username=$1
 useradd $username
+## Add sudo
+#usermod -G sudo $username
 # Add dockre Group
 gpasswd -a $username docker
 gpasswd -a $username microk8s
 cp -r /root/.docker /home/$1/
 cp -r /root/.kube /home/$1/
 
-# Ser Password
+# Set Password
 echo -n Input Password:
 read password
 echo $password | passwd --stdin $username
