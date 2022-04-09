@@ -25,3 +25,4 @@ enable_timescaledb.sql
 *.log
 *.org
 *.ico
+*.iso

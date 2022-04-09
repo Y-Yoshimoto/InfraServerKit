@@ -79,7 +79,8 @@ sed -i -e '10i\        dos charset = CP932' /etc/samba/smb.conf
 sed -i -e '11i\        hosts allow = 127. 10.0.0. 192.168. ' /etc/samba/smb.conf
 sed -i -e "s/;\[homes\]/\[homes\]/" /etc/samba/smb.conf
 sed -i -e "s/;   comment = Home Directories/   comment = Home Directories/" /etc/samba/smb.conf
-sed -i -e "s/;   browseable = no/   browseable = no/" /etc/samba/smb.conf
+sed -i -e "s/;   browseable = no/   browseable = no\/n   writable = yes/" /etc/samba/smb.conf
+
 
 ## Share 777 Dir
 echo '[Data]' >> /etc/samba/smb.conf
@@ -89,6 +90,7 @@ echo '  guest ok = yes' >> /etc/samba/smb.conf
 echo '  guest only = yes' >> /etc/samba/smb.conf
 echo '  force create mode = 777' >> /etc/samba/smb.conf
 echo '  force directory mode = 777 ' >> /etc/samba/smb.conf
+
 
 systemctl enable --now smbd
 systemctl restart smbd
