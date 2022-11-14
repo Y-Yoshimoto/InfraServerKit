@@ -2,6 +2,6 @@ version: '2'
 
 services:
     caserver:
-        image: alpine
-        build: libressl
+        image: easyrsa_c
+        build: easyrsa_c
         # restart: always
