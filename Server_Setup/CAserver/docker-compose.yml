@@ -1,7 +1,10 @@
-version: '2'
+version: '3'
 
 services:
     caserver:
         image: easyrsa_c
-        build: easyrsa_c
+        build:
+            context: easyrsa_c
+            args:
+                CAKEYPASS: "hello world"
         # restart: always

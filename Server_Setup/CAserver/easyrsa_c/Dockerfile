@@ -4,7 +4,13 @@ LABEL maintaner='y-yoshimoto'
 RUN apt-get update \
     && apt-get install -y --no-install-recommends easy-rsa\
     && apt-get -y clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && update-ca-certificates
+    && rm -rf /var/lib/apt/lists/*
 
+ARG CAKEYPASS="passward"
+RUN make-cadir /opt/ca
+WORKDIR /opt/ca
+COPY ./vars /opt/ca/
+
+RUN ./easyrsa init-pki 
+#&& ./easyrsa build-ca nopass
 CMD ["tail", "-f", "/dev/null"]

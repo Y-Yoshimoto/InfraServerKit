@@ -1,12 +1,15 @@
 # Ubuntu20
 
 ## デスクトップ向け
+
 ### GUIインストール
- - Google Crome  
+
+- Google Crome  
     [Google公式ページ](https://www.google.com/chrome/)からインストーラをダウンロード。.debファイルをダウンロードし、インストール
- - VSCode  
+- VSCode  
     [VSCode公式ページ](https://code.visualstudio.com/)からインストーラをダウンロード。.debファイルをダウンロードし、インストール
- - Openssh  
+- Openssh  
+
     ```bash
     sudo -s
     apt -y install openssh-server
@@ -14,8 +17,8 @@
     systemctl enable ssh
     ```
 
-
 ### ベーシック設定
+
 ```bash
 sudo -s
 apt install -y vim git firewalld
@@ -28,13 +31,16 @@ systemctl disable firewalld
 ```
 
 プロンプト変更
+
 ```bash
 echo $USER
 echo -e "export PS1='\u@\h \W\$ '" >> /home/$USER/.bashrc
 ```
 
 ### Dokcer関連
+
 Dokcer, Docker-compose, Kubernetesをインストール
+
 ```bash
 sudo -s
 cd /
@@ -60,6 +66,7 @@ kubectl completion bash > /etc/bash_completion.d/kubectl
 ```
 
 ユーザーに実行権限を追加/再ログイン必要
+
 ```bash
 sudo -s
 gpasswd -a $username docker
@@ -67,7 +74,9 @@ gpasswd -a $username microk8s
 ```
 
 ### Samba
+
 使用するサブネットに合わせて設定
+
 ```bash
 sudo -s
 apt -y install samba
@@ -100,7 +109,9 @@ firewall-cmd --add-service=samba --permanent
 firewall-cmd --reload
 
 ```
+
 ユーザー追加
+
 ```bash
 smbpasswd -a $username
 ```

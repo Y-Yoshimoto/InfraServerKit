@@ -26,3 +26,6 @@ enable_timescaledb.sql
 *.org
 *.ico
 *.iso
+
+# easy rsa
+./Server_Setup/CAserver/easyrsa_c/vars
