@@ -4,7 +4,7 @@ services:
     image: mlbackend_c
     build: .
     ports:
-      - 9000:9000
+      - 9090:9090
     environment:
       TZ: Asia/Tokyo
       PYTHONDONTWRITEBYTECODE: 1

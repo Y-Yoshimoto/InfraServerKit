@@ -16,6 +16,15 @@ services:
   labelstudio_mlbackend:
     image: mlbackend_c
     build: mlbackend_c
-
+    ports:
+      - 9090:9090
+    environment:
+      - TZ=Asia/Tokyo
+      - PYTHONDONTWRITEBYTECODE=1
+      - LABEL_STUDIO_HOSTNAME=http://labelstudio:8080
+      - LABEL_STUDIO_API_KEY=d6f8a2622d39e9d89ff0dfef1a80ad877f4ee9e3
+      - LABEL_STUDIO_ML_BACKEND_V2=true
+    volumes:
+      - ./mlbackend_c/src:/usr/src
 volumes:
   labeldata:

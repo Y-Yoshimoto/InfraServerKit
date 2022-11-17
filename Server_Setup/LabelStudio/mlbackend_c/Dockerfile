@@ -45,15 +45,33 @@ RUN pip install --upgrade pip \
     && pip freeze > requirements.lock
 
 # git clone mmdetection
-RUN git clone https://github.com/open-mmlab/mmdetection.git \
-    && mim download mmdet --config yolov3_mobilenetv2_320_300e_coco --dest /mmdetection/
+RUN git clone https://github.com/open-mmlab/mmdetection.git 
+#\    && mim download mmdet yolov3_mobilenetv2_320_300e_coco --dest /mmdetection/
 
 # make mlBackend
-RUN mim download mmdet --config faster_rcnn_r50_fpn_1x_coco --dest ./checkpoints
+ENV LABEL_STUDIO_HOSTNAME=http://labelstudio:8080
+RUN mim download mmdet --config faster_rcnn_r50_fpn_1x_coco --dest /mmdetection/checkpoints \ 
+    && git clone https://github.com/heartexlabs/label-studio-ml-backend \
+    && cd label-studio-ml-backend \
+    && pip install redis rq boto3 \
+    && pip install -U -e . \
+    && label-studio-ml init coco-detector --from label_studio_ml/examples/mmdetection/mmdetection.py --force\
+    && cd /
+# https://github.com/heartexlabs/label-studio-ml-backend#create-your-own-ml-backend
+# https://labelstud.io/tutorials/object-detector.html
+# https://github.com/heartexlabs/label-studio-ml-backend/blob/250e2c08fefbb32723105b7e53ade9b2441a69ad/label_studio_ml/examples/simple_text_classifier/README.md
 
-WORKDIR /usr/src
+# label-studio-ml start coco-detector --with \
+#    config_file=/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py \
+#    checkpoint_file=/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth
+
+EXPOSE 9090
+
+#WORKDIR /usr/src
 COPY ./src/* /usr/src
 VOLUME /usr/src
+WORKDIR /label-studio-ml-backend
 
-# ENTRYPOINT ["python", "main.py"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["label-studio-ml", "start", "coco-detector", "--with"]
+CMD ["config_file=/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py","checkpoint_file=/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
