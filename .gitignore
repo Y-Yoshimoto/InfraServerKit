@@ -28,4 +28,6 @@ enable_timescaledb.sql
 *.iso
 
 # easy rsa
-./Server_Setup/CAserver/easyrsa_c/vars
+Server_Setup/CAserver/easyrsa_c/vars
+Server_Setup/LabelStudio/labeldata/*
+Server_Setup/LabelStudio/labeldata/label_studio.sqlite3
