@@ -3,6 +3,8 @@ services:
   labelstudio_mlbackend:
     image: mlbackend_c
     build: .
+    ports:
+      - 9000:9000
     environment:
       TZ: Asia/Tokyo
       PYTHONDONTWRITEBYTECODE: 1

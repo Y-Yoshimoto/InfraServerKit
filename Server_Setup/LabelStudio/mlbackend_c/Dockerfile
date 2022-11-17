@@ -48,6 +48,9 @@ RUN pip install --upgrade pip \
 RUN git clone https://github.com/open-mmlab/mmdetection.git \
     && mim download mmdet --config yolov3_mobilenetv2_320_300e_coco --dest /mmdetection/
 
+# make mlBackend
+RUN mim download mmdet --config faster_rcnn_r50_fpn_1x_coco --dest ./checkpoints
+
 WORKDIR /usr/src
 COPY ./src/* /usr/src
 VOLUME /usr/src
