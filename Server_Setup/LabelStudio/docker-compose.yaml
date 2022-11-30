@@ -9,21 +9,25 @@ services:
       - ./labeldata:/label-studio/data
       - ./localImage:/localImage
     environment:
-      - TZ=${TZ}
-      - LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
-      - LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/localImage
+      TZ: ${TZ}
+      LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED: true
+      LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT: /localImage
     command: label-studio start --username test@test.com --password password
-  labelstudio_mlbackend:
+  mlbackend:
     image: mlbackend_c
     build: mlbackend_c
     ports:
       - 9090:9090
     environment:
-      - TZ=Asia/Tokyo
-      - PYTHONDONTWRITEBYTECODE=1
-      - LABEL_STUDIO_HOSTNAME=http://labelstudio:8080
-      - LABEL_STUDIO_API_KEY=d6f8a2622d39e9d89ff0dfef1a80ad877f4ee9e3
-      - LABEL_STUDIO_ML_BACKEND_V2=true
+      TZ: Asia/Tokyo
+      FLASK_ENV: development
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONUNBUFFERED: 1
+      LABEL_STUDIO_HOSTNAME: http://labelstudio:8080
+      LABEL_STUDIO_API_KEY: dcd6e81405c5d8311ec6d96d989110a396e84174
+      LABEL_STUDIO_ML_BACKEND_V2: true
+      LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT: /localImage
+      SCORE_THRESHOLD: 0.5
     volumes:
       - ./mlbackend_c/src:/usr/src
 volumes:

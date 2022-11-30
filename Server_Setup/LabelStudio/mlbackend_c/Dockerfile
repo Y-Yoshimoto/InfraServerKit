@@ -1,5 +1,5 @@
 # FROM node:latest
-FROM python:3.10-slim 
+FROM python:3.10.8-slim-buster
 #AS builder
 LABEL maintaner='y-yoshimoto'
 ## Install build tools
@@ -7,7 +7,9 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends git gcc g++\
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* \
-    && update-ca-certificates
+    && update-ca-certificates \
+    && echo "alias python='python3'" >> /etc/bash.bashrc
+
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir numpy setuptools wheel Cython\
     && pip freeze > requirements.lock
@@ -57,6 +59,8 @@ RUN mim download mmdet --config faster_rcnn_r50_fpn_1x_coco --dest /mmdetection/
     && pip install -U -e . \
     && label-studio-ml init coco-detector --from label_studio_ml/examples/mmdetection/mmdetection.py --force\
     && cd /
+
+# && ls -s /usr/bin/python3 /usr/bin/python
 # https://github.com/heartexlabs/label-studio-ml-backend#create-your-own-ml-backend
 # https://labelstud.io/tutorials/object-detector.html
 # https://github.com/heartexlabs/label-studio-ml-backend/blob/250e2c08fefbb32723105b7e53ade9b2441a69ad/label_studio_ml/examples/simple_text_classifier/README.md
@@ -70,8 +74,9 @@ EXPOSE 9090
 #WORKDIR /usr/src
 COPY ./src/* /usr/src
 VOLUME /usr/src
+COPY ./runmlbackend.sh /label-studio-ml-backend/
 WORKDIR /label-studio-ml-backend
 
-ENTRYPOINT ["label-studio-ml", "start", "coco-detector", "--with"]
-CMD ["config_file=/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py","checkpoint_file=/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth"]
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
+#ENTRYPOINT ["label-studio-ml", "start", "coco-detector", "--with"]
+#CMD ["config_file=/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py","checkpoint_file=/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

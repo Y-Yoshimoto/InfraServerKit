@@ -1,0 +1,7 @@
+<View>
+  <Image name="image" value="$image" zoom="true" zoomControl="true" rotateControl="true"/>
+  <RectangleLabels name="label" toName="image">
+    <Label value="猫" predicted_values="cat" background="#ffbb00"/>
+    <Label value="犬" predicted_values="dog" background="#00ffbf"/>
+  </RectangleLabels>
+</View>
