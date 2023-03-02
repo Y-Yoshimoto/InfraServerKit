@@ -1,0 +1,19 @@
+{
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "haskell_c",
+    "workspaceFolder": "/home/vscode/code",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "haskell.manageHLS": "GHCup"
+            },
+            "extensions": [
+                "haskell.haskell",
+                "phoityne.phoityne-vscode"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}
