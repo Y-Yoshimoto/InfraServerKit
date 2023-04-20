@@ -1,0 +1,22 @@
+version: "3"
+services:
+  fluentd:
+    image: fluentd_c
+    build: fluentd_c
+    ports:
+      - 24224:24224
+      - 24224:24224/udp
+    #volumes:
+    #  - ./data:/fluentd/log
+  sample_python:
+    image: sample_python
+    build: sample_python
+    restart: always
+    volumes:
+      - ./sample_python/src:/usr/src
+    ports:
+      - "8083:5000"
+    #user: "1000:1000"
+    environment:
+      TZ: Asia/Tokyo
+      PYTHONDONTWRITEBYTECODE: 1
