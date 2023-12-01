@@ -1,0 +1,13 @@
+{
+    "name": "PowerShell Dev Container",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "dokcerps1",
+    "workspaceFolder": "/work",
+    "extensions": [
+        "ms-vscode.powershell"
+    ],
+    "settings": {
+        "terminal.integrated.shell.windows": "pwsh",
+        "powershell.powerShellExePath": "pwsh"
+    }
+}
