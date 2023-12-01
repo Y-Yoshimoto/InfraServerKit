@@ -1,0 +1,40 @@
+# Yarnインストールコンテナ
+FROM node:20-bookworm-slim
+LABEL maintaner='y-yoshimoto'
+# アプリケーションディレクトリ名指定
+ARG APPNAME=app
+# 環境変数を設定する
+ENV NODE_ENV=development
+
+# 実行ユーザー追加
+ARG USERNAME=node
+ARG USER_UID=1000
+ARG USER_GID=1000
+
+
+# アプリケーションのディレクトリ作成/権限変更
+RUN mkdir -p /$APPNAME/src \
+    && mkdir -p /$APPNAME/public \
+    && mkdir -p /$APPNAME/.vscode 
+RUN chown $USERNAME:dialout /$APPNAME/* \
+    && chown $USERNAME:dialout /$APPNAME/.*
+
+# package.jsonのコピー
+COPY ./app/package.json /$APPNAME/package.json
+
+# ユーザー変更/作業ディレクトリ変更
+WORKDIR /$APPNAME
+
+# yarnInstall
+RUN sudo -u $USERNAME yarn install --dev --frozen-lockfile\
+    && sudo -u $USERNAME yarn license-checker --summary >> ./LicenseSummary.txt \
+    && sudo -u $USERNAME yarn cache clean
+
+# アプリケーションファイルのコピー/権限変更
+COPY ./app/ /$APPNAME
+RUN chown $USERNAME:dialout /$APPNAME/* \
+    && chown $USERNAME:dialout /$APPNAME/.* \
+    && chown $USERNAME:dialout /$APPNAME/.vscode/*
+
+
+CMD ["tail", "-f", "/dev/null"]

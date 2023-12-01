@@ -1,7 +1,6 @@
 {
-    "dockerComposeFile": [
-        "../docker-compose.yml"
-    ],
+    "name": "Haskell_Development_Container",
+    "dockerComposeFile": "../docker-compose.yml",
     "service": "haskell_c",
     "workspaceFolder": "/home/vscode/code",
     "customizations": {
@@ -11,7 +10,8 @@
             },
             "extensions": [
                 "haskell.haskell",
-                "phoityne.phoityne-vscode"
+                "phoityne.phoityne-vscode",
+                "justusadam.language-haskell"
             ]
         }
     },

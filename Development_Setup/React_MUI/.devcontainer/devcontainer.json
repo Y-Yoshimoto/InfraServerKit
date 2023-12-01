@@ -1,0 +1,21 @@
+{
+    "name": "reactapp",
+    "dockerComposeFile": [
+        "../docker-compose.yaml",
+        "./docker-compose.override.yaml"
+    ],
+    "service": "potral_c",
+    "workspaceFolder": "/app/",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dsznajder.es7-react-js-snippets",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "Orta.vscode-jest",
+                "ms-vscode.js-debug-companion"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}

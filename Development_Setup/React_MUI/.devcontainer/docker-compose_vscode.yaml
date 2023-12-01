@@ -1,0 +1,7 @@
+version: "3.2"
+services:
+  # Portal React アプリケーション
+  potral_c:
+    image: potral_c
+    environment:
+      - PUBLIC_URL=/

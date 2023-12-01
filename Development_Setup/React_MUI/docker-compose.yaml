@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+  # Portal React アプリケーション
+  potral_c:
+    image: potral_c
+    build:
+      context: potral_c
+      dockerfile: Dockerfile_dev
+    user: "501:20"
+    ports:
+      - "3000:3000"
+    # restart: always
+    environment:
+      - TZ=Asia/Tokyo
+    # command: yarn start
+    stdin_open: true
+    volumes:
+      - ./potral_c/app/src/:/app/src/
+      - ./potral_c/app/public/:/app/public/

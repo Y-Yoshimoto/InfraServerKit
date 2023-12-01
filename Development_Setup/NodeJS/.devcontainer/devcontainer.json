@@ -1,0 +1,20 @@
+{
+    "name": "nodejs_devc",
+    "dockerComposeFile": [
+        "../docker-compose.yaml",
+        "./docker-compose_vscode.yaml"
+    ],
+    "service": "nodejs_devc",
+    "workspaceFolder": "/app/src/",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "Orta.vscode-jest",
+                "ms-vscode.js-debug-companion"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}

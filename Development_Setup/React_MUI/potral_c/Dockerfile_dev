@@ -1,0 +1,41 @@
+FROM node:20-bookworm-slim
+LABEL maintaner='y-yoshimoto'
+# 環境変数を設定する
+ENV NODE_ENV=development
+ENV APPNAME=app
+
+# gitのインストール
+RUN apt-get update && apt-get install -y git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# 実行ユーザー追加
+ARG USERNAME=vscode
+ARG USER_UID=501
+ARG USER_GID=20
+RUN useradd -m -s /bin/bash -u $USER_UID -g $USER_GID $USERNAME \
+    && usermod -a -G 1000 $USERNAME
+
+# アプリケーションのディレクトリ作成/権限変更
+RUN mkdir -p /$APPNAME/src \
+    && mkdir -p /$APPNAME/public \
+    && chown -R $USERNAME:dialout /$APPNAME
+
+# 作業ディレクトリ/ユーザー変更
+WORKDIR /$APPNAME
+
+# アプリケーションファイルのコピー/権限変更
+COPY ./app/ /$APPNAME
+RUN chown -R $USERNAME:dialout /$APPNAME/
+
+# パッケージのインストール
+USER $USERNAME
+RUN yarn install --dev \
+    && yarn license-checker --summary >> ./LicenseSummary.txt \
+    && yarn license-checker --csv > Licenses.csv \
+    && yarn cache clean
+# 公開ポート設定
+EXPOSE 3000 
+
+CMD ["tail", "-f", "/dev/null"]
+#CMD ["yarn", "start"]

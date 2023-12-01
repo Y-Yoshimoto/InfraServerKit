@@ -1,13 +1,25 @@
 version: "3"
 
 services:
-  haskell_c:
-    image: haskell_c
-    build: haskell_c
+  # haskell_c:
+  #   image: haskell_c
+  #   build: haskell_c
+  #   restart: "no"
+  #   volumes:
+  #     - ./haskell_c/code:/home/vscode/code/
+  #   #user: "501:20"
+  #   #ports:
+  #   #  - "80:5000"
+  #   environment:
+  #     - TZ=Asia/Tokyo
+  
+  haskell_devc:
+    image: haskell_devc
+    build: haskell_devc
     restart: "no"
     volumes:
-      - ./haskell_c/code:/home/vscode/code/
-    #user: "501:20"
+      - ./haskell_devc/code:/home/vscode/code/
+    user: "501:20"
     #ports:
     #  - "80:5000"
     environment:

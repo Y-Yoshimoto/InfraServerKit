@@ -1,9 +1,21 @@
 version: "2"
 services:
-    nodejs_dev:
-        build: "nodejs_dev"
-        image: "nodejs_dev"
-        container_name: nodejs_dev
-        restart: "no"
+    nodejs_devc:
+        image: nodejs_devc
+        build:
+            context: nodejs_devc
+            dockerfile: Dockerfile_dev_mac
+        # コンテナ内のユーザーIDとグループIDを指定
+            args:
+                USER_UID: ${UID}
+                USER_GID: ${GID}
+        # 実行ユーザーを指定
+        user: "${UID}:${GID}"
+        environment:
+            - TZ=${TZ}
+            - UID=${UID}
+            - GID=${GID}
+        stdin_open: true
+        # 開発用にソースコードをマウント
         volumes:
-            - ./nodejs_dev/src:/app/src
+            - ./nodejs_devc/app/src/:/app/src/
