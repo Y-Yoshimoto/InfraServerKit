@@ -1,13 +1,21 @@
-version: "3"
+version: '3'
 services:
-  python:
-    image: python_dev
-    build: python_dev
-    container_name: python_dev
-    # ports:
-    #  - "3000:3000"
-    # restart: always
+  python_devc:
+    image: python_devc
+    build:
+        context: python_devc
+        dockerfile: Dockerfile
+    # コンテナ内のユーザーIDとグループIDを指定
+        args:
+            USER_UID: ${UID}
+            USER_GID: ${GID}
+    user: "${UID}:${GID}"
+    #restart: always
     environment:
-      - TZ=Asia/Tokyo
+      TZ: ${TZ}
+      UID: ${UID}
+      GID: ${GID}
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONPYCACHEPREFIX: "/tmp"
     volumes:
-      - ./python_dev/src:/usr/src/
+      - ./python_devc/src:/usr/src/

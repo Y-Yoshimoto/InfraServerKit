@@ -2,6 +2,7 @@
 
 ###### Requirements without Version Specifiers ######
 requests
+datetime
 
 ###### Requirements with Version Specifiers ######
 # requests == 2.24.0             # Version Matching. Must be version 2.24.0
