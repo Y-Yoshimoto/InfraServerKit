@@ -1,0 +1,15 @@
+services:
+  keycloak_c:
+    image: keycloak_c
+    build: keycloak_c
+    ports:
+      - 8080:8080
+    # volumes:
+    #   - data:/data
+    environment:
+      TZ: ${TZ}
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    command: start-dev
+volumes:
+  data:

@@ -1,0 +1,19 @@
+services:
+    postgres:
+        image: postgres
+        build: postgres_custom
+        ports:
+            - 5432
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: postgres
+            #POSTGRES_USER:
+        # volumes:
+        #     - ./db_data:/var/lib/postgresql/data
+
+# 管理者ツール
+#    adminer:
+#        image: adminer
+#        restart: always
+#        ports:
+#            - 8080:8080
