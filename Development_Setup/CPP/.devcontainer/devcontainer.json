@@ -1,0 +1,21 @@
+{
+    "name": "cpp_devc",
+    "dockerComposeFile": [
+        "../docker-compose.yaml"
+    ],
+    "service": "cpp_devc",
+    "workspaceFolder": "/usr/src/",
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "eBikeLabs.cpp-checker"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}
