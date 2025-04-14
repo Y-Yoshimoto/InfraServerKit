@@ -4,15 +4,13 @@ LABEL maintaner='y-yoshimoto'
 # aptインストール
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    git make make jq curl wget\
-    clang \
+    git make make jq curl wget sudo\
+    clang clang-format clang-tidy \
     build-essential cmake\
     pipx \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# install cpplint
-RUN pipx install cpplint
 
 # 実行ユーザー/作業ディレクトリ作成
 ARG USERNAME=vscode
@@ -24,6 +22,11 @@ RUN useradd --non-unique -m -s /bin/bash -u $UID -g $GID $USERNAME \
     && chown -R $USERNAME /usr/src \
     && mkdir -p /vscode/vscode-server/ \
     && chown $USERNAME /vscode/vscode-server/.*
+
+# install cpplint
+RUN sudo -u $USERNAME pipx install cpplint \
+    && sudo -u $USERNAME pipx ensurepath
+
 WORKDIR /usr/src
 VOLUME /usr/src
 
