@@ -6,6 +6,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git make make jq curl wget sudo\
     clang clang-format clang-tidy \
+    gdb \
     build-essential cmake\
     pipx \
     && apt-get clean \

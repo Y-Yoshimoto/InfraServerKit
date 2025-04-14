@@ -3,7 +3,7 @@ services:
     image: cpp_devc
     build:
         context: .
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile_dev
         # コンテナ内のユーザーIDとグループIDを指定
         args:
             UID: ${UID-1000}
