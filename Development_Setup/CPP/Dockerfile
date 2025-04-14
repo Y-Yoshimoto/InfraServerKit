@@ -18,8 +18,8 @@ ARG UID=1000
 ARG GID=1000
 RUN useradd --non-unique -m -s /bin/bash -u $UID -g $GID $USERNAME \
     && usermod -a -G 0 $USERNAME \
-    && mkdir -p /usr/src \
-    && chown -R $USERNAME /usr/src \
+    && mkdir -p /usr/dev \
+    && chown -R $USERNAME /usr/dev \
     && mkdir -p /vscode/vscode-server/ \
     && chown $USERNAME /vscode/vscode-server/.*
 
@@ -27,7 +27,7 @@ RUN useradd --non-unique -m -s /bin/bash -u $UID -g $GID $USERNAME \
 RUN sudo -u $USERNAME pipx install cpplint \
     && sudo -u $USERNAME pipx ensurepath
 
-WORKDIR /usr/src
-VOLUME /usr/src
+WORKDIR /usr/dev
+VOLUME /usr/dev
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]

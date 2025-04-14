@@ -2,7 +2,7 @@ services:
   cpp_devc:
     image: cpp_devc
     build:
-        context: cpp_devc
+        context: .
         dockerfile: Dockerfile
         # コンテナ内のユーザーIDとグループIDを指定
         args:
@@ -15,4 +15,4 @@ services:
       UID: ${UID-1000}
       GID: ${GID-1000}
     volumes:
-      - ./cpp_devc/src:/usr/src/
+      - ./:/usr/dev/
