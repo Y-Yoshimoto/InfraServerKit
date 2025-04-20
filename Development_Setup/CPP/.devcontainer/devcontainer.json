@@ -9,12 +9,16 @@
         "vscode": {
             "settings": {},
             "extensions": [
+                "mhutchie.git-graph",
                 "ms-vscode.cpptools",
                 "ms-vscode.cpptools-extension-pack",
                 "ms-vscode.cpptools-themes",
                 "ms-vscode.cmake-tools",
                 "ms-vscode.makefile-tools",
-                "eBikeLabs.cpp-checker"
+                "mine.cpplint",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "DavidSchuldenfrei.gtest-adapter",
+                "ms-azuretools.vscode-docker"
             ]
         }
     },

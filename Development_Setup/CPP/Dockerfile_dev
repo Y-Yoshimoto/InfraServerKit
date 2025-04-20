@@ -5,8 +5,10 @@ LABEL maintaner='y-yoshimoto'
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git make make jq curl wget sudo\
-    clang clang-format clang-tidy \
+    clang clangd clang-format clang-tidy \
     gdb \
+    googletest \
+    libgtest-dev libboost-all-dev \
     build-essential cmake\
     pipx \
     && apt-get clean \
@@ -23,10 +25,10 @@ RUN useradd --non-unique -m -s /bin/bash -u $UID -g $GID $USERNAME \
     && chown -R $USERNAME /usr/dev \
     && mkdir -p /vscode/vscode-server/ \
     && chown $USERNAME /vscode/vscode-server/.*
-
-# install cpplint
+# cpplint インストール
 RUN sudo -u $USERNAME pipx install cpplint \
-    && sudo -u $USERNAME pipx ensurepath
+    && sudo -u $USERNAME pipx ensurepath \
+    && ln -s /home/$USERNAME/.local/bin/cpplint /usr/local/bin/cpplint
 
 WORKDIR /usr/dev
 VOLUME /usr/dev
