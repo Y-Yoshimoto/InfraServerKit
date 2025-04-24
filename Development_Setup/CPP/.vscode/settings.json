@@ -22,6 +22,9 @@
         ]
     },
     "gtest-adapter.debugConfig": [
-        "C++ UnitTest"
+        "CMake: プロジェクトの構成"
+    ],
+    "cmake.sourceDirectory": [
+        "/usr/dev/runtime_check"
     ]
 }
