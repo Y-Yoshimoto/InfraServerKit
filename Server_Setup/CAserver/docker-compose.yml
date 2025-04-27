@@ -1,10 +1,11 @@
-version: '3'
-
 services:
     caserver:
         image: easyrsa_c
         build:
             context: easyrsa_c
             args:
-                CAKEYPASS: "hello world"
+                CA_NOPASS: "true"
+                CA_NAME: "SSCA"
+                CA_KEYPASS: "password"
+
         # restart: always

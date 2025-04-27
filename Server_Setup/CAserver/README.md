@@ -2,18 +2,20 @@
 
 ## easy-rsa
 
-[git-hub](https://github.com/OpenVPN/easy-rsa)
+[公式リポジトリ](https://github.com/OpenVPN/easy-rsa)
+[使用方法](https://github.com/OpenVPN/easy-rsa/blob/master/doc/EasyRSA-Readme.md)
+[オプション](https://github.com/OpenVPN/easy-rsa/blob/master/doc/EasyRSA-Advanced.md)
 
 ## サーバ証明書作成
 
 ### 証明書署名要求生成
 
-パスワード無し
-
 ```bash
+# 秘密鍵の生成
 openssl genrsa -out webserver.key
-openssl req -new -key webserver.key -out webserver.csr \
-  -addext "subjectAltName = IP:192.168.1.10"
+# 証明書署名要求の生成
+openssl req -new -key ./webserver.key -out ./webserver.csr -subj "/CN=example.com"
+# 証明書署名要求の内容確認
 openssl req -in webserver.csr -noout -text
 ```
 
@@ -21,9 +23,14 @@ openssl req -in webserver.csr -noout -text
 
 ```bash
 openssl genrsa -des3 -out ./webserver.key 2048
-openssl req -new -key ./webserver.key -out ./webserver.csr \
-  -addext "subjectAltName = IP:192.168.1.10"
+openssl req -new -key ./webserver.key -out ./webserver.csr -subj "/CN=example.com"
 openssl req -in webserver.csr -noout -text
+```
+
+### easy-rsaを使用して証明書署名要求を生成
+
+```bash
+easyrsa gen-req webserver nopass
 ```
 
 #### 秘密鍵のパスワード解除
@@ -35,8 +42,8 @@ openssl rsa -in ./webserver.key -out ./webserver_nopass.key
 ### 署名
 
 ```bash
-docker cp webserver.csr caserver-caserver-1:/tmp
-./easyrsa import-req /tmp/webserver.csr webserver
+docker cp webserver.csr caserver-caserver-1:/opt/cadir/work
+./easyrsa import-req ./work/webserver.csr webserver
 ./easyrsa sign-req server webserver
 cp /opt/ca/pki/issued/webserver.crt ./
 ```

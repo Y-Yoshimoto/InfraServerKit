@@ -1,19 +1,40 @@
-# Organizational fields
+# 参考ドキュメント
+# https://github.com/OpenVPN/easy-rsa/blob/master/doc/EasyRSA-Advanced.md
+
+# 認証組織情報
 set_var EASYRSA_REQ_COUNTRY    "JP"
 set_var EASYRSA_REQ_PROVINCE   "TOKYO"
-set_var EASYRSA_REQ_CITY       "Shinjuku"
-set_var EASYRSA_REQ_ORG        "CA Easy"
+set_var EASYRSA_REQ_CITY       "Chuo-Ku"
+set_var EASYRSA_REQ_ORG        "SSCA"
 set_var EASYRSA_REQ_EMAIL      "example@example.net"
-set_var EASYRSA_REQ_OU         "CA Easy Unit"
+set_var EASYRSA_REQ_OU         "SSCA Unit" 
 
-#The  crypto mode is ec.
-set_var EASYRSA_ALGO ec
-set_var EASYRSA_CURVE secp521r1
-set_var EASYRSA_CA_EXPIRE   365
+## 証明書の暗号化アルゴリズム 
+## ed: ツイステッドエドワーズ曲線
+set_var EASYRSA_ALGO ed
+set_var EASYRSA_CURVE ed25519
+##  ec: 楕円曲線暗号
+# set_var EASYRSA_ALGO ec
+# set_var EASYRSA_CURVE secp521r1
+##  rsa: RSA暗号
+# set_var EASYRSA_ALGO rsa
+# set_var EASYRSA_KEY_SIZE 2048
+## CA証明書の有効期限
+set_var EASYRSA_CA_EXPIRE   3650
+## サーバ証明書の有効期限
+set_var EASYRSA_CERT_EXPIRE  365
+# CAパスワード無しモードの設定
+# set_var EASYRSA_NO_PASS 1
+# ファイルのパーミッション設定(デフォルト: 077)
+set_var EASYRSA_UMASK 777
 
+#  East-RSA スクリプトのパス
+set_var EASYRSA	"${0%/*}"
+set_var EASYRSA_PKI	"${EASYRSA}/pki"
+
+
+# varsの読み込み方法チェック
 if [ -z "$EASYRSA_CALLER" ]; then
-echo "You appear to be sourcing an Easy-RSA 'vars' file." >&2
-echo "This is no longer necessary and is disallowed. See the section called" >&2
-echo "'How to use this file' near the top comments for more details." >&2
+echo "Easy-RSA 'vars' file error." >&2
 return 1
 fi
