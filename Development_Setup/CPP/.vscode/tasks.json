@@ -1,0 +1,58 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "buildFile",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                // "${file}",
+                "${fileDirname}/*.cpp",
+                //"${fileDirname}/**/*.cpp",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "VSCodeでアクティブなcppファイルをデバックするタスク"
+        },
+        {
+            "type": "cppbuild",
+            "label": "buildUnitTest",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-pthread",
+                "-lgtest_main",
+                "-lgtest",
+                // "${file}",
+                "${fileDirname}/*.cpp",
+                //"${fileDirname}/**/*.cpp",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "VSCodeでアクティブなcppファイルをデバックするタスク"
+        },
+    ],
+    "version": "2.0.0"
+}

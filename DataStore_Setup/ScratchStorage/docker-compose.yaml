@@ -1,0 +1,19 @@
+services:
+  storage_c:
+    image: storage_c
+    build: storage_c
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - data:/data
+  samplerun:
+    image: samplerun
+    build: samplerun
+    environment:
+      TZ: ${TZ}
+    # depends_on:
+    #   - storage_c
+    volumes:
+      - data:/data
+volumes:
+  data:

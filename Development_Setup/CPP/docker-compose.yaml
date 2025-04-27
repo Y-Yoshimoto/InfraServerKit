@@ -1,0 +1,18 @@
+services:
+  cpp_devc:
+    image: cpp_devc
+    build:
+        context: .
+        dockerfile: Dockerfile_dev
+        # コンテナ内のユーザーIDとグループIDを指定
+        args:
+            UID: ${UID-1000}
+            GID: ${GID-1000}
+    user: "${UID-1000}:${GID-1000}"
+    #restart: always
+    environment:
+      TZ: ${TZ}
+      UID: ${UID-1000}
+      GID: ${GID-1000}
+    volumes:
+      - ./:/usr/dev/

@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cmake",
+            "request": "launch",
+            "name": "CMake: スクリプトのデバッグ",
+            "cmakeDebugType": "script",
+            "scriptPath": "${workspaceFolder}/<...>.cmake"
+        },
+        {
+            "type": "cmake",
+            "request": "launch",
+            "name": "CMake: プロジェクトの構成",
+            "cmakeDebugType": "configure",
+            "clean": false,
+            "configureAll": false
+        },
+    ]
+}
