@@ -8,6 +8,26 @@
 
 ## サーバ証明書作成
 
+ビルド後にrunコマンドでコンテナを起動し、証明書及び付随するファイルを作成
+
+```bash
+ docker-compose run caserver /bin/bash Create-ServerCertificate.sh www.sample.com sample
+```
+
+コンテナ起動後に生成する場合
+
+```bash
+ docker-compose exec caserver /bin/bash Create-ServerCertificate.sh www.sample.com sample
+```
+
+## 省略用のスクリプト
+
+```bash
+./generate.sh www.sample.com sample
+```
+
+## 個別コマンド
+
 ### 証明書署名要求生成
 
 ```bash
@@ -30,7 +50,7 @@ openssl req -in webserver.csr -noout -text
 ### easy-rsaを使用して証明書署名要求を生成
 
 ```bash
-easyrsa gen-req webserver nopass
+easyrsa gen-req webserver nopass --req-cn="example.com"
 ```
 
 #### 秘密鍵のパスワード解除
@@ -39,13 +59,24 @@ easyrsa gen-req webserver nopass
 openssl rsa -in ./webserver.key -out ./webserver_nopass.key
 ```
 
-### 署名
+## 署名
+
+他で生成した証明書署名要求を署名する場合
 
 ```bash
 docker cp webserver.csr caserver-caserver-1:/opt/cadir/work
+docker-compose exec caserver /bin/bash 
+cd ./work
+easyrsa import-req ./webserver.csr webserver
+easyrsa --batch sign-req server webserver
+cp /opt/cadir/pki/issued/webserver.crt ./
+```
+
+### その他
+
+```bash
 ./easyrsa import-req ./work/webserver.csr webserver
 ./easyrsa sign-req server webserver
-cp /opt/ca/pki/issued/webserver.crt ./
 ```
 
 ### ルート証明書
