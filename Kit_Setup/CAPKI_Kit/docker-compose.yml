@@ -1,0 +1,19 @@
+services:
+    caserver:
+        image: easyrsa_c
+        build:
+            context: easyrsa_c
+            args:
+                CA_NOPASS: "true"
+                CA_NAME: "SSCA"
+                CA_KEYPASS: "password"
+                USERNAME: "causer"  # Added USERNAME argument
+                UID: ${UID:-1000}
+                GID: ${GID:-1000}
+        user: "${UID:-1000}:${GID:-1000}"  # ここでユーザーとグループを指定
+        environment:
+            - TZ=${TZ:-Asia/Tokyo}
+            - UID=${UID:-1000}
+            - GID=${GID:-1000}
+        volumes:
+            - ./work:/opt/cadir/work

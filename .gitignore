@@ -31,3 +31,8 @@ enable_timescaledb.sql
 Server_Setup/CAserver/easyrsa_c/vars
 Server_Setup/LabelStudio/labeldata/*
 Server_Setup/LabelStudio/labeldata/label_studio.sqlite3
+
+# Favicons
+Kit_Setup/FaviconMaker/output
+Kit_Setup/FaviconMaker/*.jpg
+Kit_Setup/FaviconMaker/*.png
