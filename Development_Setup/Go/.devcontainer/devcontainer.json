@@ -1,0 +1,16 @@
+{
+    "name": "Go_Development_Container",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "go_c",
+    "workspaceFolder": "/home/vscode/code",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "go.useLanguageServer": true
+            },
+            "extensions": [
+                "golang.go"
+            ]
+        },
+        "remoteUser": "vscode"
+    }
