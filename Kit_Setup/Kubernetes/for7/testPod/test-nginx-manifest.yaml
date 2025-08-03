@@ -1,8 +1,19 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+kind: Namespace
+apiVersion: v1
 metadata:
   name: test-nginx
+  labels:
+    name: test-nginx-namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nginx-deployment
+  namespace: test-nginx
 spec:
+  selector:
+    matchLabels:
+      app: test-nginx
   replicas: 2
   template:
     metadata:
@@ -10,21 +21,30 @@ spec:
         app: test-nginx
     spec:
       containers:
-      - name: test-nginx
-        image: nginx
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-nginx
+  namespace: test-nginx
+  name: test-nginx-service
 spec:
-  type: NodePort
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
-    nodePort: 30080
   selector:
     app: test-nginx
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 31080
