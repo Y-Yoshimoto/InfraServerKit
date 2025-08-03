@@ -5,7 +5,7 @@ FROM python:3.13-slim-bookworm
 RUN --mount=type=cache,target=/var/cache/apt \
     --mount=type=cache,target=/var/lib/apt \
     apt-get update \
-    && apt-get install -y --no-install-recommends curl postgresql-client
+    && apt-get install -y --no-install-recommends curl postgresql-client redis-tools
 
 # vscodeのユーザーを追加
 # 実行ユーザー追加
@@ -16,6 +16,20 @@ RUN useradd -m -s /bin/bash -u $USER_UID -g $USER_GID $USERNAME \
     && usermod -a -G 0 $USERNAME \
     && mkdir -p /vscode/vscode-server/ \
     && chown $USERNAME:dialout /vscode/vscode-server/.*
+
+# Install postgresql-client-17
+RUN --mount=type=cache,target=/var/cache/apt \
+    --mount=type=cache,target=/var/lib/apt \
+    install -d /usr/share/postgresql-common/pgdg \
+    && curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc \
+    --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+    && . /etc/os-release \
+    && sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $VERSION_CODENAME-pgdg main' > /etc/apt/sources.list.d/pgdg.list" \
+    && install -d /usr/share/postgresql-common/pgdg \
+    && curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+    postgresql-client-17 
 
 ### Python用短縮コマンド/ホットリロードシェルスクリプトを追加
 COPY ./tools/pythonWatch.sh /usr/local/bin/

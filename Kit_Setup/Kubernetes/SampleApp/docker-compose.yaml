@@ -13,6 +13,11 @@ services:
       PYTHONDONTWRITEBYTECODE: 1
       PYTHONPATH: /app/src
       PGPASSWORD: postgres
+      ENDPOINT_POSTGRES: postgres_c
+      ENDPOINT_REDIS: redis_c
+    depends_on:
+      - postgres_c
+      - redis_c
   postgres_c:
       image: postgres_c
       build: postgres_c
@@ -27,3 +32,11 @@ services:
           LC_ALL: en_US.UTF-8
       # volumes:
       #     - ./db_data:/var/lib/postgresql/data
+  redis_c:
+      image: redis_c
+      build: redis_c
+      restart: always
+      ports:
+          - "6379:6379"
+      networks:
+          - default

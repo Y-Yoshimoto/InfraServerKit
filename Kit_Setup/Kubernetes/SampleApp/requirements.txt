@@ -14,8 +14,12 @@ python-multipart
 # Email validation
 email-validator
 
-# Database
-sqlmodel
+# database
+psycopg[binary]
+psycopg[pool]
+
+# Redis
+redis
 
 # Core
 datetime
@@ -24,7 +28,6 @@ datetime
 pytest
 pytest-cov
 pytest-asyncio
-
 
 # Fluentd
 #fluent-logger

@@ -4,17 +4,19 @@ import uvicorn
 from fastapi import FastAPI
 
 # サブモジュール読み込み
-from RestSample.apiapp import router as RestSample
-from GraphQLSample.apiapp import router as GraphQLSample
-from WebSocket.ws_sample import router as ws_sample
+# from RestSample.apiapp import router as RestSample
+# from GraphQLSample.apiapp import router as GraphQLSample
+# from WebSocket.ws_sample import router as ws_sample
 
+from PSQL_API.apiapp import router as PSQL_API
 
 # アプリケーション起動
 app = FastAPI()
 # サブモジュール読み込み
-app.include_router(RestSample)
-app.include_router(GraphQLSample)
-app.include_router(ws_sample)
+# app.include_router(RestSample)
+# app.include_router(GraphQLSample)
+# app.include_router(ws_sample)
+app.include_router(PSQL_API)
 
 
 @app.get("/", include_in_schema=False)
