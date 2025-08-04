@@ -33,7 +33,7 @@ def main():
     except Exception as e:
         print(f"Error executing query: {e}")
 
-    connector.execute_commit_query("INSERT INTO request_data (message) VALUES ('Hello, World!');")
+    connector.execute_commit_query("INSERT INTO request_data (message) VALUES ('Hello, World!') RETURNING id;")
 
     try:
         results = connector.execute_select_query("SELECT * FROM request_data;")

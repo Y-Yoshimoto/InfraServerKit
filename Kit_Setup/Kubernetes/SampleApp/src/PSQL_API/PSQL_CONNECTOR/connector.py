@@ -44,16 +44,20 @@ class Connector:
 
     def execute_select_query(self, query: str):
         """ SELECTクエリを実行する """
-        print(f"Executing query: {query}", flush=True)
-        print(f"Using connection pool: {self.pool}", flush=True)
+        # print(f"Executing query: {query}", flush=True)
+        # print(f"Using connection pool: {self.pool}", flush=True)
         with self.pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(query)
                 return cur.fetchall()
 
+    # Todo: 複数行のINSERTやUPDATEに対応する
     def execute_commit_query(self, query: str):
         """ INSERTクエリを実行する """
         with self.pool.connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(query)
                 conn.commit()
+                if cur.description is not None:
+                    return cur.fetchone()[0]
+                return None
