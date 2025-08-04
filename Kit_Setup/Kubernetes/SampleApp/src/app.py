@@ -9,6 +9,7 @@ from fastapi import FastAPI
 # from WebSocket.ws_sample import router as ws_sample
 
 from PSQL_API.apiapp import router as PSQL_API
+from Redis_API.apiapp import router as Redis_API
 
 # アプリケーション起動
 app = FastAPI()
@@ -17,12 +18,24 @@ app = FastAPI()
 # app.include_router(GraphQLSample)
 # app.include_router(ws_sample)
 app.include_router(PSQL_API)
+app.include_router(Redis_API)
 
 
 @app.get("/", include_in_schema=False)
 def read_root():
     return {"Path": "root"}
 
+@app.get("/hostname", include_in_schema=False)
+def read_hostname():
+    import socket
+    hostname = socket.gethostname()
+    return {"hostname": hostname}
+
+@app.get("/hostip", include_in_schema=False)
+def read_hostip():
+    import socket
+    host_ip = socket.gethostbyname(socket.gethostname())
+    return {"host_ip": host_ip}
 
 def main():
     # サーバー起動
