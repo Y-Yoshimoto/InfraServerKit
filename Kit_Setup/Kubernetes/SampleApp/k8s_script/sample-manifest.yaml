@@ -1,0 +1,129 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: sample-app
+  labels:
+    name: sample-app-namespace
+---
+# FastAPI and Redis Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-fastapi-redis-deployment
+  namespace: sample-app
+spec:
+  selector:
+    matchLabels:
+      app: sample-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sample-app
+    spec:
+      containers:
+        - name: fastapi
+          image: 127.0.0.1:32000/datastore/k8s_sample_fastapi_c
+          ports:
+            - containerPort: 8000
+          command: ["gunicorn", "--config", "./src/gunicorn.conf.py"]
+          env:
+            - name: TZ
+              value: Asia/Tokyo
+            - name: PYTHONDONTWRITEBYTECODE
+              value: "1"
+            - name: PYTHONPATH
+              value: /app/src
+            - name: PGPASSWORD
+              value: postgres
+            - name: ENDPOINT_POSTGRES
+              value: sample-app-postgres-service
+            - name: ENDPOINT_REDIS
+              value: 127.0.0.1
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+        - name: redis
+          image: 127.0.0.1:32000/datastore/k8s_sample_redis_c
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+---
+# FastAPI and Redis Service
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: sample-app
+  name: sample-app-service
+spec:
+  selector:
+    app: sample-app
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+      nodePort: 31800
+---
+# Postgres Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-postgres-deployment
+  namespace: sample-app
+spec:
+  selector:
+    matchLabels:
+      app: sample-app-postgres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample-app-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: 127.0.0.1:32000/datastore/k8s_sample_postgres_c
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: LANG
+              value: en_US.UTF-8
+            - name: LANGUAGE
+              value: en_US:en
+            - name: LC_ALL
+              value: en_US.UTF-8
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+---
+# Postgres Service
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: sample-app
+  name: sample-app-postgres-service
+spec:
+  selector:
+    app: sample-app-postgres
+  ports:
+    - name: postgres
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP

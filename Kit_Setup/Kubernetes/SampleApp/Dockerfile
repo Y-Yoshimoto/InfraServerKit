@@ -46,6 +46,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install --upgrade pip \
     && pip install -r requirements.txt \
     && pip freeze > requirements.lock 
+# マウント無しでも動作するようにする
+COPY ./src /app/src
 
 EXPOSE 8000
 

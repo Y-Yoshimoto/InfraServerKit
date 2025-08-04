@@ -33,6 +33,17 @@ async def get_all_keys():
         logger.error(f"Error getting all keys: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
+@router.get("/keys/count")
+async def get_keys_count():
+    """ Redisのキーの数を取得 """
+    try:
+        count = len(connector.get_all_keys())
+        return {"count": count}
+    except Exception as e:
+        logger.error(f"Error getting keys count: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
 @router.get("/get")
 async def get_value(key: str):
     """ Redisから値を取得 """
