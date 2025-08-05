@@ -21,7 +21,7 @@ Thumbs.db
 *.fls
 *.toc
 enable_timescaledb.sql
-*.sql
+# *.sql
 *.log
 *.org
 *.ico
